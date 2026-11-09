@@ -15,6 +15,9 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/resources/|Resources]]: Reference materials, API quotas, and algorithms.
 - [[brain/archive/|Archive]]: Inactive notes and completed milestones.
 
+## Active Projects
+- [[brain/projects/youtube-mcp/project-overview|YouTube MCP Project Overview]]: Goals, milestones, and active deadlines.
+
 ## Core Architectural and Engineering Areas
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]: Dependency inversion for YouTube API.
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]: Defending against untrusted video metadata and enforcing human gates.
