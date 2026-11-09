@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing and Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Node (if using Node tools)
+node_modules/
+npm-debug.log*
+
+# Secrets, Tokens, and Credentials (CRITICAL: Never commit these)
+client_secret*.json
+credentials*.json
+token*.json
+*.pem
+*.key
+.env
+.env.*
+!*.env.example
+
+# Local SQLite databases and logs
+*.sqlite
+*.db
+*.log
+
+# Operating System and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Others
+problem_info/
+SRS_YouTube_Video_Intelligence_MCP_Server.md
