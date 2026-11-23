@@ -1,7 +1,11 @@
 ---
 title: YouTube API Data Limits and Missing Endpoints
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - youtube
   - limitations
@@ -13,6 +17,13 @@ requirements:
   - FR-3
   - FR-4
   - FR-7
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "YouTube Data API v3 Documentation (checked 2026-11-12)"
+  - "Final_SRS_Submission.pdf Section 1.2, 2.4, 4.7 (checked 2026-11-12)"
 ---
 
 # YouTube API Data Limits and Missing Endpoints
@@ -38,4 +49,4 @@ The YouTube Data API v3 does not expose user watch history, private view metrics
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/youtube-quota-costs|YouTube Quota Costs]]
 - [[brain/resources/tfidf-cosine-similarity|TF IDF and Cosine Similarity]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

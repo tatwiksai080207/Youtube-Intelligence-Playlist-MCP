@@ -1,7 +1,11 @@
 ---
 title: TF IDF and Cosine Similarity Metadata Scoring
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - tfidf
   - algorithms
@@ -9,8 +13,16 @@ tags:
   - ranking
 requirements:
   - FR-1
+  - FR-1.2
   - FR-2
-  - NFR-PERF-1
+  - FR-2.2
+  - NFR-1
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "Final_SRS_Submission.pdf Section 4.1 and 4.2 (checked 2026-11-12)"
 ---
 
 # TF IDF and Cosine Similarity Metadata Scoring
@@ -40,12 +52,12 @@ The overall similarity score $S$ combines multiple dimensions:
 
 Missing seed metadata triggers dynamic redistribution of weights across available fields.
 
-## Diversity and Clickbait Penalty
-- **Clickbait Reduction**: Videos with excessive capital letters, sensationalized superlatives, or stacked punctuation receive a transparent penalty factor.
+## Diversity and Clickbait Policy
+- **Clickbait Reduction**: Early exploratory research evaluated heuristic penalties for sensationalized wording. This heuristic is not adopted in implementation, as SRS FR-1.2 strictly mandates similarity based on objective metadata only without editorial penalty heuristics.
 - **Maximal Marginal Relevance (MMR)**: Re ranks candidates to balance topical relevance with creator diversity, enforcing a cap on videos from any single channel.
 
 ## Related Notes
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/knapsack-constraint-solving|Knapsack Constraint Solving]]
 - [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

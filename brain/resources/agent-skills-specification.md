@@ -1,7 +1,11 @@
 ---
 title: Agent Skills Specification and Directory Conventions
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - skills
   - agents
@@ -10,7 +14,15 @@ tags:
 requirements:
   - SK-1
   - SK-2
-  - C-11
+  - SK-3
+  - SE-7
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "agentskills.io Specification (checked 2026-11-12)"
+  - "Final_SRS_Submission.pdf Section 4.9 (checked 2026-11-12)"
 ---
 
 # Agent Skills Specification and Directory Conventions
@@ -33,7 +45,7 @@ skills/
 The `SKILL.md` file must begin with YAML frontmatter:
 1. `name`: Lowercase letters, numbers, and single hyphens only. Must exactly match the parent folder name (length 1 to 64 characters).
 2. `description`: Concise explanation describing what the skill does and when an agent should trigger it (length 1 to 1024 characters).
-3. Optional metadata: Version, requirements tags, and links to distilled Second Brain notes.
+3. Body: Must cite at least one distilled note in `brain/` (`SB-3`).
 
 ## Required Project Skills
 - `video-to-playlist`: Multi stage product workflow turning a single seed video into a confirmed, created playlist.
@@ -44,4 +56,4 @@ The `SKILL.md` file must begin with YAML frontmatter:
 - [[brain/index|Second Brain Index]]
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

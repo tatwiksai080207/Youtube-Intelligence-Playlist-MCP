@@ -1,7 +1,12 @@
 ---
 title: Prompt Injection Defense and Human in the Loop Gates
 type: security
+status: distilled
+authors:
+  - Molleti Tatwik Sai
+  - Mohammed Farhan
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - security
   - prompt-injection
@@ -9,8 +14,15 @@ tags:
   - authorization
 requirements:
   - FR-5
-  - NFR-SEC-5
-  - NFR-SEC-6
+  - FR-5.4
+  - NFR-5
+  - NFR-6
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "Final_SRS_Submission.pdf Section 4.5 and 5 (checked 2026-11-12)"
 ---
 
 # Prompt Injection Defense and Human in the Loop Gates
@@ -30,7 +42,7 @@ Third party video descriptions and titles are untrusted external inputs. Malicio
    - Playlist creation requires an HMAC SHA256 confirmation token bound to a canonical content hash of the proposed playlist (title, ordered video IDs, privacy mode).
    - The token expires in 10 minutes and is single use.
    - In elicitation capable clients, the token is held on the server and only released after the human confirms via an out of band dialog.
-   - In text clients, a human readable verification code must be typed explicitly by the user.
+   - Where the host lacks elicitation, a one time confirmation page served on `127.0.0.1` collects approval. Chat text or model arguments never grant approval.
 
 ## Invariant
 Under no circumstances can an AI model or untrusted external video metadata execute a write operation to a user account without explicit, verified human authorization.
@@ -39,4 +51,4 @@ Under no circumstances can an AI model or untrusted external video metadata exec
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/mcp-protocol-specification|MCP Protocol Specification]]
 - [[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

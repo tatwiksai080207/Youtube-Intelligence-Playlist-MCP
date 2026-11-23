@@ -1,7 +1,11 @@
 ---
 title: Fixture Playback and Secret Scrubbing for Continuous Integration
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - testing
   - fixtures
@@ -9,8 +13,16 @@ tags:
   - security
 requirements:
   - FR-8
+  - FR-8.2
   - TQ-5
-  - NFR-SEC-3
+  - NFR-4
+  - NFR-7
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "Final_SRS_Submission.pdf Section 4.8 and 6.1 (checked 2026-11-12)"
 ---
 
 # Fixture Playback and Secret Scrubbing for Continuous Integration
@@ -38,4 +50,4 @@ Cassettes are versioned alongside API schemas and refreshed when upstream data s
 - [[brain/index|Second Brain Index]]
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]
 - [[brain/resources/youtube-quota-costs|YouTube Quota Costs]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]
