@@ -34,3 +34,6 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 
 ## Logs and Reviews
 - [[brain/log.md|Activity Log]]: Chronological records of project runs and AI sessions.
+
+## AI Sessions (Inbox)
+- [[brain/inbox/ai-session-2026-11-23-shiva-SR-01|AI Session — SR-01]]: Python package skeleton and stdio MCP server (#2).
