@@ -13,7 +13,7 @@ requirements:
 issues:
   - "#2"
 prs:
-  - "pending"
+  - "#11"
 sources:
   - "Local development session (2026-11-23)"
   - "MCP Python SDK 2.3.0 installed package (checked 2026-11-23)"
