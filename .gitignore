@@ -4,9 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
-.venv/
 build/
 develop-eggs/
 dist/
@@ -19,34 +16,40 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # Testing and Coverage
-.pytest_cache/
+.tox/
+.nox/
 .coverage
-htmlcov/
+.coverage.*
+.cache
+nosetests.xml
 coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
 
-# Node (if using Node tools)
-node_modules/
-npm-debug.log*
-
-# Secrets, Tokens, and Credentials (CRITICAL: Never commit these)
-client_secret*.json
-credentials*.json
-token*.json
-*.pem
-*.key
-.env
-.env.*
-!*.env.example
-
-# Local SQLite databases and logs
-*.sqlite
-*.db
-*.log
+# Type Checking and Linting
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
 
 # Operating System and IDE files
 .DS_Store
@@ -58,3 +61,4 @@ Thumbs.db
 # Others
 problem_info/
 SRS_YouTube_Video_Intelligence_MCP_Server.md
+agent_code/
