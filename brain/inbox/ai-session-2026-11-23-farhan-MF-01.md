@@ -16,7 +16,8 @@ requirements:
   - TQ-4
 issues:
   - "#4"
-prs: []
+prs:
+  - "#12"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.9 and 6.3 (checked 2026-11-23)"
   - "Local development session (2026-11-23)"

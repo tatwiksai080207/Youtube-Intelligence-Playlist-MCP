@@ -67,6 +67,6 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | SE-6 Provider interface | Shiva | SR-04, SR-15 | `src/yt_intel_mcp/provider/base.py` |
 | SE-7 User & Developer docs | Tatwik, Shiva | TS-16, SR-17 | `docs/user/`, `docs/developer/` |
 | SB-1..SB-6 Second Brain | All | TS-01, TS-02, SR-02, MF-03, TS-05, reviews | `brain/` & git history |
-| SB-1, SB-3 Validator checks | Farhan | MF-01 (#4, PR pending) | `scripts/validate_brain.py`, `scripts/validate_skills.py`, `tests/unit/test_validators.py` (TQ-1, TQ-4), [[brain/inbox/ai-session-2026-11-23-farhan-MF-01]] |
+| SB-1, SB-3 Validator checks | Farhan | MF-01 (#4, PR #12) | `scripts/validate_brain.py`, `scripts/validate_skills.py`, `tests/unit/test_validators.py` (TQ-1, TQ-4), [[brain/inbox/ai-session-2026-11-23-farhan-MF-01]] |
 | TQ-7 Skill evaluations | All | TS-03 (#9), SR-07, MF-17 | `docs/testing/skill-evals.md` |
 | TQ-8 Defect log & regressions | Fixer | MF-06, ongoing | `docs/testing/defect-log.md` |
