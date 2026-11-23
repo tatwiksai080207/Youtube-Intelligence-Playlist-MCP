@@ -37,3 +37,4 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 
 ## AI Sessions (Inbox)
 - [[brain/inbox/ai-session-2026-11-23-shiva-SR-01|AI Session — SR-01]]: Python package skeleton and stdio MCP server (#2).
+- [[brain/inbox/ai-session-2026-11-23-farhan-MF-01|AI Session — MF-01]]: Standalone skill and Second Brain validators (#4, PR #12).
