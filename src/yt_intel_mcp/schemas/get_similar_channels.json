@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-intel-mcp.local/schemas/get_similar_channels.json",
+  "title": "get_similar_channels",
+  "description": "Discover channels related to a seed YouTube channel using objective channel and upload metadata (FR-2.1, FR-2.2, INV-01).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "channel"
+  ],
+  "properties": {
+    "channel": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 512,
+      "description": "Seed YouTube UC channel ID, @handle, or channel URL."
+    },
+    "max_results": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 10,
+      "description": "Maximum number of similar channels to return (1 to 50)."
+    }
+  }
+}

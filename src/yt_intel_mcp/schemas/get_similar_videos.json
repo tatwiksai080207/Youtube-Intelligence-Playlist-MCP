@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-intel-mcp.local/schemas/get_similar_videos.json",
+  "title": "get_similar_videos",
+  "description": "Find and rank objective metadata matches for a seed YouTube video (FR-1.2, FR-1.3, INV-01).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "video_id"
+  ],
+  "properties": {
+    "video_id": {
+      "type": "string",
+      "minLength": 11,
+      "maxLength": 512,
+      "description": "Seed YouTube 11 character video ID or watch, youtu.be, shorts, or embed URL."
+    },
+    "max_results": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 10,
+      "description": "Maximum number of similar videos to return (1 to 50)."
+    },
+    "scoring_weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "Optional non-negative objective similarity weights normalized at runtime. Popularity metrics are strictly excluded.",
+      "properties": {
+        "title": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.35
+        },
+        "tags": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.25
+        },
+        "description": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.20
+        },
+        "category": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.10
+        },
+        "duration": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.10
+        }
+      }
+    }
+  }
+}
