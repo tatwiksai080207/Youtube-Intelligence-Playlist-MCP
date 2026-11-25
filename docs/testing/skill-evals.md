@@ -9,6 +9,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 | Stage 1 | `SK-3` | `brain-ingest` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, CI run `45619944133` |
 | Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19`, PR `#20` |
 | Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24` |
+| Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32` |
 
 ---
 
@@ -62,3 +63,32 @@ This document records formal evaluations of every Agent Skill before each stage 
 | `SE-LOCAL-03` | Test and handshake failures | Automated test verified nonzero exit, the failed checks, the dependent fetch skip, and the final failure count | **PASS** |
 
 The read-only fixture tool invocation remains pending MF-16. The v1 evaluation used zero live YouTube quota.
+
+---
+
+## Stage 2 Evaluation: `brain-query` (`SK-5`)
+
+**Skill Path:** `skills/brain-query/SKILL.md`  
+**Distilled Brain Citations (`SB-3`):** `[[brain/areas/second-brain|Second Brain Architecture]]`, `[[brain/resources/agent-skills-specification|Agent Skills Specification]]`, `[[brain/areas/skill-brain-query|Skill Note: brain-query]]`  
+**Tasks Exercising Skill:** `SR-06` (`#32`)
+
+### Test Cases and Observed Results
+
+| Case ID | Scenario | Expected Behaviour | Observed Result | Status |
+|---|---|---|---|---|
+| `SE-QRY-01` | Skill schema and `SB-3` distilled citation | `name` matches folder (`brain-query`), `description` within 1 to 1,024 characters, and body cites `status: distilled` brain notes | `validate_skills.py` passed (`Skill validation passed.`) | **PASS** |
+| `SE-QRY-02` | Grounded Q&A with `[[wikilink]]` citations | Query on dual quota budgets and cache TTLs returns exact values (`10,000` units/day, `100` `search.list` calls/day, `24 h` / `6 h` / `15 min` TTLs, `00:00` PT reset) with inline `[[brain/resources/youtube-quota-costs]]` and `[[brain/resources/nfr-targets]]` citations | Verified exact figures and valid wikilinks present in `brain/resources/youtube-quota-costs.md` and `brain/resources/nfr-targets.md` | **PASS** |
+| `SE-QRY-03` | Vault grounded document drafting (`SK-5`) | Draft a cohesive specification section using only `status: distilled` notes and explicit `[[wikilink]]` provenance | Produced the drafted section below (`Quota Governance and OAuth Security Baseline`) backed exclusively by 4 distilled vault notes | **PASS** |
+| `SE-QRY-04` | Strict refusal on absent topic (`SK-5` anti hallucination) | Query *"What is YouTube Shorts monetization RPM or Partner Program payout threshold in this project?"* must refuse to guess and avoid fabricating external numbers | Vault inspection across `brain/index.md` and `brain/resources/` confirmed zero monetization or Shorts RPM notes; response refused to guess (`Not found in the Second Brain vault`) and recommended `brain-ingest` only if in scope (excluded per `SRS Section 1.2`) | **PASS** |
+
+### Demonstrated Vault Draft Section (`SE-QRY-03` Output)
+
+> **Drafted Section (Generated via `brain-query` from `status: distilled` Vault Notes):**
+>
+> #### Quota Governance and OAuth Security Baseline (`FR-6`, `FR-7`, `FR-8`, `NFR-3`, `NFR-7`)
+>
+> All outbound YouTube Data API v3 calls traverse a single `YouTubeProvider` Protocol configured by `YT_INTEL_PROVIDER=fixture|live`, omitting `statistics` fields and exposing no playlist update or delete methods ([[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]). Every request is tracked against two daily budgets inside a persistent ledger resetting at `00:00` Pacific Time (`America/Los_Angeles`): `10,000` quota units/day for list and write endpoints (`1` unit per list call, `50` units per `playlists.insert` or `playlistItems.insert`) and `100` `search.list` calls/day (configurable to `100` units/call under `C-2`), with zero extra Google Cloud projects permitted ([[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]]).
+>
+> Prior to any upstream call, preflight checks reject insufficient remaining capacity across either budget with `QUOTA_BUDGET_INSUFFICIENT`, while every dispatched call including failures charges the ledger and an upstream `quotaExceeded` response marks `QUOTA_EXHAUSTED_UPSTREAM` until daily reset ([[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]). Metadata caching reduces quota spend at `0` unit cost for cache hits using TTLs of `24 h` for videos and channels, `6 h` for searches, and `15 min` for personal user lists, while targeting `<= 500 ms` cached tool latency ([[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]).
+>
+> User authentication runs as an installed desktop OAuth 2.0 Authorization Code flow with PKCE (`S256`) over a `127.0.0.1` loopback redirect requesting `youtube.readonly` only at initial login (`C-6`), and uses a separate full consent request for `youtube.force-ssl` on playlist creation (`C-7`, `FR-7.1`) because installed desktop apps do not support incremental authorization ([[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle in Testing Publishing Status]]). Access and refresh tokens are stored encrypted at rest via the OS keyring or an `AES-256-GCM` file fallback (`NFR-3`), never logged or exposed in `get_auth_status`, refreshed silently until Testing mode `7` day expiry (`invalid_grant` -> `AUTH_REAUTHORIZATION_REQUIRED`), checked for channel presence (`youtubeSignupRequired` -> `CHANNEL_REQUIRED` on writes while reads continue), and deleted alongside cached personal user lists upon revocation (`NFR-7`) ([[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle in Testing Publishing Status]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]).
