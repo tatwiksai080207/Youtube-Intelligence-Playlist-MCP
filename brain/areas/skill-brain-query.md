@@ -21,7 +21,8 @@ requirements:
   - TQ-7
 issues:
   - "#32"
-prs: []
+prs:
+  - "#33"
 sources:
   - "Final_SRS_Submission.pdf Section 4.9 SK-5 (checked 2026-11-26)"
   - "SDLC Specification Section 1 and Section 3 (checked 2026-11-26)"

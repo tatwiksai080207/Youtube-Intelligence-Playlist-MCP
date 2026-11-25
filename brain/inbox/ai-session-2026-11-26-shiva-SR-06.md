@@ -20,7 +20,8 @@ requirements:
   - TQ-7
 issues:
   - "#32"
-prs: []
+prs:
+  - "#33"
 sources:
   - "Final_SRS_Submission.pdf Section 4.9 SK-5 and Section 6.1 TQ-7 (checked 2026-11-26)"
   - "brain/areas/second-brain.md and brain/resources/agent-skills-specification.md (checked 2026-11-26)"

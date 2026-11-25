@@ -9,7 +9,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 | Stage 1 | `SK-3` | `brain-ingest` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, CI run `45619944133` |
 | Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19`, PR `#20` |
 | Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24` |
-| Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32` |
+| Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32`, PR `#33` |
 
 ---
 
@@ -70,7 +70,7 @@ The read-only fixture tool invocation remains pending MF-16. The v1 evaluation u
 
 **Skill Path:** `skills/brain-query/SKILL.md`  
 **Distilled Brain Citations (`SB-3`):** `[[brain/areas/second-brain|Second Brain Architecture]]`, `[[brain/resources/agent-skills-specification|Agent Skills Specification]]`, `[[brain/areas/skill-brain-query|Skill Note: brain-query]]`  
-**Tasks Exercising Skill:** `SR-06` (`#32`)
+**Tasks Exercising Skill:** `SR-06` (`#32`, PR `#33`)
 
 ### Test Cases and Observed Results
 

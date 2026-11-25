@@ -40,7 +40,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | SK-2 | Farhan | MF-05, MF-16 | #23 (MF-05), pending (MF-16) | #24 (MF-05), pending (MF-16) | TQ-7, SE-LOCAL-01..03 | local-check | brain/areas/skill-local-check.md |
 | SK-3 | Tatwik | TS-01 | #3 | #13 | TQ-7, brain validation | brain-ingest | brain/areas/second-brain.md |
 | SK-4 | Tatwik | TS-05 | #19 | #20 | TQ-7, brain validation | brain-refine | brain/areas/second-brain.md, brain/areas/skill-brain-refine.md |
-| SK-5 | Shiva | SR-06 | #32 (SR-06) | pending (SR-06) | TQ-7, SE-QRY-01..04 | brain-query | brain/areas/second-brain.md, brain/areas/skill-brain-query.md |
+| SK-5 | Shiva | SR-06 | #32 (SR-06) | #33 (SR-06) | TQ-7, SE-QRY-01..04 | brain-query | brain/areas/second-brain.md, brain/areas/skill-brain-query.md |
 
 ## Non-Functional Requirements
 | Req | Owner | Task(s) | Issue | PR | Tests | Skill | Brain Note |
@@ -66,9 +66,9 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | SE-5 Traceability | All | TS-00..SR-18 (#1, PR #10) | `docs/traceability.md` |
 | SE-6 Provider interface | Shiva | SR-04 (#25, PR #26), SR-15 | `src/yt_intel_mcp/provider/base.py` |
 | SE-7 User & Developer docs | Tatwik, Shiva | SR-04 (#25, PR #26), TS-16, SR-17 | `docs/user/`, `docs/developer/` (`docs/developer/fixtures.md`) |
-| SB-1..SB-6 Second Brain | All | TS-01 (#3, PR #13), TS-02 (#6, PR #14), SR-02 (#5, PR #15), MF-03 (#7, PR #17), TS-03 (#9, PR #18), TS-04 (#27, PR #29), TS-05 (#19, PR #20), SR-05 (#30, PR #31), SR-06 (#32, PR pending) | `brain/` & git history (`brain/projects/stage-1-review.md`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-03]]`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]]`, `[[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-05]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-06]]`) |
+| SB-1..SB-6 Second Brain | All | TS-01 (#3, PR #13), TS-02 (#6, PR #14), SR-02 (#5, PR #15), MF-03 (#7, PR #17), TS-03 (#9, PR #18), TS-04 (#27, PR #29), TS-05 (#19, PR #20), SR-05 (#30, PR #31), SR-06 (#32, PR #33) | `brain/` & git history (`brain/projects/stage-1-review.md`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-03]]`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]]`, `[[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-05]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-06]]`) |
 | SB-1, SB-3 Validator checks | Farhan | MF-01 (#4, PR #12) | `scripts/validate_brain.py`, `scripts/validate_skills.py`, `tests/unit/test_validators.py` (TQ-1, TQ-4), [[brain/inbox/ai-session-2026-11-23-farhan-MF-01]] |
 | SB-6 Farhan's Stage 1 research notes | Farhan | MF-03 (#7, PR #17) | [[brain/inbox/ai-session-2026-11-25-farhan-MF-03]] |
 | TQ-5 Fixture CI | Farhan | MF-02 (#8, PR #16) | `.github/workflows/ci.yml`, [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] |
-| TQ-7 Skill evaluations | All | TS-03 (#9, PR #18), TS-05 (#19, PR #20), SR-06 (#32, PR pending), SR-07, MF-17 | `docs/testing/skill-evals.md` |
+| TQ-7 Skill evaluations | All | TS-03 (#9, PR #18), TS-05 (#19, PR #20), SR-06 (#32, PR #33), SR-07, MF-17 | `docs/testing/skill-evals.md` |
 | TQ-8 Defect log & regressions | Fixer | MF-06, ongoing | `docs/testing/defect-log.md` |
