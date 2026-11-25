@@ -5,7 +5,7 @@ status: distilled
 authors:
   - Team Whatsup
 created: 2026-11-09
-updated: 2026-11-23
+updated: 2026-11-25
 tags:
   - index
   - second-brain
@@ -50,10 +50,16 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/resources/fixture-testing-and-vcr|Fixture Testing and VCR]]: Cassette replay and zero quota continuous integration.
 - [[brain/resources/agent-skills-specification|Agent Skills Specification]]: Directory conventions and frontmatter validation for skills.
 
+## Inbox Research Notes (Pending Refinement in TS-05)
+- [[brain/inbox/channel-similarity|Channel Similarity Profiling and Ranking]]: Feature extraction and weighted cosine similarity for `FR-2`.
+- [[brain/inbox/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]]: Event time fields, 90 day decay, and undated handling for `FR-3`.
+- [[brain/inbox/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]: Duration buckets, comparison edge cases, and privacy rules for `FR-4`.
+
 ## AI Assisted Development Sessions
 - [[brain/inbox/ai-session-2026-11-23-shiva-SR-01|AI Session SR-01]]: Python package skeleton and stdio smoke test.
 - [[brain/inbox/ai-session-2026-11-23-farhan-MF-01|AI Session MF-01]]: Standalone skill and brain validators.
 - [[brain/inbox/ai-session-2026-11-23-tatwik-TS-01|AI Session TS-01]]: Align brain vault and skills to SRS v1.0.
+- [[brain/inbox/ai-session-2026-11-25-tatwik-TS-02|AI Session TS-02]]: Ingest `FR-2`, `FR-3`, and `FR-4` research notes via `brain-ingest`.
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
