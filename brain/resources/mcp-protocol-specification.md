@@ -1,7 +1,11 @@
 ---
 title: Model Context Protocol Architecture and Primitives
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - mcp
   - protocol
@@ -9,9 +13,15 @@ tags:
   - tools
 requirements:
   - FR-5
-  - NFR-USE-1
-  - NFR-USE-2
-  - NFR-USE-3
+  - FR-5.4
+  - NFR-9
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "Model Context Protocol Specification 2025-06-18 (checked 2026-11-12)"
+  - "Final_SRS_Submission.pdf Section 3.1 and 5 (checked 2026-11-12)"
 ---
 
 # Model Context Protocol Architecture and Primitives
@@ -38,4 +48,4 @@ The Model Context Protocol (MCP) defines an open standard based on JSON RPC 2.0 
 - [[brain/index|Second Brain Index]]
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

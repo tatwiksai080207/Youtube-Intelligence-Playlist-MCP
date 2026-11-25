@@ -1,7 +1,11 @@
 ---
 title: YouTube Data API Quota Costs and Budgeting
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - youtube
   - quota
@@ -9,9 +13,18 @@ tags:
   - performance
 requirements:
   - FR-6
-  - NFR-QUOTA-1
-  - NFR-QUOTA-2
-  - NFR-QUOTA-3
+  - FR-6.1
+  - FR-6.2
+  - FR-6.3
+  - C-2
+  - NFR-2
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "YouTube Data API v3 Quota Reference (checked 2026-11-12)"
+  - "Final_SRS_Submission.pdf Section 3.2, 4.6 (checked 2026-11-12)"
 ---
 
 # YouTube Data API Quota Costs and Budgeting
@@ -42,4 +55,4 @@ Every request made to the YouTube Data API v3 consumes quota units regardless of
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]]
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

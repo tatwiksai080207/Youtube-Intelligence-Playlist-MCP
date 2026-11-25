@@ -1,7 +1,11 @@
 ---
 title: Google OAuth Lifecycle in Testing Publishing Status
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - oauth
   - security
@@ -9,8 +13,18 @@ tags:
   - tokens
 requirements:
   - FR-7
-  - NFR-SEC-1
-  - NFR-SEC-2
+  - FR-7.1
+  - FR-7.2
+  - C-4
+  - C-6
+  - NFR-3
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "Google OAuth 2.0 Documentation (checked 2026-11-12)"
+  - "Final_SRS_Submission.pdf Section 2.4 and 4.7 (checked 2026-11-12)"
 ---
 
 # Google OAuth Lifecycle in Testing Publishing Status
@@ -24,7 +38,7 @@ Google Cloud OAuth applications in Testing publishing status have critical opera
 3. **Authorization Code Flow with PKCE**: For desktop and local applications, RFC 7636 Proof Key for Code Exchange (PKCE) with S256 code challenge must be used over loopback redirect (`http://127.0.0.1:<port>/callback`).
 4. **Least Privilege Scopes**:
    - Initial read operations request only `https://www.googleapis.com/auth/youtube.readonly`.
-   - Playlist write operations require incremental authorization for `https://www.googleapis.com/auth/youtube.force-ssl`.
+   - Playlist write operations require separate consent for `https://www.googleapis.com/auth/youtube.force-ssl`.
 
 ## Architectural Mitigations
 - The server records the refresh token creation timestamp.
@@ -35,4 +49,4 @@ Google Cloud OAuth applications in Testing publishing status have critical opera
 - [[brain/index|Second Brain Index]]
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]
 - [[brain/resources/youtube-quota-costs|YouTube Quota Costs]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]

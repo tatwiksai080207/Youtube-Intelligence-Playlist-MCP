@@ -1,7 +1,11 @@
 ---
 title: Knapsack Constraint Solving for Playlist Duration Optimization
 type: reference
+status: distilled
+authors:
+  - Molleti Tatwik Sai
 created: 2026-11-09
+updated: 2026-11-23
 tags:
   - algorithms
   - knapsack
@@ -9,7 +13,15 @@ tags:
   - optimization
 requirements:
   - FR-5
-  - NFR-PERF-3
+  - FR-5.1
+  - FR-5.2
+  - NFR-1
+issues:
+  - "#1"
+prs:
+  - "#10"
+sources:
+  - "Final_SRS_Submission.pdf Section 4.5 and 5 (checked 2026-11-12)"
 ---
 
 # Knapsack Constraint Solving for Playlist Duration Optimization
@@ -41,4 +53,4 @@ Building a playlist under strict time constraints (such as a two hour total dura
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/tfidf-cosine-similarity|TF IDF and Cosine Similarity]]
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]
-
+- [[brain/areas/second-brain|Second Brain Architecture]]
