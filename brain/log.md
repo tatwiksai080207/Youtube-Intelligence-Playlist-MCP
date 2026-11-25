@@ -32,4 +32,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-23 15:30 | Madire Shiva Reddy | SR-01 Package Skeleton | Added package skeleton, stdio server, and smoke tests (PR #11) |
 | 2026-11-23 16:00 | Mohammed Farhan | MF-01 Validators | Added standalone skill and brain validators with fixtures (PR #12) |
 | 2026-11-23 22:50 | Molleti Tatwik Sai | TS-01 Brain Alignment | Aligned all notes, index, log, and brain-ingest to SRS v1.0 schema (Issue #3) |
-| 2026-11-25 | Mohammed Farhan | MF-02 CI gates | [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] records the fixture-mode CI gates and failure verification (Issue #8, PR pending) |
+| 2026-11-25 | Mohammed Farhan | MF-02 CI gates | [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] records the fixture-mode CI gates and failure verification (Issue #8, PR #16) |

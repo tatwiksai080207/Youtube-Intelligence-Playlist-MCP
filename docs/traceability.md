@@ -48,13 +48,13 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | NFR-1 | Tatwik / Farhan / Shiva | TS-08, MF-10, SR-11 | pending (TS-08) | pending | X_PERF_SCORE, X_PERF_SELECT, IT_CACHE | n/a — performance target | brain/resources/nfr-targets.md |
 | NFR-2 | Shiva / Farhan | SR-10, SR-16, MF-15 | pending (SR-10) | pending | QT_1..3, SK-1 budget, live cap | video-to-playlist | brain/resources/nfr-targets.md |
 | NFR-3 | Shiva | SR-12, SR-13 | pending (SR-12) | pending | SEC_OAUTH | n/a — auth storage | brain/resources/nfr-targets.md |
-| NFR-4 | Farhan | MF-02, TS-00 | #1, #8 | pending (MF-02) | Gitleaks CI | n/a — repo hygiene | brain/resources/nfr-targets.md |
+| NFR-4 | Farhan | MF-02, TS-00 | #1, #8 | #16 (MF-02) | Gitleaks CI | n/a — repo hygiene | brain/resources/nfr-targets.md |
 | NFR-5 | Tatwik | TS-06, TS-04, MF-04 | pending (TS-06) | pending | NT_VAL | n/a — input validation | brain/resources/nfr-targets.md |
 | NFR-6 | Farhan | MF-07, MF-13 | pending (MF-07) | pending | NT_HITL injection | video-to-playlist | brain/areas/security/prompt-injection-defence.md |
 | NFR-7 | Shiva / Tatwik | SR-08, SR-12, TS-14 | pending (SR-08) | pending | SEC_PII | n/a — privacy | brain/resources/nfr-targets.md |
 | NFR-8 | Shiva / Farhan | SR-14, MF-14 | pending (SR-14) | pending | IT_PROV retry, IT_DRAFT_PARTIAL | n/a — reliability | brain/resources/nfr-targets.md |
 | NFR-9 | Farhan / all | TS-04, MF-04, SR-17, TS-16 | pending (TS-04) | pending | Tool reference CI check | n/a — usability | brain/resources/nfr-targets.md |
-| NFR-10 | Farhan / Shiva | MF-02, SR-15, MF-18 | #8 (MF-02) | pending (MF-02, SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
+| NFR-10 | Farhan / Shiva | MF-02, SR-15, MF-18 | #8 (MF-02) | #16 (MF-02), pending (SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
 
 ## SDLC Process Requirements (R-2)
 | Req | Owner | Task(s) | Evidence Location |
@@ -68,6 +68,6 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | SE-7 User & Developer docs | Tatwik, Shiva | TS-16, SR-17 | `docs/user/`, `docs/developer/` |
 | SB-1..SB-6 Second Brain | All | TS-01, TS-02, SR-02, MF-03, TS-05, reviews | `brain/` & git history |
 | SB-1, SB-3 Validator checks | Farhan | MF-01 (#4, PR #12) | `scripts/validate_brain.py`, `scripts/validate_skills.py`, `tests/unit/test_validators.py` (TQ-1, TQ-4), [[brain/inbox/ai-session-2026-11-23-farhan-MF-01]] |
-| TQ-5 Fixture CI | Farhan | MF-02 (#8, PR pending) | `.github/workflows/ci.yml`, [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] |
+| TQ-5 Fixture CI | Farhan | MF-02 (#8, PR #16) | `.github/workflows/ci.yml`, [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] |
 | TQ-7 Skill evaluations | All | TS-03 (#9), SR-07, MF-17 | `docs/testing/skill-evals.md` |
 | TQ-8 Defect log & regressions | Fixer | MF-06, ongoing | `docs/testing/defect-log.md` |
