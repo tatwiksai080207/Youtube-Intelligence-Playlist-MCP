@@ -5,7 +5,7 @@
 - **Decision Makers:** Madire Shiva Reddy (owner), Molleti Tatwik Sai, Mohammed Farhan
 - **Task:** `SR-04`
 - **GitHub Issue:** `#25`
-- **GitHub PR:** `pending`
+- **GitHub PR:** `#26`
 - **Requirements:** `FR-8.1`, `SE-3`, `SE-6`, `FR-6.2`, `NFR-8`, `NFR-9`, `NFR-10`, `SB-3`
 - **Brain Sources:**
   - `brain/areas/engineering/provider-interface-pattern.md`
@@ -66,3 +66,4 @@ Implement the live provider (`src/yt_intel_mcp/provider/youtube_v3.py`, task `SR
 ### Trade-offs
 - Any future contract signature addition requires a reviewed ADR amendment (`CT-1` change control).
 - Downstream implementers of `TS-06` and `MF-07` must preserve the frozen stub function signatures (or extend via backward-compatible optional parameters).
+

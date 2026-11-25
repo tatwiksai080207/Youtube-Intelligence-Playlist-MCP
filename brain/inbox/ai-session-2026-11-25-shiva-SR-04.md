@@ -25,7 +25,8 @@ requirements:
   - SB-6
 issues:
   - "#25"
-prs: []
+prs:
+  - "#26"
 sources:
   - "Final_SRS_Submission.pdf Sections 1.2, 3.2, 4.1-4.5, and 5 (checked 2026-11-25)"
   - "pyproject.toml and .github/workflows/ci.yml (checked 2026-11-25)"
@@ -41,3 +42,4 @@ sources:
 - **What Failed / Needed Correction:** Checked `brain/resources/youtube-event-timestamps.md` (`INV-04`) before finalizing `EventTimeKind` so `UserEvent` uses `dated`, `undated`, and `first_observed` and never falls back to video upload dates as user action timestamps. Verified `tests/unit/test_local_check.py` pattern (`# ruff: noqa: N802`) for SRS-prefixed test names such as `test_CT_1_*` and `test_INV_01_*`.
 - **Human Changes Made:** Reviewed all frozen field names, enum values, SRS Section 5 defaults, upstream error mappings, and ADR-0002 trade-offs before opening the `[CONTRACT]` PR for dual teammate approval.
 - **Related Notes:** [[brain/index|Second Brain Index]], [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]], [[brain/resources/youtube-quota-costs|YouTube API Quota Costs]], [[brain/resources/fixture-testing-and-vcr|Fixture Testing and VCR]], [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]], [[brain/resources/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]], [[brain/areas/security/prompt-injection-defence|Prompt Injection Defense]]
+
