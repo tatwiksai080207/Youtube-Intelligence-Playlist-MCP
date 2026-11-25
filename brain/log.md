@@ -5,7 +5,7 @@ status: distilled
 authors:
   - Team Whatsup
 created: 2026-11-09
-updated: 2026-11-25
+updated: 2026-11-26
 tags:
   - log
   - audit
@@ -16,11 +16,13 @@ issues:
   - "#3"
   - "#9"
   - "#19"
+  - "#27"
 prs:
   - "#10"
   - "#13"
   - "#18"
   - "#20"
+  - "#29"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -47,3 +49,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-25 | Mohammed Farhan | MF-05 Local Check | Added [[brain/areas/skill-local-check]] and recorded the verification in [[brain/inbox/ai-session-2026-11-25-farhan-MF-05]] (Issue #23, PR #24) |
 | 2026-11-25 21:15 | Madire Shiva Reddy | SR-03 ADR-0001 Contract | Accepted Python 3.11+ / `mcp` SDK and `src/yt_intel_mcp/schemas/` in `docs/adr/0001-runtime-and-toolchain.md`; resolved `D-02` and `C-02`; added [[brain/inbox/ai-session-2026-11-25-shiva-SR-03]] (Issue #21, PR #22) |
 | 2026-11-25 23:55 | Madire Shiva Reddy | SR-04 Shared Contracts Freeze | Froze `errors.py`, objective `models.py`, `config.py`, `YouTubeProvider`, `QuotaGuard`, and Stage 2 stubs; authored `docs/adr/0002-provider-and-errors.md` and `docs/developer/fixtures.md`; addressed PR #26 review updates (`search_unit_cost=0`, `ChannelMeta.keywords`, `get_channel_by_handle`, `duration_weight`/`keywords_weight`, `provider/live.py`); added [[brain/inbox/ai-session-2026-11-25-shiva-SR-04]] (Issue #25, PR #26) |
+| 2026-11-26 01:42 | Molleti Tatwik Sai | TS-04 Analysis Design Contract | Authored 5 strict tool JSON Schemas (`NFR-5`) under `src/yt_intel_mcp/schemas/`, `docs/adr/0003-similarity-scoring.md`, `docs/adr/0007-interest-profile.md` (resolving `G-05`, `G-06`), `docs/architecture/analysis.md` (`SE-2`), and schema contract tests; logged `G-01` team vote in Issue #28; added [[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]] (Issue #27, PR #29) |

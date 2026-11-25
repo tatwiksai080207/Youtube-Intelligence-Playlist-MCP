@@ -10,7 +10,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | FR-1.2 | Tatwik | TS-08, TS-10 | pending (TS-08) | pending | UT_SIM, ST_FR1, X_PERF_SCORE | video-to-playlist | brain/resources/tfidf-cosine-similarity.md |
 | FR-1.3 | Tatwik | TS-10 | pending (TS-10) | pending | UT_SIM | video-to-playlist | brain/resources/tfidf-cosine-similarity.md |
 | FR-1.4 | Tatwik | TS-09, TS-10 | pending (TS-09) | pending | NT_VID | video-to-playlist | brain/resources/tfidf-cosine-similarity.md |
-| FR-2.1 | Tatwik | TS-02, TS-06, TS-11 | #6 (TS-02), pending (TS-06) | #14 (TS-02), pending | ST_FR2 | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
+| FR-2.1 | Tatwik | TS-02, TS-04, TS-06, TS-11 | #6 (TS-02), #27 (TS-04), #28 (G-01 decision), pending (TS-06) | #14 (TS-02), #29 (TS-04), pending | ST_FR2 | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
 | FR-2.2 | Tatwik | TS-02, TS-08, TS-11 | #6 (TS-02), pending (TS-08) | #14 (TS-02), pending | UT_SIM | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
 | FR-3.1 | Tatwik | TS-02, TS-12 | #6 (TS-02), pending (TS-12) | #14 (TS-02), pending | UT_PROF, UT_STAT_TS | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
 | FR-3.2 | Tatwik | TS-02, TS-12 | #6 (TS-02), pending (TS-12) | #14 (TS-02), pending | UT_PROF, UT_STAT_TS | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
@@ -49,24 +49,24 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | NFR-2 | Shiva / Farhan | SR-02, SR-10, SR-16, MF-15 | #5 (SR-02), pending (SR-10) | #15 (SR-02), pending | QT_1..3, SK-1 budget, live cap | video-to-playlist | brain/resources/nfr-targets.md |
 | NFR-3 | Shiva | SR-02, SR-12, SR-13 | #5 (SR-02), pending (SR-12) | #15 (SR-02), pending | SEC_OAUTH | n/a — auth storage | brain/resources/nfr-targets.md |
 | NFR-4 | Farhan | MF-02, TS-00 | #1, #8 | #10 (TS-00), #16 (MF-02) | Gitleaks CI | n/a — repo hygiene | brain/resources/nfr-targets.md |
-| NFR-5 | Tatwik | TS-06, TS-04, MF-04 | pending (TS-06) | pending | NT_VAL | n/a — input validation | brain/resources/nfr-targets.md |
+| NFR-5 | Tatwik | TS-06, TS-04, MF-04 | #27 (TS-04), pending (TS-06) | #29 (TS-04), pending | NT_VAL | n/a — input validation | brain/resources/nfr-targets.md |
 | NFR-6 | Farhan | MF-03, MF-07, MF-13 | #7 (MF-03), pending (MF-07) | #17 (MF-03), pending | NT_HITL injection | video-to-playlist | brain/areas/security/prompt-injection-defence.md |
 | NFR-7 | Shiva / Tatwik | SR-02, SR-08, SR-12, TS-14 | #5 (SR-02), pending (SR-08) | #15 (SR-02), pending | SEC_PII | n/a — privacy | brain/resources/nfr-targets.md |
 | NFR-8 | Shiva / Farhan | SR-02, SR-04, SR-14, MF-14 | #5 (SR-02), #25 (SR-04), pending (SR-14) | #15 (SR-02), #26 (SR-04), pending (SR-14) | IT_PROV retry, IT_DRAFT_PARTIAL, CT_1 | n/a — reliability | brain/resources/nfr-targets.md |
-| NFR-9 | Farhan / all | TS-04, MF-04, SR-17, TS-16 | pending (TS-04) | pending | Tool reference CI check | n/a — usability | brain/resources/nfr-targets.md |
+| NFR-9 | Farhan / all | TS-04, MF-04, SR-17, TS-16 | #27 (TS-04) | #29 (TS-04) | Tool reference CI check | n/a — usability | brain/resources/nfr-targets.md |
 | NFR-10 | Farhan / Shiva | SR-01, SR-02, SR-03, SR-04, MF-02, SR-15, MF-18 | #2 (SR-01), #5 (SR-02), #21 (SR-03), #25 (SR-04), #8 (MF-02) | #11 (SR-01), #15 (SR-02), #22 (SR-03), #26 (SR-04), #16 (MF-02), pending (SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
 
 ## SDLC Process Requirements (R-2)
 | Req | Owner | Task(s) | Evidence Location |
 |---|---|---|---|
 | SE-1 SRS | Shiva (maintainer) | done | `Final_SRS_Submission.pdf` (commit `a51c14e`) |
-| SE-2 Architecture & UML/ER | Shiva, Tatwik, Farhan | SR-05, TS-04, MF-04 | `docs/architecture/` |
-| SE-3 ADRs | All | SR-03 (#21, PR #22), SR-04 (#25, PR #26), SR-05, TS-04, MF-04 | `docs/adr/` (`0001-runtime-and-toolchain.md`, `0002-provider-and-errors.md`) |
+| SE-2 Architecture & UML/ER | Shiva, Tatwik, Farhan | SR-05, TS-04 (#27, PR #29), MF-04 | `docs/architecture/` (`analysis.md`) |
+| SE-3 ADRs | All | SR-03 (#21, PR #22), SR-04 (#25, PR #26), SR-05, TS-04 (#27, PR #29), MF-04 | `docs/adr/` (`0001-runtime-and-toolchain.md`, `0002-provider-and-errors.md`, `0003-similarity-scoring.md`, `0007-interest-profile.md`) |
 | SE-4 Dev plan & breakdown | Tatwik | TS-00 (#1, PR #10) | `docs/plan/development-plan.md` |
 | SE-5 Traceability | All | TS-00..SR-18 (#1, PR #10) | `docs/traceability.md` |
 | SE-6 Provider interface | Shiva | SR-04 (#25, PR #26), SR-15 | `src/yt_intel_mcp/provider/base.py` |
 | SE-7 User & Developer docs | Tatwik, Shiva | SR-04 (#25, PR #26), TS-16, SR-17 | `docs/user/`, `docs/developer/` (`docs/developer/fixtures.md`) |
-| SB-1..SB-6 Second Brain | All | TS-01 (#3, PR #13), TS-02 (#6, PR #14), SR-02 (#5, PR #15), MF-03 (#7, PR #17), TS-03 (#9, PR #18), TS-05 (#19, PR #20) | `brain/` & git history (`brain/projects/stage-1-review.md`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-03]]`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]]`) |
+| SB-1..SB-6 Second Brain | All | TS-01 (#3, PR #13), TS-02 (#6, PR #14), SR-02 (#5, PR #15), MF-03 (#7, PR #17), TS-03 (#9, PR #18), TS-04 (#27, PR #29), TS-05 (#19, PR #20) | `brain/` & git history (`brain/projects/stage-1-review.md`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-03]]`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]]`, `[[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]]`) |
 | SB-1, SB-3 Validator checks | Farhan | MF-01 (#4, PR #12) | `scripts/validate_brain.py`, `scripts/validate_skills.py`, `tests/unit/test_validators.py` (TQ-1, TQ-4), [[brain/inbox/ai-session-2026-11-23-farhan-MF-01]] |
 | SB-6 Farhan's Stage 1 research notes | Farhan | MF-03 (#7, PR #17) | [[brain/inbox/ai-session-2026-11-25-farhan-MF-03]] |
 | TQ-5 Fixture CI | Farhan | MF-02 (#8, PR #16) | `.github/workflows/ci.yml`, [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] |

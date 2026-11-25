@@ -27,12 +27,12 @@
 | `C-01` | Conflict | R-1 single 10k quota vs. SRS C-2 dual budget | Follow SRS C-2 (both budgets configurable); re-check R-5 in `SR-10` | Shiva | RESOLVED (SRS) |
 | `C-02` | Conflict | `src/mcp/schemas/` vs. Python `mcp` SDK package name | Use `src/yt_intel_mcp/schemas/` (`ADR-0001`, `#21`) | Shiva | RESOLVED |
 | `C-03` | Conflict | R-2 SE-7 "e.g., OpenAPI" vs. stdio MCP server | Generate `docs/developer/tool-reference.md` from JSON Schemas (`SR-17`) | Shiva | PROPOSED |
-| `G-01` | Gap | Error code for nonexistent channel in FR-2 | Team vote via `type:decision` issue before `TS-11` negative test | Tatwik | OPEN |
+| `G-01` | Gap | Error code for nonexistent channel in FR-2 | Team vote open in Issue `#28` (`INVALID_ARGUMENT` vs `CHANNEL_UNAVAILABLE`) before `TS-11` negative test | Tatwik | OPEN |
 | `G-02` | Gap | Step order inside `create_curated_playlist` | Freeze in ADR-0004 (`MF-04`) | Farhan | OPEN |
 | `G-03` | Gap | Draft-time write-cost preflight before count is known | Freeze in ADR-0005 (`MF-04`) | Farhan | OPEN |
 | `G-04` | Gap | Scheduled live CI (`TQ-5`) vs. 7-day Testing token and no delete | Read only live workflow; decide via `type:decision` issue before `SR-16` | Shiva | OPEN |
-| `G-05` | Gap | Optional `first_observed` store (FR-3.2 vs FR-4.3) | Freeze in ADR-0007 (`TS-04`) | Tatwik | OPEN |
-| `G-06` | Gap | Fixed neutral weight value for undated items (FR-3.2) | Freeze in ADR-0007 (`TS-04`) | Tatwik | OPEN |
+| `G-05` | Gap | Optional `first_observed` store (FR-3.2 vs FR-4.3) | Frozen in `docs/adr/0007-interest-profile.md` (`TS-04`, `#27`): neutral `0.5` weight in `FR-3.2`, tracked separately in `FR-4.3` | Tatwik | RESOLVED |
+| `G-06` | Gap | Fixed neutral weight value for undated items (FR-3.2) | Frozen in `docs/adr/0007-interest-profile.md` (`TS-04`, `#27`): `ProfileConfig.undated_weight = 0.5` | Tatwik | RESOLVED |
 | `G-07` | Conflict | Existing note proposes "clickbait penalty" absent from SRS FR-1.2 | Mark "not adopted — not in SRS FR-1.2" in `TS-01` | Tatwik | RESOLVED |
 | `G-08` | Conflict | Existing notes cite draft IDs (`NFR-SEC-1`, `C-11`, etc.) | Map to SRS v1.0 IDs in `TS-01` | Tatwik | RESOLVED |
 | `G-09` | Gap | Existing 10 notes lack `status`/`authors`/`sources`; 1 author | Fix schema in `TS-01`; add notes from all 3 members (`SR-02`, `TS-02`, `MF-03`) | Tatwik | RESOLVED |

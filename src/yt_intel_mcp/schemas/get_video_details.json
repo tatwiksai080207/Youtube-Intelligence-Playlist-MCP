@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-intel-mcp.local/schemas/get_video_details.json",
+  "title": "get_video_details",
+  "description": "Retrieve sanitized objective metadata for a single YouTube video (FR-1.1, FR-1.4, INV-01).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "video_id"
+  ],
+  "properties": {
+    "video_id": {
+      "type": "string",
+      "minLength": 11,
+      "maxLength": 512,
+      "description": "YouTube 11 character video ID or watch, youtu.be, shorts, or embed URL."
+    }
+  }
+}

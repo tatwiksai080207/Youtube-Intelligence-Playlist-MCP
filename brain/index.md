@@ -5,7 +5,7 @@ status: distilled
 authors:
   - Team Whatsup
 created: 2026-11-09
-updated: 2026-11-25
+updated: 2026-11-26
 tags:
   - index
   - second-brain
@@ -16,11 +16,13 @@ issues:
   - "#3"
   - "#9"
   - "#19"
+  - "#27"
 prs:
   - "#10"
   - "#13"
   - "#18"
   - "#20"
+  - "#29"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -79,6 +81,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-05|AI Session MF-05]]: Build and run the fixture-mode local checks (Issue #23, PR #24).
 - [[brain/inbox/ai-session-2026-11-25-shiva-SR-03|AI Session SR-03]]: Accept ADR-0001 runtime, official `mcp` SDK, toolchain, and `src/yt_intel_mcp/schemas/` path (Issue #21, PR #22).
 - [[brain/inbox/ai-session-2026-11-25-shiva-SR-04|AI Session SR-04]]: Freeze shared v1.0 contracts (`CT-1`), protocols, config defaults, stubs, fixture guide, and ADR-0002 (Issue #25, PR #26).
+- [[brain/inbox/ai-session-2026-11-26-tatwik-TS-04|AI Session TS-04]]: Author strict `FR-1..FR-4` tool JSON Schemas, `ADR-0003`, `ADR-0007`, analysis architecture diagrams, and Decision `G-01` (Issue #27, Issue #28, PR #29).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
