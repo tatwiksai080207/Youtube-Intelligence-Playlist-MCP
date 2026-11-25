@@ -5,7 +5,7 @@
 - **Decision Makers:** Molleti Tatwik Sai (owner), Madire Shiva Reddy, Mohammed Farhan
 - **Task:** `TS-04`
 - **GitHub Issue:** `#27` (task), `#28` (open Decision `G-01`)
-- **GitHub PR:** `pending`
+- **GitHub PR:** `#29`
 - **Requirements:** `FR-1.2`, `FR-1.3`, `FR-2.1`, `FR-2.2`, `NFR-1`, `NFR-5`, `SE-3`, `SB-3`
 - **Brain Sources:**
   - [[brain/resources/tfidf-cosine-similarity|TF IDF and Cosine Similarity]]

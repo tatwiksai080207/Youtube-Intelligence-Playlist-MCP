@@ -5,7 +5,7 @@
 - **Decision Makers:** Molleti Tatwik Sai (owner), Madire Shiva Reddy, Mohammed Farhan
 - **Task:** `TS-04`
 - **GitHub Issue:** `#27`
-- **GitHub PR:** `pending`
+- **GitHub PR:** `#29`
 - **Requirements:** `FR-3.1`, `FR-3.2`, `FR-3.3`, `FR-4.1`, `FR-4.2`, `FR-4.3`, `NFR-1`, `NFR-2`, `NFR-7`, `SE-3`, `SB-3`
 - **Brain Sources:**
   - [[brain/resources/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]]
