@@ -18,6 +18,7 @@ issues:
   - "#19"
   - "#27"
   - "#30"
+  - "#32"
 prs:
   - "#10"
   - "#13"
@@ -25,6 +26,7 @@ prs:
   - "#20"
   - "#29"
   - "#31"
+  - "#33"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -53,3 +55,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-25 23:55 | Madire Shiva Reddy | SR-04 Shared Contracts Freeze | Froze `errors.py`, objective `models.py`, `config.py`, `YouTubeProvider`, `QuotaGuard`, and Stage 2 stubs; authored `docs/adr/0002-provider-and-errors.md` and `docs/developer/fixtures.md`; addressed PR #26 review updates (`search_unit_cost=0`, `ChannelMeta.keywords`, `get_channel_by_handle`, `duration_weight`/`keywords_weight`, `provider/live.py`); added [[brain/inbox/ai-session-2026-11-25-shiva-SR-04]] (Issue #25, PR #26) |
 | 2026-11-26 01:42 | Molleti Tatwik Sai | TS-04 Analysis Design Contract | Authored 5 strict tool JSON Schemas (`NFR-5`) under `src/yt_intel_mcp/schemas/`, `docs/adr/0003-similarity-scoring.md`, `docs/adr/0007-interest-profile.md` (resolving `G-05`, `G-06`), `docs/architecture/analysis.md` (`SE-2`), and schema contract tests; logged `G-01` team vote in Issue #28; added [[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]] (Issue #27, PR #29) |
 | 2026-11-26 02:00 | Madire Shiva Reddy | SR-05 System Architecture and ADR-0006 | Authored `docs/architecture/overview.md` (`SE-2` component, deployment, SQLite ER for `quota_ledger`, `cache_entries`, and `first_observed`, quota preflight and OAuth read/write/revoke sequences) and `docs/adr/0006-token-storage-and-persistence.md` (OS keyring, AES-256-GCM fallback, WAL SQLite, delete on revoke); added [[brain/inbox/ai-session-2026-11-26-shiva-SR-05]] (Issue #30, PR #31) |
+| 2026-11-26 02:15 | Madire Shiva Reddy | SR-06 Brain Query Skill (brain-query) | Authored `skills/brain-query/SKILL.md` (`SK-5`), [[brain/areas/skill-brain-query]], `SE-QRY-01`..`SE-QRY-04` evals with demonstrated vault draft in `docs/testing/skill-evals.md`, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-06]] (Issue #32, PR #33) |
