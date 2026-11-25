@@ -1,7 +1,7 @@
 ---
 title: Channel Similarity Profiling and Ranking
 type: reference
-status: inbox
+status: distilled
 authors:
   - Molleti Tatwik Sai
 created: 2026-11-25
@@ -21,6 +21,7 @@ requirements:
   - SB-6
 issues:
   - "#6"
+  - "#19"
 prs:
   - "#14"
 sources:
@@ -58,3 +59,4 @@ For the seed channel and each candidate channel, `YouTubeProvider` fetches `chan
 - [[brain/resources/tfidf-cosine-similarity|TF IDF and Cosine Similarity]]
 - [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]]
 - [[brain/resources/youtube-quota-costs|YouTube Quota Costs]]
+- [[brain/resources/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]]

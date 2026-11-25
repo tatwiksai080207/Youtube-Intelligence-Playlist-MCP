@@ -48,4 +48,4 @@ Chat messages, tool arguments, and metadata cannot initiate or fulfill approval 
 - [[brain/resources/mcp-protocol-specification|MCP Protocol Specification]]
 - [[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle]]
 - [[brain/areas/second-brain|Second Brain Architecture]]
-- [[brain/inbox/mcp-elicitation-confirmation|Trusted Playlist Confirmation with MCP Elicitation]]
+- [[brain/resources/mcp-elicitation-confirmation|Trusted Playlist Confirmation with MCP Elicitation]]

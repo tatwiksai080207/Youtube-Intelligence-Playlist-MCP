@@ -1,7 +1,7 @@
 ---
 title: Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates
 type: reference
-status: inbox
+status: distilled
 authors:
   - Molleti Tatwik Sai
 created: 2026-11-25
@@ -22,6 +22,7 @@ requirements:
   - SB-6
 issues:
   - "#6"
+  - "#19"
 prs:
   - "#14"
 sources:
@@ -61,5 +62,5 @@ Video durations parsed from ISO 8601 `contentDetails.duration` are classified us
 ## Related Notes
 - [[brain/index|Second Brain Index]]
 - [[brain/areas/second-brain|Second Brain Architecture]]
-- [[brain/inbox/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]]
-- [[brain/inbox/channel-similarity|Channel Similarity Profiling and Ranking]]
+- [[brain/resources/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]]
+- [[brain/resources/channel-similarity|Channel Similarity Profiling and Ranking]]

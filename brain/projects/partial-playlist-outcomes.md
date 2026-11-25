@@ -1,7 +1,7 @@
 ---
 title: Playlist Writes and Partial Outcomes
 type: reference
-status: inbox
+status: distilled
 authors:
   - Mohammed Farhan
 created: 2026-11-25
@@ -17,6 +17,7 @@ requirements:
   - SB-6
 issues:
   - "#7"
+  - "#19"
 prs:
   - "#17"
 sources:
@@ -54,6 +55,7 @@ Any recovery that changes the approved contents requires a new draft and fresh t
 
 ## Related notes
 
-- [[brain/inbox/mcp-elicitation-confirmation|Trusted confirmation]]
-- [[brain/inbox/playlist-constraints|Playlist constraints]]
+- [[brain/index|Second Brain Index]]
+- [[brain/resources/mcp-elicitation-confirmation|Trusted confirmation]]
+- [[brain/projects/playlist-constraints|Playlist constraints]]
 - [[brain/resources/youtube-quota-costs|YouTube API Quota Costs]]

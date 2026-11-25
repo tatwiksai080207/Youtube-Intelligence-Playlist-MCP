@@ -1,7 +1,7 @@
 ---
 title: Playlist Duration and Spoken Language Constraints
 type: reference
-status: inbox
+status: distilled
 authors:
   - Mohammed Farhan
 created: 2026-11-25
@@ -19,6 +19,7 @@ requirements:
   - SB-6
 issues:
   - "#7"
+  - "#19"
 prs:
   - "#17"
 sources:
@@ -59,6 +60,7 @@ Among retrieved candidates, the solver maximizes topic relevance subject to ever
 
 ## Related notes
 
+- [[brain/index|Second Brain Index]]
 - [[brain/resources/knapsack-constraint-solving|Knapsack Constraint Solving]]
-- [[brain/inbox/mcp-elicitation-confirmation|Trusted confirmation]]
-- [[brain/inbox/partial-playlist-outcomes|Partial playlist outcomes]]
+- [[brain/resources/mcp-elicitation-confirmation|Trusted confirmation]]
+- [[brain/projects/partial-playlist-outcomes|Partial playlist outcomes]]

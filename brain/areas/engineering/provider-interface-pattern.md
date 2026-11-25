@@ -74,5 +74,5 @@ An AST/import-lint test enforces that no domain, validation, similarity, analysi
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/fixture-testing-and-vcr|Fixture Testing and VCR]]
 - [[brain/resources/youtube-quota-costs|YouTube Quota Costs]]
-- [[brain/inbox/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]
+- [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]
 - [[brain/areas/second-brain|Second Brain Architecture]]
