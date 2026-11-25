@@ -17,7 +17,8 @@ requirements:
   - TQ-7
 issues:
   - "#23"
-prs: []
+prs:
+  - "#24"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.9 and 6.1 (checked 2026-11-25)"
   - "MF-05 local execution on macOS with Python 3.14.2 (checked 2026-11-25)"

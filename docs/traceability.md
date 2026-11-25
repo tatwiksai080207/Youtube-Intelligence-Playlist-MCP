@@ -37,7 +37,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | Req | Owner | Task(s) | Issue | PR | Tests | Skill | Brain Note |
 |---|---|---|---|---|---|---|---|
 | SK-1 | Farhan | TS-09, MF-15 | pending (TS-09) | pending | SE_EVAL_SUM, TQ-7, NFR-2 run | video-to-playlist | brain/areas/skill-video-to-playlist.md |
-| SK-2 | Farhan | MF-05, MF-16 | #23 (MF-05), pending (MF-16) | pending | TQ-7, SE-LOCAL-01..03 | local-check | brain/areas/skill-local-check.md |
+| SK-2 | Farhan | MF-05, MF-16 | #23 (MF-05), pending (MF-16) | #24 (MF-05), pending (MF-16) | TQ-7, SE-LOCAL-01..03 | local-check | brain/areas/skill-local-check.md |
 | SK-3 | Tatwik | TS-01 | #3 | #13 | TQ-7, brain validation | brain-ingest | brain/areas/second-brain.md |
 | SK-4 | Tatwik | TS-05 | #19 | #20 | TQ-7, brain validation | brain-refine | brain/areas/second-brain.md, brain/areas/skill-brain-refine.md |
 | SK-5 | Shiva | SR-06 | pending (SR-06) | pending | TQ-7 | brain-query | brain/areas/second-brain.md |
