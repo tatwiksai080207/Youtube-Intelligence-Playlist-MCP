@@ -17,7 +17,7 @@
 ## 1. Context
 
 1. **Runtime & SDK Selection (`D-02`, SRS Section 2.3):** The Stage 1 SRS provisionally designates Python 3.11+ with the official Model Context Protocol (MCP) SDK, while permitting Node.js LTS as an accepted alternative pending a final Stage 2 ADR decision (`ADR-0001`). In Stage 1, `SR-01` (PR `#11`) implemented the installable `yt-intel-mcp` package skeleton in Python with `mcp>=2.3,<3` (`mcp.server.mcpserver.MCPServer` over `stdio`), `MF-01` (PR `#12`) implemented Python-based skill and Second Brain validators, and `MF-02` (PR `#16`) made Python 3.11 CI checks gating.
-2. **Schemas Directory Path Conflict (`C-02`, SRS Section 3.1 vs. PyPI `mcp` Package):** SRS Section 3.1 states *"Full schemas will live in `src/mcp/schemas/` (Stage 2)"*. However, the official Python MCP SDK installs the top-level module namespace `mcp` (`from mcp.server.mcpserver import MCPServer`). Creating a directory `src/mcp/schemas/` under `src/` introduces a top-level `mcp` directory alongside `src/yt_intel_mcp/` that risks PEP 420 implicit namespace shadowing or import resolution conflicts when `src/` is on `sys.path` (editable installs, local scripts, or `PYTHONPATH=src`) and sits outside the built `yt_intel_mcp` wheel package.
+2. **Schemas Directory Path Conflict (`C-02`, SRS Section 3.1 vs. Packaging & Namespace Hygiene):** SRS Section 3.1 states *"Full schemas will live in `src/mcp/schemas/` (Stage 2)"*. In our wheel configuration (`pyproject.toml`, `packages = ["src/yt_intel_mcp"]`), a sibling `src/mcp/schemas/` directory sits outside the `yt_intel_mcp` package and would not be shipped in the built wheel. Separately from packaging, under Python's import rules (`PEP 420`), a bare `src/mcp/schemas/` directory without `__init__.py` is only a namespace package candidate while Python searches `sys.path` for the installed regular `mcp` SDK package (`site-packages/mcp/__init__.py`), so it does not by itself shadow the SDK. However, keeping a top-level `src/mcp/` folder invites confusion with the external `mcp` SDK namespace and risks a future collision if anyone later turns it into a regular package with `__init__.py`.
 3. **Quality & Maintainability Baseline (`NFR-10`, `SE-6`):** The selected stack must support strict static typing (`mypy`), fast deterministic local similarity scoring (`NFR-1`) and constrained playlist solving (`NFR-1`), isolated `YouTubeProvider` boundaries (`SE-6`), and `>= 85%` branch-aware test coverage in zero-quota CI (`TQ-5`).
 
 ---
@@ -33,7 +33,7 @@
    - Static type checking: `mypy>=1.11` (`python_version = "3.11"`, `strict = true`, `files = ["src"]`) plus `types-PyYAML` and `pyyaml>=6`.
 3. **Place Tool JSON Schemas in `src/yt_intel_mcp/schemas/` (`C-02` -> `RESOLVED`):**
    - Store all strict MCP tool JSON Schema files (`<tool>.json`, `"additionalProperties": false`) under **`src/yt_intel_mcp/schemas/`** (`yt_intel_mcp.schemas` package data) instead of top-level `src/mcp/schemas/`.
-   - Load schemas cleanly inside runtime validation and doc generation (`SR-17`) via `importlib.resources` / package-relative paths, ensuring they ship in built wheels (`packages = ["src/yt_intel_mcp"]`) without conflicting with the external `mcp` SDK namespace.
+   - Load schemas cleanly inside runtime validation and doc generation (`SR-17`) via `importlib.resources` / package-relative paths, ensuring they ship inside built wheels (`packages = ["src/yt_intel_mcp"]`) without creating a top-level `src/mcp/` sibling directory.
 
 ---
 
@@ -42,7 +42,7 @@
 1. **Node.js LTS + Official TypeScript MCP SDK (`SRS Section 2.3` alternative):**
    - *Rejected:* Switching runtimes in Stage 2 would discard the already merged `SR-01` stdio server and smoke tests, `MF-01` Python validators, and `MF-02` gating CI pipeline. Python 3.11+ provides native `zoneinfo` (for DST-aware `00:00 America/Los_Angeles` quota resets), `sqlite3` (WAL mode), `unicodedata` (NFKC sanitisation), and a unified single-language codebase.
 2. **Keeping `src/mcp/schemas/` as specified literally in `SRS Section 3.1`:**
-   - *Rejected:* Even without `src/mcp/__init__.py`, placing `src/mcp/` under `src/` creates a PEP 420 namespace package collision risk whenever `src/` precedes `site-packages` on `sys.path`, potentially breaking `import mcp.server.mcpserver` or `import mcp.client.stdio`. Moving schemas into `src/yt_intel_mcp/schemas/` cleanly preserves single-package layout (`yt_intel_mcp`) and requires updating no runtime behavior.
+   - *Rejected:* Although a bare `src/mcp/` directory without `__init__.py` does not shadow the installed regular `mcp` SDK package under PEP 420 import resolution, placing schemas in `src/mcp/schemas/` leaves them outside the packaged `yt_intel_mcp` wheel, prevents clean package-relative resource loading via `importlib.resources`, and creates risk of a future import collision if someone later adds `__init__.py` to make `src/mcp/` a regular top-level package. Moving schemas to `src/yt_intel_mcp/schemas/` solves wheel inclusion, simplifies resource access, and keeps one top-level project package (`yt_intel_mcp`).
 
 ---
 
@@ -61,9 +61,9 @@
 
 - `Final_SRS_Submission.pdf` (v1.0): Section 2.3 (Operating Environment), Section 3.1 (MCP Tools), Section 5 (`NFR-1`, `NFR-5`, `NFR-9`, `NFR-10`).
 - `pyproject.toml`, `src/yt_intel_mcp/server.py`, `tests/unit/test_smoke.py`, `.github/workflows/ci.yml`.
+- PEP 420 — Implicit Namespace Packages (`https://peps.python.org/pep-0420/#specification`).
 - Distilled Second Brain notes:
   - [[brain/resources/mcp-protocol-specification|Model Context Protocol Architecture and Primitives]]
   - [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]
   - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern and Dependency Inversion]]
   - [[brain/areas/second-brain|Second Brain Architecture and Knowledge Management]]
-
