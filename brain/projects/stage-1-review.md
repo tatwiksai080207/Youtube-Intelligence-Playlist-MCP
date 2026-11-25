@@ -22,7 +22,8 @@ requirements:
   - TQ-7
 issues:
   - "#9"
-prs: []
+prs:
+  - "#18"
 sources:
   - "Final_SRS_Submission.pdf Section 6.4 (checked 2026-11-25)"
   - "SDLC_and_Workflow.pdf Section 1 SB-2 and Section 7 (checked 2026-11-25)"

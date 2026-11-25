@@ -21,7 +21,7 @@ Stage 1 deliverable baseline: Requirements specification, Second Brain foundatio
   - Shiva (`SR-02`, `#5`, PR `#15`): `nfr-targets.md`, `oauth-scopes-and-token-storage.md`, and distilled infrastructure notes.
   - Farhan (`MF-03`, `#7`, PR `#17`): `mcp-elicitation-confirmation.md`, `playlist-constraints.md`, `partial-playlist-outcomes.md`, and distilled prompt injection defence note.
 - **Gating CI Pipeline (`MF-02`, `#8`, PR `#16`):** Enforced `gitleaks`, `ruff check`, `ruff format --check`, `mypy src`, `pytest -m "not live" --cov=yt_intel_mcp --cov-fail-under=85`, `validate_skills.py`, and `validate_brain.py` under `YT_INTEL_PROVIDER=fixture`.
-- **Stage 1 Review and Skill Evaluations (`TS-03`, `#9`):** `brain/projects/stage-1-review.md` and `docs/testing/skill-evals.md`.
+- **Stage 1 Review and Skill Evaluations (`TS-03`, `#9`, PR `#18`):** `brain/projects/stage-1-review.md` and `docs/testing/skill-evals.md`.
 
 ### Fixed
 - Granted `pull-requests: read` permission and `fetch-depth: 0` checkout in `.github/workflows/ci.yml` so `gitleaks` scans PR commits cleanly (`TS-00`, PR `#10`).

@@ -14,7 +14,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 
 **Skill Path:** `skills/brain-ingest/SKILL.md`  
 **Distilled Brain Citation (`SB-3`):** `[[brain/areas/second-brain|Second Brain Architecture]]`  
-**Tasks Exercising Skill:** `TS-01` (`#3`, PR `#13`), `TS-02` (`#6`, PR `#14`), `SR-02` (`#5`, PR `#15`), `MF-03` (`#7`, PR `#17`), `TS-03` (`#9`)
+**Tasks Exercising Skill:** `TS-01` (`#3`, PR `#13`), `TS-02` (`#6`, PR `#14`), `SR-02` (`#5`, PR `#15`), `MF-03` (`#7`, PR `#17`), `TS-03` (`#9`, PR `#18`)
 
 ### Test Cases and Observed Results
 
