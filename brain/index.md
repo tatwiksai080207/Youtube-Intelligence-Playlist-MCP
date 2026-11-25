@@ -20,6 +20,7 @@ prs:
   - "#10"
   - "#13"
   - "#18"
+  - "#20"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -73,7 +74,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-02|AI Session TS-02]]: Ingest `FR-2`, `FR-3`, and `FR-4` research notes via `brain-ingest`.
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-03|AI Session MF-03]]: Ingest the playlist research notes and review prompt injection defence (Issue #7, PR #17).
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-03|AI Session TS-03]]: Stage 1 review, `brain-ingest` evaluation, `SB-1` back link audit, and changelog (Issue #9, PR #18).
-- [[brain/inbox/ai-session-2026-11-25-tatwik-TS-05|AI Session TS-05]]: Author `brain-refine` (`SK-4`), merge duplicate OAuth note, promote Stage 1 notes into PARA, and repair vault links (Issue #19).
+- [[brain/inbox/ai-session-2026-11-25-tatwik-TS-05|AI Session TS-05]]: Author `brain-refine` (`SK-4`), merge duplicate OAuth note, promote Stage 1 notes into PARA, and repair vault links (Issue #19, PR #20).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

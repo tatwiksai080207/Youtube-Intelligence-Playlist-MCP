@@ -23,7 +23,8 @@ requirements:
   - TQ-7
 issues:
   - "#19"
-prs: []
+prs:
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf Section 4.9 (checked 2026-11-25)"
   - "The AI Assisted Software Development Life Cycle (SDLC) Section 1 and Section 3 (checked 2026-11-25)"

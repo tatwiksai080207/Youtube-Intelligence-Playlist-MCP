@@ -20,7 +20,8 @@ requirements:
   - TQ-7
 issues:
   - "#19"
-prs: []
+prs:
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf Section 4.9 and Section 6.2 (checked 2026-11-25)"
   - "Local development session (2026-11-25)"

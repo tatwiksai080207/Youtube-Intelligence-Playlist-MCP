@@ -20,6 +20,7 @@ issues:
   - "#19"
 prs:
   - "#17"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.5 and 5 (checked 2026-11-25)"
   - "YouTube Data API v3 playlists.insert: https://developers.google.com/youtube/data/reference/rest/v3/playlists/insert (checked 2026-11-25)"

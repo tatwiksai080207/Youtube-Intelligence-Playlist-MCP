@@ -20,6 +20,7 @@ prs:
   - "#10"
   - "#13"
   - "#18"
+  - "#20"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -42,4 +43,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-25 | Mohammed Farhan | MF-02 CI gates | [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] records the fixture-mode CI gates and failure verification (Issue #8, PR #16) |
 | 2026-11-25 | Mohammed Farhan | MF-03 Playlist Research (brain-ingest) | Added [[brain/resources/mcp-elicitation-confirmation]], [[brain/projects/playlist-constraints]], [[brain/projects/partial-playlist-outcomes]], and [[brain/inbox/ai-session-2026-11-25-farhan-MF-03]]. Reviewed [[brain/areas/security/prompt-injection-defence]] (Issue #7, PR #17). |
 | 2026-11-25 18:38 | Molleti Tatwik Sai | TS-03 Stage 1 Review and SB-1 Audit | Audited Stage 1 back-links, evaluated `brain-ingest`, resolved `G-09`, wrote `stage-1-review.md` and `CHANGELOG.md` (Issue #9, PR #18) |
-| 2026-11-25 20:50 | Molleti Tatwik Sai | TS-05 Brain Refine Run (brain-refine) | Created `skills/brain-refine/SKILL.md` and [[brain/areas/skill-brain-refine]]; merged duplicate OAuth note into [[brain/resources/google-oauth-testing-mode]]; promoted 7 research notes to `brain/resources/` and `brain/projects/`; repaired wikilinks and added [[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]] (Issue #19) |
+| 2026-11-25 20:50 | Molleti Tatwik Sai | TS-05 Brain Refine Run (brain-refine) | Created `skills/brain-refine/SKILL.md` and [[brain/areas/skill-brain-refine]]; merged duplicate OAuth note into [[brain/resources/google-oauth-testing-mode]]; promoted 7 research notes to `brain/resources/` and `brain/projects/`; repaired wikilinks and added [[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]] (Issue #19, PR #20) |

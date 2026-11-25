@@ -25,6 +25,7 @@ issues:
   - "#19"
 prs:
   - "#14"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf Section 4.4 and 5 (checked 2026-11-25)"
   - "YouTube Data API v3 search.list videoDuration Filter: https://developers.google.com/youtube/v3/docs/search/list (checked 2026-11-25)"

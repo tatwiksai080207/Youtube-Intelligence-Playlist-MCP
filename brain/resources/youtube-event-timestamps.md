@@ -25,6 +25,7 @@ issues:
   - "#19"
 prs:
   - "#14"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf Section 4.3 and 4.4 (checked 2026-11-25)"
   - "YouTube Data API v3 PlaylistItems Resource: https://developers.google.com/youtube/v3/docs/playlistItems (checked 2026-11-25)"

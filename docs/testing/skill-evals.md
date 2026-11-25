@@ -7,7 +7,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 | Stage | Skill ID | Skill Name | Evaluation Date | Evaluator | Result | Evidence |
 |---|---|---|---|---|---|---|
 | Stage 1 | `SK-3` | `brain-ingest` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, CI run `45619944133` |
-| Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19` |
+| Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19`, PR `#20` |
 
 ---
 
@@ -37,7 +37,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 
 **Skill Path:** `skills/brain-refine/SKILL.md`  
 **Distilled Brain Citations (`SB-3`):** `[[brain/areas/second-brain|Second Brain Architecture]]`, `[[brain/areas/skill-brain-refine|Skill Note: brain-refine]]`  
-**Tasks Exercising Skill:** `TS-05` (`#19`)
+**Tasks Exercising Skill:** `TS-05` (`#19`, PR `#20`)
 
 ### Test Cases and Observed Results
 
