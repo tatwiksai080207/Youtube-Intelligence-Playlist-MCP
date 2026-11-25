@@ -50,10 +50,15 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/resources/fixture-testing-and-vcr|Fixture Testing and VCR]]: Cassette replay and zero quota continuous integration.
 - [[brain/resources/agent-skills-specification|Agent Skills Specification]]: Directory conventions and frontmatter validation for skills.
 
+## Inbox Research Notes (Pending Refinement)
+- [[brain/inbox/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]: Binding quantitative targets and upstream-to-MCP error mappings (`NFR-1`..`NFR-10`).
+- [[brain/inbox/oauth-scopes-and-token-storage|OAuth Scopes, PKCE and Encrypted Token Storage]]: Least-privilege scopes, no incremental auth (`C-7`), PKCE loopback, and encrypted storage (`FR-7`).
+
 ## AI Assisted Development Sessions
 - [[brain/inbox/ai-session-2026-11-23-shiva-SR-01|AI Session SR-01]]: Python package skeleton and stdio smoke test.
 - [[brain/inbox/ai-session-2026-11-23-farhan-MF-01|AI Session MF-01]]: Standalone skill and brain validators.
 - [[brain/inbox/ai-session-2026-11-23-tatwik-TS-01|AI Session TS-01]]: Align brain vault and skills to SRS v1.0.
+- [[brain/inbox/ai-session-2026-11-25-shiva-SR-02|AI Session SR-02]]: Ingest `NFR` and `OAuth` notes via `brain-ingest` and distil 4 infrastructure notes.
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-02|AI Session MF-02]]: Enforce fixture-mode CI checks (Issue #8, PR #16).
 
 ## Logs and Reviews
