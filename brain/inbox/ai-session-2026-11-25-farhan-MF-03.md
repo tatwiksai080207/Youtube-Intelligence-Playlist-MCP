@@ -32,4 +32,4 @@ sources:
 - **What worked** The SRS defines the product behavior, while the upstream references verify the MCP capability, video fields, and playlist API calls.
 - **Correction** The prior security note suggested releasing the token after approval and specified an HMAC and an injection heuristic. The revised note keeps approval and its token on the server and records the SRS sanitization requirements.
 - **Human changes** Pending author and reviewer review.
-- **Related notes** [[brain/index|Second Brain Index]], [[brain/inbox/mcp-elicitation-confirmation|Trusted confirmation]], [[brain/inbox/playlist-constraints|Playlist constraints]], [[brain/inbox/partial-playlist-outcomes|Partial playlist outcomes]], and [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]].
+- **Related notes** [[brain/index|Second Brain Index]], [[brain/resources/mcp-elicitation-confirmation|Trusted confirmation]], [[brain/projects/playlist-constraints|Playlist constraints]], [[brain/projects/partial-playlist-outcomes|Partial playlist outcomes]], and [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]].

@@ -1,7 +1,7 @@
 ---
 title: Trusted Playlist Confirmation with MCP Elicitation
 type: reference
-status: inbox
+status: distilled
 authors:
   - Mohammed Farhan
 created: 2026-11-25
@@ -18,8 +18,10 @@ requirements:
   - SB-6
 issues:
   - "#7"
+  - "#19"
 prs:
   - "#17"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 3.3 and 4.5 (checked 2026-11-25)"
   - "MCP specification 2025-06-18, Elicitation: https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation (checked 2026-11-25)"
@@ -50,7 +52,8 @@ Before dispatching any write, the server rejects an altered draft or binding wit
 
 ## Related notes
 
+- [[brain/index|Second Brain Index]]
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]
 - [[brain/resources/mcp-protocol-specification|MCP Protocol Specification]]
-- [[brain/inbox/playlist-constraints|Playlist constraints]]
-- [[brain/inbox/partial-playlist-outcomes|Partial playlist outcomes]]
+- [[brain/projects/playlist-constraints|Playlist constraints]]
+- [[brain/projects/partial-playlist-outcomes|Partial playlist outcomes]]

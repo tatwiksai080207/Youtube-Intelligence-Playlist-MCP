@@ -1,7 +1,7 @@
 ---
 title: Playlist Duration and Spoken Language Constraints
 type: reference
-status: inbox
+status: distilled
 authors:
   - Mohammed Farhan
 created: 2026-11-25
@@ -19,8 +19,10 @@ requirements:
   - SB-6
 issues:
   - "#7"
+  - "#19"
 prs:
   - "#17"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf v1.0, section 4.5 (checked 2026-11-25)"
   - "YouTube Data API v3 video resource audio language: https://developers.google.com/youtube/data/reference/rest/v3/videos#snippet.defaultAudioLanguage (checked 2026-11-25)"
@@ -59,6 +61,7 @@ Among retrieved candidates, the solver maximizes topic relevance subject to ever
 
 ## Related notes
 
+- [[brain/index|Second Brain Index]]
 - [[brain/resources/knapsack-constraint-solving|Knapsack Constraint Solving]]
-- [[brain/inbox/mcp-elicitation-confirmation|Trusted confirmation]]
-- [[brain/inbox/partial-playlist-outcomes|Partial playlist outcomes]]
+- [[brain/resources/mcp-elicitation-confirmation|Trusted confirmation]]
+- [[brain/projects/partial-playlist-outcomes|Partial playlist outcomes]]

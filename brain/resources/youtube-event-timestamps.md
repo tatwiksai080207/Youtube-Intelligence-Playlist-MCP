@@ -1,7 +1,7 @@
 ---
 title: YouTube Event Timestamps and Temporal Interest Weighting
 type: reference
-status: inbox
+status: distilled
 authors:
   - Molleti Tatwik Sai
 created: 2026-11-25
@@ -22,8 +22,10 @@ requirements:
   - SB-6
 issues:
   - "#6"
+  - "#19"
 prs:
   - "#14"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf Section 4.3 and 4.4 (checked 2026-11-25)"
   - "YouTube Data API v3 PlaylistItems Resource: https://developers.google.com/youtube/v3/docs/playlistItems (checked 2026-11-25)"
@@ -64,5 +66,5 @@ Recent likes, subscriptions, and playlist additions exert stronger influence on 
 - [[brain/index|Second Brain Index]]
 - [[brain/areas/second-brain|Second Brain Architecture]]
 - [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]]
-- [[brain/inbox/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]
-- [[brain/inbox/channel-similarity|Channel Similarity Profiling and Ranking]]
+- [[brain/projects/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]
+- [[brain/resources/channel-similarity|Channel Similarity Profiling and Ranking]]

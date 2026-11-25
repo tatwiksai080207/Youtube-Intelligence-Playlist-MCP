@@ -1,7 +1,7 @@
 ---
 title: Non-Functional Requirements Targets and Error Mapping
 type: reference
-status: inbox
+status: distilled
 authors:
   - Madire Shiva Reddy
 created: 2026-11-25
@@ -33,8 +33,10 @@ requirements:
   - SB-6
 issues:
   - "#5"
+  - "#19"
 prs:
   - "#15"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf Section 5 (checked 2026-11-25)"
   - "Final_SRS_Submission.pdf Section 3.2, 4.5, 4.6, 4.7, 6.1 (checked 2026-11-25)"
@@ -81,4 +83,4 @@ The complete 17-code vocabulary also includes domain and confirmation errors: `I
 - [[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]]
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern and Dependency Inversion]]
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]
-- [[brain/inbox/oauth-scopes-and-token-storage|OAuth Scopes, PKCE and Encrypted Token Storage]]
+- [[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle in Testing Publishing Status]]

@@ -66,5 +66,5 @@ Every request sent to the YouTube Data API v3 consumes quota regardless of wheth
 - [[brain/index|Second Brain Index]]
 - [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]]
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]
-- [[brain/inbox/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]
+- [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]
 - [[brain/areas/second-brain|Second Brain Architecture]]

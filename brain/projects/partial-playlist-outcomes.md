@@ -1,7 +1,7 @@
 ---
 title: Playlist Writes and Partial Outcomes
 type: reference
-status: inbox
+status: distilled
 authors:
   - Mohammed Farhan
 created: 2026-11-25
@@ -17,8 +17,10 @@ requirements:
   - SB-6
 issues:
   - "#7"
+  - "#19"
 prs:
   - "#17"
+  - "#20"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.5 and 5 (checked 2026-11-25)"
   - "YouTube Data API v3 playlists.insert: https://developers.google.com/youtube/data/reference/rest/v3/playlists/insert (checked 2026-11-25)"
@@ -54,6 +56,7 @@ Any recovery that changes the approved contents requires a new draft and fresh t
 
 ## Related notes
 
-- [[brain/inbox/mcp-elicitation-confirmation|Trusted confirmation]]
-- [[brain/inbox/playlist-constraints|Playlist constraints]]
+- [[brain/index|Second Brain Index]]
+- [[brain/resources/mcp-elicitation-confirmation|Trusted confirmation]]
+- [[brain/projects/playlist-constraints|Playlist constraints]]
 - [[brain/resources/youtube-quota-costs|YouTube API Quota Costs]]
