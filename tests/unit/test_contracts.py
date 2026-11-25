@@ -128,6 +128,9 @@ class _DummyProvider:
     async def get_channels(self, channel_ids: Sequence[str]) -> list[ChannelMeta]:
         return []
 
+    async def get_channel_by_handle(self, handle: str) -> ChannelMeta | None:
+        return None
+
     async def get_my_channel(self) -> ChannelMeta:
         return ChannelMeta(channel_id="UC_DUMMY", title="Dummy")
 
@@ -292,6 +295,13 @@ def test_INV_01_models_exclude_popularity_and_statistics_fields() -> None:
     assert event.source is EventSource.PLAYLIST_ITEM
     assert event.time_kind is EventTimeKind.DATED
 
+    channel = ChannelMeta(
+        channel_id="UC_TEST",
+        title="Test Channel",
+        keywords=("python", "mcp"),
+    )
+    assert channel.keywords == ("python", "mcp")
+
     with pytest.raises(ValueError, match="units"):
         QuotaUsed(units=-1)
     with pytest.raises(ValueError, match="search_calls"):
@@ -312,7 +322,7 @@ def test_CT_1_config_defaults_and_env_loading() -> None:
     assert cfg.quota.reset_timezone == "America/Los_Angeles"
     assert cfg.quota.list_unit_cost == 1
     assert cfg.quota.search_call_cost == 1
-    assert cfg.quota.search_unit_cost == 100
+    assert cfg.quota.search_unit_cost == 0
     assert cfg.quota.playlist_insert_unit_cost == 50
     assert cfg.quota.playlist_item_insert_unit_cost == 50
     assert cfg.cache == CacheConfig(86_400, 86_400, 21_600, 900, 86_400)
@@ -323,6 +333,15 @@ def test_CT_1_config_defaults_and_env_loading() -> None:
         min_dated_events=5, short_max_seconds=240, medium_max_seconds=1200
     )
     assert cfg.similarity == SimilarityConfig()
+    assert cfg.similarity.duration_weight == 0.10
+    assert cfg.similarity.keywords_weight == 0.20
+    assert (
+        cfg.similarity.title_weight
+        + cfg.similarity.tags_weight
+        + cfg.similarity.description_weight
+        + cfg.similarity.category_weight
+        + cfg.similarity.duration_weight
+    ) == pytest.approx(1.0)
     assert cfg.reliability == ReliabilityConfig(read_max_retries=3, write_max_retries=0)
     assert cfg.live_tests == LiveTestConfig(max_units=300, max_search_calls=10)
 
@@ -331,7 +350,7 @@ def test_CT_1_config_defaults_and_env_loading() -> None:
             "YT_INTEL_PROVIDER": "LIVE",
             "YT_INTEL_QUOTA_DAILY_UNITS": "4000",
             "YT_INTEL_QUOTA_DAILY_SEARCHES": "40",
-            "YT_INTEL_SEARCH_UNIT_COST": "0",
+            "YT_INTEL_SEARCH_UNIT_COST": "100",
             "YT_INTEL_DATA_DIR": "/tmp/yt-data",
             "YT_INTEL_FIXTURE_DIR": "/tmp/yt-fixtures",
         }
@@ -341,7 +360,7 @@ def test_CT_1_config_defaults_and_env_loading() -> None:
     assert live_cfg.fixture_dir == Path("/tmp/yt-fixtures")
     assert live_cfg.quota.daily_units_limit == 4000
     assert live_cfg.quota.daily_search_limit == 40
-    assert live_cfg.quota.search_unit_cost == 0
+    assert live_cfg.quota.search_unit_cost == 100
 
     with pytest.raises(ValueError, match="YT_INTEL_PROVIDER"):
         load_config({"YT_INTEL_PROVIDER": "scraping"})
@@ -380,6 +399,7 @@ def test_SE_6_protocols_and_no_playlist_edit_delete() -> None:
         "search_videos",
         "search_channels",
         "get_channels",
+        "get_channel_by_handle",
         "get_my_channel",
         "list_subscriptions_mine",
         "list_playlists_mine",

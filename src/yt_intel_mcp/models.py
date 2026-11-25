@@ -115,6 +115,7 @@ class ChannelMeta:
     country: str | None = None
     default_language: str | None = None
     topic_categories: tuple[str, ...] = ()
+    keywords: tuple[str, ...] = ()
     uploads_playlist_id: str | None = None
     likes_playlist_id: str | None = None
 

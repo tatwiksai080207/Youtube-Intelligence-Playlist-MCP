@@ -36,7 +36,7 @@ class QuotaConfig:
     reset_timezone: str = "America/Los_Angeles"
     list_unit_cost: int = 1
     search_call_cost: int = 1
-    search_unit_cost: int = 100
+    search_unit_cost: int = 0
     playlist_insert_unit_cost: int = 50
     playlist_item_insert_unit_cost: int = 50
 
@@ -108,13 +108,15 @@ class EngagementConfig:
 
 @dataclass(frozen=True, slots=True)
 class SimilarityConfig:
-    """Configurable objective metadata weights pending ADR-0003 freeze (INV-01)."""
+    """Configurable objective metadata weights pending ADR-0003 freeze (FR-1.2, FR-2.2, INV-01)."""
 
-    title_weight: float = 0.4
-    tags_weight: float = 0.3
-    description_weight: float = 0.2
-    category_weight: float = 0.1
+    title_weight: float = 0.35
+    tags_weight: float = 0.25
+    description_weight: float = 0.20
+    category_weight: float = 0.10
+    duration_weight: float = 0.10
     topics_weight: float = 0.25
+    keywords_weight: float = 0.20
 
 
 @dataclass(frozen=True, slots=True)
@@ -183,7 +185,7 @@ def load_config(environ: Mapping[str, str] | None = None) -> AppConfig:
     quota = QuotaConfig(
         daily_units_limit=_parse_int(env, "YT_INTEL_QUOTA_DAILY_UNITS", 10_000),
         daily_search_limit=_parse_int(env, "YT_INTEL_QUOTA_DAILY_SEARCHES", 100),
-        search_unit_cost=_parse_int(env, "YT_INTEL_SEARCH_UNIT_COST", 100),
+        search_unit_cost=_parse_int(env, "YT_INTEL_SEARCH_UNIT_COST", 0),
     )
 
     return AppConfig(

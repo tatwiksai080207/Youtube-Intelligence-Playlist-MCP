@@ -8,12 +8,12 @@
 - **GitHub PR:** `#26`
 - **Requirements:** `FR-8.1`, `SE-3`, `SE-6`, `FR-6.2`, `NFR-8`, `NFR-9`, `NFR-10`, `SB-3`
 - **Brain Sources:**
-  - `brain/areas/engineering/provider-interface-pattern.md`
-  - `brain/resources/nfr-targets.md`
-  - `brain/resources/youtube-quota-costs.md`
-  - `brain/resources/fixture-testing-and-vcr.md`
-  - `brain/resources/youtube-api-data-limits.md`
-  - `brain/areas/security/prompt-injection-defence.md`
+  - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]
+  - [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]
+  - [[brain/resources/youtube-quota-costs|YouTube API Quota Costs]]
+  - [[brain/resources/fixture-testing-and-vcr|Fixture Testing and VCR]]
+  - [[brain/resources/youtube-api-data-limits|YouTube API Data Limits]]
+  - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defense]]
 
 ## Context
 
@@ -29,24 +29,25 @@ Key architectural constraints from `Final_SRS_Submission.pdf` (v1.0):
 ## Decision
 
 ### 1. Async `YouTubeProvider` Protocol Boundary (`SE-6`, `FR-8.1`)
-Freeze `YouTubeProvider` as a `@runtime_checkable` `typing.Protocol` in `src/yt_intel_mcp/provider/base.py` with 12 async methods:
-- Reads: `get_videos`, `search_videos`, `search_channels`, `get_channels`, `get_my_channel`, `list_subscriptions_mine`, `list_playlists_mine`, `list_playlist_items`, `list_liked_videos_rated`, `get_video_categories`.
+Freeze `YouTubeProvider` as a `@runtime_checkable` `typing.Protocol` in `src/yt_intel_mcp/provider/base.py` with 13 async methods:
+- Reads: `get_videos`, `search_videos`, `search_channels`, `get_channels`, `get_channel_by_handle`, `get_my_channel`, `list_subscriptions_mine`, `list_playlists_mine`, `list_playlist_items`, `list_liked_videos_rated`, `get_video_categories`.
 - Confirmed writes: `insert_playlist`, `insert_playlist_item`.
 - Intentionally absent: playlist update/delete methods (`SRS Section 1.2`) and `statistics` fields (`INV-01`).
 
 Making `YouTubeProvider` methods `async def` aligns directly with `MCPServer` async tool handlers (`mcp 2.3.0`), `anyio` (`anyio 4.16.0`), async retry backoff in `SR-14`, and async `ctx.elicit()` confirmation flows (`MF-12`) without blocking the stdio event loop.
 
 ### 2. Direct REST HTTP Client in `SR-14` (Not `google-api-python-client`)
-Implement the live provider (`src/yt_intel_mcp/provider/youtube_v3.py`, task `SR-14`) using direct REST HTTP calls to `https://www.googleapis.com/youtube/v3/...` endpoints rather than `google-api-python-client`.
+Implement the live provider (`src/yt_intel_mcp/provider/live.py`, task `SR-14`) using direct REST HTTP calls to `https://www.googleapis.com/youtube/v3/...` endpoints rather than `google-api-python-client`.
 - Verified environment state in `.venv`: `pyproject.toml` currently declares `dependencies = ["mcp>=2.3,<3"]`, which pulls `anyio 4.16.0`, `httpx2 2.16.2`, and `httpcore2 2.16.2`; `google-api-python-client` is not installed.
-- Using direct REST JSON requests inside `SR-14` (either declaring an explicit HTTP client dependency in `pyproject.toml` during `SR-14` or using an async-wrapped transport encapsulated in `provider/youtube_v3.py`) avoids API discovery document overhead, guarantees explicit timeout/retry separation between reads (`3` retries) and writes (`0` retries), and keeps `httpx`/HTTP types strictly behind `YouTubeProvider`.
+- Using direct REST JSON requests inside `SR-14` (either declaring an explicit HTTP client dependency in `pyproject.toml` during `SR-14` or using an async-wrapped transport encapsulated in `provider/live.py`) avoids API discovery document overhead, guarantees explicit timeout/retry separation between reads (`3` retries) and writes (`0` retries), and keeps `httpx`/HTTP types strictly behind `YouTubeProvider`.
 
 ### 3. Synchronous `QuotaGuard` Protocol and Frozen `AppConfig`
 - Freeze `QuotaGuard` (`estimate`, `preflight`, `charge`, `mark_upstream_exhausted`, `status`) and `QuotaStatus` in `src/yt_intel_mcp/quota/guard.py` using synchronous signatures so SQLite ledger operations work cleanly in both async handlers and synchronous unit helpers.
-- Freeze `AppConfig` and nested section dataclasses in `src/yt_intel_mcp/config.py` with all binding defaults from `SRS Section 5` (`10,000` units/day, `100` search calls/day, `America/Los_Angeles` reset, configurable `search_unit_cost` `0` or `100`, TTLs `86400`/`21600`/`900`, `draft.ttl_seconds=600`, `5%` tolerance, `max_videos=25`, `private` default, `90`-day half-life, `min_dated_events=5`, duration cutoffs `240s`/`1200s`, retries `3`/`0`, live smoke budget `300` units / `10` search calls).
+- Freeze `AppConfig` and nested section dataclasses in `src/yt_intel_mcp/config.py` with all binding defaults from `SRS Section 5` (`10,000` units/day, `100` search calls/day, `America/Los_Angeles` reset, `search_unit_cost=0` by default per `C-2`/`NFR-2` so 10-video workflows stay `<= 600` units while keeping `0` or `100` configurable for the R-1 model, TTLs `86400`/`21600`/`900`, `draft.ttl_seconds=600`, `5%` tolerance, `max_videos=25`, `private` default, `90`-day half-life, `min_dated_events=5`, duration cutoffs `240s`/`1200s`, retries `3`/`0`, live smoke budget `300` units / `10` search calls).
 
 ### 4. Frozen Models, 17 `ErrorCode`s, Upstream Mapping, and Stage 2 Stubs
-- Freeze `QuotaUsed`, `CostEstimate`, `VideoMeta`, `ChannelMeta`, `SearchHit`, `PlaylistSummary`, `CreatedPlaylist`, `EventSource`, `EventTimeKind`, and `UserEvent` in `src/yt_intel_mcp/models.py` (excluding all popularity fields).
+- Freeze `QuotaUsed`, `CostEstimate`, `VideoMeta`, `ChannelMeta` (including `keywords` for `FR-2.2` and excluding all popularity/statistics fields), `SearchHit`, `PlaylistSummary`, `CreatedPlaylist`, `EventSource`, `EventTimeKind`, and `UserEvent` in `src/yt_intel_mcp/models.py`.
+- Freeze configurable objective similarity weights in `SimilarityConfig` (`title_weight`, `tags_weight`, `description_weight`, `category_weight`, `duration_weight`, `topics_weight`, `keywords_weight` pending `ADR-0003` in `TS-04`).
 - Freeze all 17 `ErrorCode`s, `OutcomeStatus` (`COMPLETE`, `PARTIAL`), `ToolError`, `success_response`, `error_response`, and `map_upstream_error` in `src/yt_intel_mcp/errors.py`.
 - Freeze stub function signatures (`NotImplementedError`) in `src/yt_intel_mcp/sanitize.py` (`MF-07`) and `src/yt_intel_mcp/validation/ids.py` (`TS-06`).
 

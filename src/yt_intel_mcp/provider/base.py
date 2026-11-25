@@ -57,6 +57,10 @@ class YouTubeProvider(Protocol):
         """Fetch objective metadata for up to 50 channel IDs per call."""
         ...
 
+    async def get_channel_by_handle(self, handle: str) -> ChannelMeta | None:
+        """Resolve an @handle via channels.list?forHandle and return metadata if found (FR-2.1)."""
+        ...
+
     async def get_my_channel(self) -> ChannelMeta:
         """Fetch the authenticated user's primary YouTube channel metadata."""
         ...
