@@ -1,5 +1,5 @@
-# Provisional toolchain (SRS Section 2.3): Python 3.11+ with the official MCP SDK.
-# Final runtime choice is recorded in ADR-0001 (SR-03, decision D-02).
+# Accepted toolchain (SRS Section 2.3, ADR-0001, D-02): Python 3.11+ with the official MCP SDK.
+# JSON Schemas reside in src/yt_intel_mcp/schemas/ per ADR-0001 (conflict C-02).
 
 [build-system]
 requires = ["hatchling>=1.25"]

@@ -54,14 +54,14 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | NFR-7 | Shiva / Tatwik | SR-02, SR-08, SR-12, TS-14 | #5 (SR-02), pending (SR-08) | #15 (SR-02), pending | SEC_PII | n/a — privacy | brain/resources/nfr-targets.md |
 | NFR-8 | Shiva / Farhan | SR-02, SR-14, MF-14 | #5 (SR-02), pending (SR-14) | #15 (SR-02), pending | IT_PROV retry, IT_DRAFT_PARTIAL | n/a — reliability | brain/resources/nfr-targets.md |
 | NFR-9 | Farhan / all | TS-04, MF-04, SR-17, TS-16 | pending (TS-04) | pending | Tool reference CI check | n/a — usability | brain/resources/nfr-targets.md |
-| NFR-10 | Farhan / Shiva | SR-01, SR-02, MF-02, SR-15, MF-18 | #2 (SR-01), #5 (SR-02), #8 (MF-02) | #11 (SR-01), #15 (SR-02), #16 (MF-02), pending (SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
+| NFR-10 | Farhan / Shiva | SR-01, SR-02, SR-03, MF-02, SR-15, MF-18 | #2 (SR-01), #5 (SR-02), #21 (SR-03), #8 (MF-02) | #11 (SR-01), #15 (SR-02), pending (SR-03), #16 (MF-02), pending (SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
 
 ## SDLC Process Requirements (R-2)
 | Req | Owner | Task(s) | Evidence Location |
 |---|---|---|---|
 | SE-1 SRS | Shiva (maintainer) | done | `Final_SRS_Submission.pdf` (commit `a51c14e`) |
 | SE-2 Architecture & UML/ER | Shiva, Tatwik, Farhan | SR-05, TS-04, MF-04 | `docs/architecture/` |
-| SE-3 ADRs | All | SR-03, SR-04, SR-05, TS-04, MF-04 | `docs/adr/` |
+| SE-3 ADRs | All | SR-03 (#21, PR pending), SR-04, SR-05, TS-04, MF-04 | `docs/adr/` (`0001-runtime-and-toolchain.md`) |
 | SE-4 Dev plan & breakdown | Tatwik | TS-00 (#1, PR #10) | `docs/plan/development-plan.md` |
 | SE-5 Traceability | All | TS-00..SR-18 (#1, PR #10) | `docs/traceability.md` |
 | SE-6 Provider interface | Shiva | SR-04, SR-15 | `src/yt_intel_mcp/provider/base.py` |
