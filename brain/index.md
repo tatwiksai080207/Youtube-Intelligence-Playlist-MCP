@@ -67,7 +67,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-25-shiva-SR-02|AI Session SR-02]]: Ingest `NFR` and `OAuth` notes via `brain-ingest` and distil 4 infrastructure notes.
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-02|AI Session MF-02]]: Enforce fixture-mode CI checks (Issue #8, PR #16).
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-02|AI Session TS-02]]: Ingest `FR-2`, `FR-3`, and `FR-4` research notes via `brain-ingest`.
-- [[brain/inbox/ai-session-2026-11-25-farhan-MF-03|AI Session MF-03]]: Ingest the playlist research notes and review prompt-injection defence (Issue #7).
+- [[brain/inbox/ai-session-2026-11-25-farhan-MF-03|AI Session MF-03]]: Ingest the playlist research notes and review prompt-injection defence (Issue #7, PR #17).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

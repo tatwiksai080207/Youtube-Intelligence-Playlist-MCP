@@ -17,7 +17,8 @@ requirements:
   - NFR-6
 issues:
   - "#7"
-prs: []
+prs:
+  - "#17"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.5 and 5 (checked 2026-11-25)"
   - "Local development session (2026-11-25)"

@@ -19,7 +19,8 @@ requirements:
   - SB-6
 issues:
   - "#7"
-prs: []
+prs:
+  - "#17"
 sources:
   - "Final_SRS_Submission.pdf v1.0, section 4.5 (checked 2026-11-25)"
   - "YouTube Data API v3 video resource audio language: https://developers.google.com/youtube/data/reference/rest/v3/videos#snippet.defaultAudioLanguage (checked 2026-11-25)"
