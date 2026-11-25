@@ -21,7 +21,8 @@ requirements:
   - SB-6
 issues:
   - "#6"
-prs: []
+prs:
+  - "#14"
 sources:
   - "Final_SRS_Submission.pdf Section 4.2 and 5 (checked 2026-11-25)"
   - "YouTube Data API v3 Channels Resource: https://developers.google.com/youtube/v3/docs/channels (checked 2026-11-25)"

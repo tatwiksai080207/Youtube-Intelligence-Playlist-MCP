@@ -17,7 +17,8 @@ requirements:
   - FR-4
 issues:
   - "#6"
-prs: []
+prs:
+  - "#14"
 sources:
   - "Local development session (2026-11-25)"
   - "Final_SRS_Submission.pdf Sections 4.2, 4.3, 4.4 (checked 2026-11-25)"
@@ -30,6 +31,6 @@ sources:
 - **AI Tool / Model:** Antigravity / Gemini 4 Hydrogen
 - **Human Reviewer:** Mohammed Farhan
 - **What Worked:** Verified live YouTube Data API v3 resource fields (`channels` parts, `playlistItems.snippet.publishedAt`, `subscriptions.snippet.publishedAt`, `videos.list?myRating=like`, and `search.list` `videoDuration` filter boundaries) against official documentation before authoring `channel-similarity.md`, `youtube-event-timestamps.md`, and `engagement-analysis.md`.
-- **What Failed / Needed Correction:** Checked `validate_brain.py` requirements upfront so `prs: []` was used rather than placeholder text, and all new inbox notes were registered in `brain/index.md`.
-- **Human Changes Made:** Pending author review before commit and pull request creation.
+- **What Failed / Needed Correction:** Checked `validate_brain.py` requirements upfront so `prs: []` was used initially and all new inbox notes were registered in `brain/index.md`. During PR #14 review, Farhan caught two items: `youtube-event-timestamps.md` needed `playlistItems.snippet.publishedAt` described as the time the item was added (not always by the owner, since owned playlists can contain items added by others), and `brain/log.md` had swapped `Actor` and `Action` columns. Both were corrected and PR #14 back-links were added.
+- **Human Changes Made:** Reviewed PR #14 feedback from Farhan and verified updated validation checks.
 - **Related Notes:** [[brain/index|Second Brain Index]], [[brain/areas/second-brain|Second Brain Architecture]], [[brain/inbox/channel-similarity|Channel Similarity Profiling and Ranking]], [[brain/inbox/youtube-event-timestamps|YouTube Event Timestamps and Temporal Interest Weighting]], [[brain/inbox/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]

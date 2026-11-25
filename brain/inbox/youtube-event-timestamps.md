@@ -22,10 +22,12 @@ requirements:
   - SB-6
 issues:
   - "#6"
-prs: []
+prs:
+  - "#14"
 sources:
   - "Final_SRS_Submission.pdf Section 4.3 and 4.4 (checked 2026-11-25)"
   - "YouTube Data API v3 PlaylistItems Resource: https://developers.google.com/youtube/v3/docs/playlistItems (checked 2026-11-25)"
+  - "YouTube Data API v3 PlaylistItem snippet.publishedAt: https://developers.google.com/youtube/data/reference/rest/v3/playlistItems#snippet.publishedAt (checked 2026-11-25)"
   - "YouTube Data API v3 Subscriptions Resource: https://developers.google.com/youtube/v3/docs/subscriptions (checked 2026-11-25)"
   - "YouTube Data API v3 Videos Resource: https://developers.google.com/youtube/v3/docs/videos (checked 2026-11-25)"
 ---
@@ -37,9 +39,9 @@ For personalized recommendations (`FR-3`) and engagement trend analysis (`FR-4`)
 
 ## Permitted Event Time Sources (`FR-3.1`)
 User action timestamps come exclusively from three API fields:
-1. **Liked Videos (Likes Playlist):** Resolving the user likes playlist ID via `channels.list?mine=true&part=contentDetails` (`relatedPlaylists.likes`) and querying `playlistItems.list?part=snippet` exposes `playlistItems.snippet.publishedAt`, which records the exact datetime when the user added the video to their likes playlist.
+1. **Liked Videos (Likes Playlist):** Resolving the user likes playlist ID via `channels.list?mine=true&part=contentDetails` (`relatedPlaylists.likes`) and querying `playlistItems.list?part=snippet` exposes `playlistItems.snippet.publishedAt`, which records the time the item was added to the account likes playlist.
 2. **Subscriptions:** Querying `subscriptions.list?mine=true&part=snippet` exposes `subscriptions.snippet.publishedAt`, which records when the user subscribed to that channel.
-3. **User Playlist Items:** Querying `playlists.list?mine=true` followed by `playlistItems.list?part=snippet` exposes `playlistItems.snippet.publishedAt`, recording when the user added each video to that playlist.
+3. **User Playlist Items:** Querying `playlists.list?mine=true` followed by `playlistItems.list?part=snippet` exposes `playlistItems.snippet.publishedAt`, recording the time the item was added to that playlist (playlists owned by the authenticated user via `playlists.list?mine=true` can include items added by someone else, so attributing every addition to the owner could skew the interest profile and monthly counts).
 
 ## Prohibited Timestamp Fields (`INV-04`)
 - `videos.snippet.publishedAt` (global video publication date on YouTube) and `playlistItems.contentDetails.videoPublishedAt` (video upload timestamp) MUST NEVER be used as user event times. Confusing upload time with action time corrupts both temporal interest decay (`FR-3.1`) and monthly activity trends (`FR-4.1`).
