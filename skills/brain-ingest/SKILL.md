@@ -25,8 +25,8 @@ Collect incoming research, API specifications, and architectural patterns into t
 3. Ensure the note body begins with a clear summary section followed by detailed technical analysis.
 4. Add at least one [[wikilink]] connecting the note to existing vault notes or `brain/index.md`.
 5. Update `brain/index.md` so the new note is immediately discoverable.
-6. Append a formatted entry to `brain/log.md`:
-   `| YYYY-MM-DD | brain-ingest | <Full Member Name> | <notes touched> | <PR/Issue or pending> |`
+6. Append a formatted entry to `brain/log.md` matching its 4 column table (`Timestamp | Actor | Action | Output / Notes`):
+   `| YYYY-MM-DD HH:MM | <Full Member Name> | <Task / Action (brain-ingest)> | <Notes touched (Issue #n, PR #m)> |`
 
 ## Governance and Quality
 Every ingested note must be reviewed and merged through a pull request per requirement SB-5. Never commit secrets, tokens, or personal identifiers into ingested notes.

@@ -5,7 +5,7 @@ status: distilled
 authors:
   - Molleti Tatwik Sai
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-25
 tags:
   - second-brain
   - para
@@ -21,7 +21,7 @@ requirements:
 issues:
   - "#3"
 prs:
-  - "#10"
+  - "#13"
 sources:
   - "The AI-Assisted Software Development Life Cycle (SDLC) Section 1"
   - "Building a Second Brain (Tiago Forte)"

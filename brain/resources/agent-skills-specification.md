@@ -18,8 +18,10 @@ requirements:
   - SE-7
 issues:
   - "#1"
+  - "#3"
 prs:
   - "#10"
+  - "#13"
 sources:
   - "agentskills.io Specification (checked 2026-11-12)"
   - "Final_SRS_Submission.pdf Section 4.9 (checked 2026-11-12)"

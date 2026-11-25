@@ -19,8 +19,10 @@ requirements:
   - FR-7
 issues:
   - "#1"
+  - "#3"
 prs:
   - "#10"
+  - "#13"
 sources:
   - "YouTube Data API v3 Documentation (checked 2026-11-12)"
   - "Final_SRS_Submission.pdf Section 1.2, 2.4, 4.7 (checked 2026-11-12)"

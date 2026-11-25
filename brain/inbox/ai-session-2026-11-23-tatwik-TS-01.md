@@ -5,7 +5,7 @@ status: inbox
 authors:
   - Molleti Tatwik Sai
 created: 2026-11-23
-updated: 2026-11-23
+updated: 2026-11-25
 tags:
   - ai-session
   - stage-1
@@ -16,7 +16,7 @@ requirements:
 issues:
   - "#3"
 prs:
-  - "#10"
+  - "#13"
 sources:
   - "Local development session (2026-11-23)"
   - "Final_SRS_Submission.pdf (checked 2026-11-23)"
