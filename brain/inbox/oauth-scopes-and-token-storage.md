@@ -27,7 +27,8 @@ requirements:
   - SB-6
 issues:
   - "#5"
-prs: []
+prs:
+  - "#15"
 sources:
   - "Final_SRS_Submission.pdf Section 2.4, 3.3, 4.7, 5 (checked 2026-11-25)"
   - "Google OAuth 2.0 for Mobile & Desktop Apps: https://developers.google.com/identity/protocols/oauth2/native-app (checked 2026-11-25)"

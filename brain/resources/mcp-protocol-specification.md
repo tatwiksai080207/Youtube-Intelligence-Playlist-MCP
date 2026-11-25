@@ -28,6 +28,7 @@ issues:
 prs:
   - "#10"
   - "#11"
+  - "#15"
 sources:
   - "Model Context Protocol Specification 2025-06-18: https://modelcontextprotocol.io/specification/2025-06-18 (checked 2026-11-25)"
   - "Model Context Protocol Elicitation Specification 2025-06-18: https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation (checked 2026-11-25)"

@@ -24,7 +24,8 @@ requirements:
   - NFR-10
 issues:
   - "#5"
-prs: []
+prs:
+  - "#15"
 sources:
   - "Local development session (2026-11-25)"
   - "Final_SRS_Submission.pdf Sections 2.4, 3.1-3.3, 4.6-4.8, 5 (checked 2026-11-25)"

@@ -33,7 +33,8 @@ requirements:
   - SB-6
 issues:
   - "#5"
-prs: []
+prs:
+  - "#15"
 sources:
   - "Final_SRS_Submission.pdf Section 5 (checked 2026-11-25)"
   - "Final_SRS_Submission.pdf Section 3.2, 4.5, 4.6, 4.7, 6.1 (checked 2026-11-25)"

@@ -30,6 +30,7 @@ issues:
   - "#5"
 prs:
   - "#10"
+  - "#15"
 sources:
   - "Final_SRS_Submission.pdf Section 2.1, 2.4, 4.8, 5, 6.1 (checked 2026-11-25)"
   - "SDLC_and_Workflow.pdf Section 2 SE-6 (checked 2026-11-25)"

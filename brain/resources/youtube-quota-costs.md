@@ -27,6 +27,7 @@ issues:
   - "#5"
 prs:
   - "#10"
+  - "#15"
 sources:
   - "YouTube Data API v3 Quota Cost Calculator: https://developers.google.com/youtube/v3/determine_quota_cost (checked 2026-11-25)"
   - "YouTube Data API v3 search.list Reference: https://developers.google.com/youtube/v3/docs/search/list (checked 2026-11-25)"

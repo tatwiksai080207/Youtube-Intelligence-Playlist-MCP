@@ -32,4 +32,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-23 15:30 | Madire Shiva Reddy | SR-01 Package Skeleton | Added package skeleton, stdio server, and smoke tests (PR #11) |
 | 2026-11-23 16:00 | Mohammed Farhan | MF-01 Validators | Added standalone skill and brain validators with fixtures (PR #12) |
 | 2026-11-23 22:50 | Molleti Tatwik Sai | TS-01 Brain Alignment | Aligned all notes, index, log, and brain-ingest to SRS v1.0 schema (Issue #3) |
-| 2026-11-25 17:45 | brain-ingest | Madire Shiva Reddy | Ingested `nfr-targets.md`, `oauth-scopes-and-token-storage.md`, `ai-session-2026-11-25-shiva-SR-02.md`; distilled 4 infra notes (Issue #5, PR pending) |
+| 2026-11-25 17:45 | brain-ingest | Madire Shiva Reddy | Ingested `nfr-targets.md`, `oauth-scopes-and-token-storage.md`, `ai-session-2026-11-25-shiva-SR-02.md`; distilled 4 infra notes (Issue #5, PR #15) |

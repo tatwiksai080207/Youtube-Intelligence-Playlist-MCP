@@ -30,6 +30,7 @@ issues:
   - "#5"
 prs:
   - "#10"
+  - "#15"
 sources:
   - "Google OAuth 2.0 for Mobile & Desktop Apps: https://developers.google.com/identity/protocols/oauth2/native-app (checked 2026-11-25)"
   - "Using OAuth 2.0 to Access Google APIs (Token Expiration): https://developers.google.com/identity/protocols/oauth2 (checked 2026-11-25)"
