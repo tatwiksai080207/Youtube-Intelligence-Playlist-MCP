@@ -8,6 +8,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 |---|---|---|---|---|---|---|
 | Stage 1 | `SK-3` | `brain-ingest` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, CI run `45619944133` |
 | Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19`, PR `#20` |
+| Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24` |
 
 ---
 
@@ -47,3 +48,17 @@ This document records formal evaluations of every Agent Skill before each stage 
 | `SE-REF-02` | Duplicate OAuth note consolidation | Merge unique PKCE, `get_auth_status`, `ADR-0006`, `#5`, and `#15` details from `brain/inbox/oauth-scopes-and-token-storage.md` into `brain/resources/google-oauth-testing-mode.md` and remove duplicate | Content consolidated cleanly into `google-oauth-testing-mode.md` and redundant inbox file deleted | **PASS** |
 | `SE-REF-03` | PARA promotion and `status: distilled` transition | Promote remaining 7 Stage 1 research notes to canonical `brain/resources/` and `brain/projects/` destinations with `status: distilled` while keeping `ai-session-*.md` in `brain/inbox/` | All 7 notes promoted (4 resources, 3 projects) alongside `brain/areas/skill-brain-refine.md` and `ai-session-2026-11-25-tatwik-TS-05.md` | **PASS** |
 | `SE-REF-04` | Vault wikilink repair and `docs/traceability.md` cleanup (`SB-1`) | Replace all stale `[[brain/inbox/...]]` links across notes, AI session records, `brain/index.md`, `brain/log.md`, and `docs/traceability.md` | `py -3.11 scripts/validate_brain.py` printed `Brain validation passed.` across all 32 vault markdown files | **PASS** |
+
+## Stage 2 Evaluation of `local-check` v1 (`SK-2`)
+
+- **Skill path** `skills/local-check/SKILL.md`
+- **Distilled citation** `[[brain/areas/skill-local-check|Local Check Skill]]`
+- **Execution** `python scripts/local_check.py` on macOS with Python 3.14.2
+
+| Case ID | Scenario | Observed result | Status |
+|---|---|---|---|
+| `SE-LOCAL-01` | Build, tests, and MCP initialization | Built the wheel, ran 59 tests, and initialized the fixture-mode server over stdio | **PASS** |
+| `SE-LOCAL-02` | Fetch unavailable in v1 | Reported `NOT RUN: no read-only fetch tool registered yet` and summarized three passes, zero failures, and one step not run | **PASS** for v1 |
+| `SE-LOCAL-03` | Test and handshake failures | Automated test verified nonzero exit, the failed checks, the dependent fetch skip, and the final failure count | **PASS** |
+
+The read-only fixture tool invocation remains pending MF-16. The v1 evaluation used zero live YouTube quota.

@@ -50,6 +50,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/areas/engineering/provider-interface-pattern|Provider Interface Pattern]]: Dependency inversion for YouTube API.
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]: Defending against untrusted video metadata and enforcing human gates.
 - [[brain/areas/skill-brain-refine|Skill Note: brain-refine]]: Design rationale, PARA placement rules, duplicate merging protocol, and `SK-4` evaluation targets.
+- [[brain/areas/skill-local-check|Local Check Skill]]: Fixture-mode build, tests, and MCP startup verification for `SK-2`.
 
 ## Technical Resources and Specifications
 - [[brain/resources/youtube-quota-costs|YouTube API Quota Costs]]: Quota ledger, method pricing, and daily limit tracking.
@@ -75,6 +76,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-03|AI Session MF-03]]: Ingest the playlist research notes and review prompt injection defence (Issue #7, PR #17).
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-03|AI Session TS-03]]: Stage 1 review, `brain-ingest` evaluation, `SB-1` back link audit, and changelog (Issue #9, PR #18).
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-05|AI Session TS-05]]: Author `brain-refine` (`SK-4`), merge duplicate OAuth note, promote Stage 1 notes into PARA, and repair vault links (Issue #19, PR #20).
+- [[brain/inbox/ai-session-2026-11-25-farhan-MF-05|AI Session MF-05]]: Build and run the fixture-mode local checks (Issue #23, PR #24).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
