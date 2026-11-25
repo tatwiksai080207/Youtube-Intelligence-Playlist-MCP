@@ -4,7 +4,7 @@
 - **Owner:** Madire Shiva Reddy (`@Shiva0025`)
 - **Reviewer:** Molleti Tatwik Sai (`@tatwiksai080207`)
 - **GitHub Issue:** `#30`
-- **GitHub PR:** `pending`
+- **GitHub PR:** `#31`
 - **Requirements:** `SE-2`, `FR-6`, `FR-7`, `NFR-3`, `NFR-7`, `FR-8.1`, `NFR-8`, `NFR-10`, `C-1`..`C-7`
 - **Related ADRs:**
   - `docs/adr/0001-runtime-and-toolchain.md` (Python 3.11+, official `mcp` SDK, `src/yt_intel_mcp/schemas/`)

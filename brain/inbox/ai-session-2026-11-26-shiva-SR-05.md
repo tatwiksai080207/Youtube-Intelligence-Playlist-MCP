@@ -25,7 +25,8 @@ requirements:
   - SB-6
 issues:
   - "#30"
-prs: []
+prs:
+  - "#31"
 sources:
   - "Final_SRS_Submission.pdf Sections 2.1, 2.3, 3.3, 4.6, 4.7, 5 (checked 2026-11-26)"
   - "docs/adr/0001-runtime-and-toolchain.md, docs/adr/0002-provider-and-errors.md, and docs/adr/0007-interest-profile.md (checked 2026-11-26)"

@@ -5,7 +5,7 @@
 - **Decision Makers:** Madire Shiva Reddy (owner), Molleti Tatwik Sai, Mohammed Farhan
 - **Task:** `SR-05`
 - **GitHub Issue:** `#30`
-- **GitHub PR:** `pending`
+- **GitHub PR:** `#31`
 - **Requirements:** `SE-3`, `FR-6`, `FR-7`, `FR-7.2`, `NFR-3`, `NFR-7`, `SB-3`
 - **Distilled Brain Sources (`SB-3`):**
   - [[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle in Testing Publishing Status]]
