@@ -78,6 +78,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-05|AI Session TS-05]]: Author `brain-refine` (`SK-4`), merge duplicate OAuth note, promote Stage 1 notes into PARA, and repair vault links (Issue #19, PR #20).
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-05|AI Session MF-05]]: Build and run the fixture-mode local checks (Issue #23, PR #24).
 - [[brain/inbox/ai-session-2026-11-25-shiva-SR-03|AI Session SR-03]]: Accept ADR-0001 runtime, official `mcp` SDK, toolchain, and `src/yt_intel_mcp/schemas/` path (Issue #21, PR #22).
+- [[brain/inbox/ai-session-2026-11-25-shiva-SR-04|AI Session SR-04]]: Freeze shared v1.0 contracts (`CT-1`), protocols, config defaults, stubs, fixture guide, and ADR-0002 (Issue #25, PR #26).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
