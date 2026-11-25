@@ -35,4 +35,4 @@
 | `G-06` | Gap | Fixed neutral weight value for undated items (FR-3.2) | Freeze in ADR-0007 (`TS-04`) | Tatwik | OPEN |
 | `G-07` | Conflict | Existing note proposes "clickbait penalty" absent from SRS FR-1.2 | Mark "not adopted — not in SRS FR-1.2" in `TS-01` | Tatwik | RESOLVED |
 | `G-08` | Conflict | Existing notes cite draft IDs (`NFR-SEC-1`, `C-11`, etc.) | Map to SRS v1.0 IDs in `TS-01` | Tatwik | RESOLVED |
-| `G-09` | Gap | Existing 10 notes lack `status`/`authors`/`sources`; 1 author | Fix schema in `TS-01`; add notes from all 3 members (`SR-02`, `TS-02`, `MF-03`) | Tatwik | OPEN |
+| `G-09` | Gap | Existing 10 notes lack `status`/`authors`/`sources`; 1 author | Fix schema in `TS-01`; add notes from all 3 members (`SR-02`, `TS-02`, `MF-03`) | Tatwik | RESOLVED |

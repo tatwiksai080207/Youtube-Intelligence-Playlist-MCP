@@ -24,10 +24,12 @@ requirements:
 issues:
   - "#1"
   - "#2"
+  - "#3"
   - "#5"
 prs:
   - "#10"
   - "#11"
+  - "#13"
   - "#15"
 sources:
   - "Model Context Protocol Specification 2025-06-18: https://modelcontextprotocol.io/specification/2025-06-18 (checked 2026-11-25)"

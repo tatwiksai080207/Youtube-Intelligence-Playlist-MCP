@@ -13,8 +13,12 @@ requirements:
   - "n/a"
 issues:
   - "#1"
+  - "#3"
+  - "#9"
 prs:
   - "#10"
+  - "#13"
+  - "#18"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -34,6 +38,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 
 ## Active Projects
 - [[brain/projects/youtube-mcp/project-overview|YouTube MCP Project Overview]]: Goals, milestones, and active deadlines.
+- [[brain/projects/stage-1-review|Stage 1 Review]]: Requirements baseline audit, skill evaluation summary, and process findings.
 
 ## Core Architectural and Engineering Areas
 - [[brain/areas/second-brain|Second Brain Architecture]]: Standards for note taking, PARA, and compliance.
@@ -68,6 +73,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-02|AI Session MF-02]]: Enforce fixture-mode CI checks (Issue #8, PR #16).
 - [[brain/inbox/ai-session-2026-11-25-tatwik-TS-02|AI Session TS-02]]: Ingest `FR-2`, `FR-3`, and `FR-4` research notes via `brain-ingest`.
 - [[brain/inbox/ai-session-2026-11-25-farhan-MF-03|AI Session MF-03]]: Ingest the playlist research notes and review prompt-injection defence (Issue #7, PR #17).
+- [[brain/inbox/ai-session-2026-11-25-tatwik-TS-03|AI Session TS-03]]: Stage 1 review, `brain-ingest` evaluation, `SB-1` back-link audit, and changelog (Issue #9, PR #18).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

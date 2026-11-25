@@ -24,9 +24,11 @@ requirements:
   - SB-6
 issues:
   - "#1"
+  - "#3"
   - "#5"
 prs:
   - "#10"
+  - "#13"
   - "#15"
 sources:
   - "YouTube Data API v3 Quota Cost Calculator: https://developers.google.com/youtube/v3/determine_quota_cost (checked 2026-11-25)"

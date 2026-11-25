@@ -27,9 +27,11 @@ requirements:
   - SB-6
 issues:
   - "#1"
+  - "#3"
   - "#5"
 prs:
   - "#10"
+  - "#13"
   - "#15"
 sources:
   - "Final_SRS_Submission.pdf Section 2.1, 2.4, 4.8, 5, 6.1 (checked 2026-11-25)"

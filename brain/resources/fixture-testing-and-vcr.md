@@ -19,8 +19,10 @@ requirements:
   - NFR-7
 issues:
   - "#1"
+  - "#3"
 prs:
   - "#10"
+  - "#13"
 sources:
   - "Final_SRS_Submission.pdf Section 4.8 and 6.1 (checked 2026-11-12)"
 ---

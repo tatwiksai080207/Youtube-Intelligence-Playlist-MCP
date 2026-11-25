@@ -19,9 +19,11 @@ requirements:
   - NFR-6
 issues:
   - "#1"
+  - "#3"
   - "#7"
 prs:
   - "#10"
+  - "#13"
   - "#17"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.5 and 5 (checked 2026-11-25)"

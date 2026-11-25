@@ -27,9 +27,11 @@ requirements:
   - SB-6
 issues:
   - "#1"
+  - "#3"
   - "#5"
 prs:
   - "#10"
+  - "#13"
   - "#15"
 sources:
   - "Google OAuth 2.0 for Mobile & Desktop Apps: https://developers.google.com/identity/protocols/oauth2/native-app (checked 2026-11-25)"

@@ -13,8 +13,12 @@ requirements:
   - "n/a"
 issues:
   - "#1"
+  - "#3"
+  - "#9"
 prs:
   - "#10"
+  - "#13"
+  - "#18"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -33,6 +37,7 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-23 16:00 | Mohammed Farhan | MF-01 Validators | Added standalone skill and brain validators with fixtures (PR #12) |
 | 2026-11-23 22:50 | Molleti Tatwik Sai | TS-01 Brain Alignment | Aligned all notes, index, log, and brain-ingest to SRS v1.0 schema (Issue #3, PR #13) |
 | 2026-11-25 17:23 | Molleti Tatwik Sai | TS-02 Research Notes (brain-ingest) | Ingested `channel-similarity.md`, `youtube-event-timestamps.md`, `engagement-analysis.md`, `ai-session-2026-11-25-tatwik-TS-02.md` (Issue #6, PR #14) |
-| 2026-11-25 17:45 | brain-ingest | Madire Shiva Reddy | Ingested `nfr-targets.md`, `oauth-scopes-and-token-storage.md`, `ai-session-2026-11-25-shiva-SR-02.md`; distilled 4 infra notes (Issue #5, PR #15) |
+| 2026-11-25 17:45 | Madire Shiva Reddy | SR-02 Research Notes and Distillation (brain-ingest) | Ingested `nfr-targets.md`, `oauth-scopes-and-token-storage.md`, `ai-session-2026-11-25-shiva-SR-02.md`; distilled 4 infra notes (Issue #5, PR #15) |
 | 2026-11-25 | Mohammed Farhan | MF-02 CI gates | [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] records the fixture-mode CI gates and failure verification (Issue #8, PR #16) |
 | 2026-11-25 | Mohammed Farhan | MF-03 Playlist Research (brain-ingest) | Added [[brain/inbox/mcp-elicitation-confirmation]], [[brain/inbox/playlist-constraints]], [[brain/inbox/partial-playlist-outcomes]], and [[brain/inbox/ai-session-2026-11-25-farhan-MF-03]]. Reviewed [[brain/areas/security/prompt-injection-defence]] (Issue #7, PR #17). |
+| 2026-11-25 18:38 | Molleti Tatwik Sai | TS-03 Stage 1 Review and SB-1 Audit | Audited Stage 1 back-links, evaluated `brain-ingest`, resolved `G-09`, wrote `stage-1-review.md` and `CHANGELOG.md` (Issue #9, PR #18) |
