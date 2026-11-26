@@ -427,9 +427,6 @@ def test_CT_1_stage2_stubs_raise_not_implemented() -> None:
     assert extract_video_id is validation_ids.extract_video_id
     assert extract_channel_id is validation_ids.extract_channel_id
     assert extract_playlist_id is validation_ids.extract_playlist_id
-    with pytest.raises(NotImplementedError):
-        extract_video_id("dQw4w9WgXcQ")
-    with pytest.raises(NotImplementedError):
-        extract_channel_id("UC_123")
-    with pytest.raises(NotImplementedError):
-        extract_playlist_id("PL_123")
+    assert extract_video_id("dQw4w9WgXcQ") == "dQw4w9WgXcQ"
+    assert extract_channel_id("UCuAXFkgsw1L7xaCfnd5JJOw") == "UCuAXFkgsw1L7xaCfnd5JJOw"
+    assert extract_playlist_id("PL1234567890abcdef") == "PL1234567890abcdef"
