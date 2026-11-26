@@ -28,7 +28,8 @@ requirements:
   - SB-1
 issues:
   - "#36"
-prs: []
+prs:
+  - "#37"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Sections 5 and 6 (checked 2026-11-26)"
   - "docs/developer/fixtures.md and .github/workflows/ci.yml (checked 2026-11-26)"
@@ -37,7 +38,7 @@ sources:
 # AI Session MF-06 Test Plan, CI Plan and Defect Log
 
 ## Task Summary
-Completed the Stage 2 verification baseline (`MF-06`, Issue `#36`), authoring `docs/testing/test-plan.md` and `docs/testing/defect-log.md`.
+Completed the Stage 2 verification baseline (`MF-06`, Issue `#36`, PR `#37`), authoring `docs/testing/test-plan.md` and `docs/testing/defect-log.md`.
 
 ## Deliverables Authored
 - `docs/testing/test-plan.md`:

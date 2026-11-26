@@ -30,6 +30,7 @@ prs:
   - "#31"
   - "#33"
   - "#35"
+  - "#37"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -60,4 +61,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 02:00 | Madire Shiva Reddy | SR-05 System Architecture and ADR-0006 | Authored `docs/architecture/overview.md` (`SE-2` component, deployment, SQLite ER for `quota_ledger`, `cache_entries`, and `first_observed`, quota preflight and OAuth read/write/revoke sequences) and `docs/adr/0006-token-storage-and-persistence.md` (OS keyring, AES-256-GCM fallback, WAL SQLite, delete on revoke); added [[brain/inbox/ai-session-2026-11-26-shiva-SR-05]] (Issue #30, PR #31) |
 | 2026-11-26 02:15 | Madire Shiva Reddy | SR-06 Brain Query Skill (brain-query) | Authored `skills/brain-query/SKILL.md` (`SK-5`), [[brain/areas/skill-brain-query]], `SE-QRY-01`..`SE-QRY-04` evals with demonstrated vault draft in `docs/testing/skill-evals.md`, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-06]] (Issue #32, PR #33) |
 | 2026-11-26 11:12 | Mohammed Farhan | MF-04 Playlist Design Contract | Authored `draft_curated_playlist.json` and `create_curated_playlist.json` (`draft_id` only), `docs/adr/0004-trusted-confirmation.md` (resolving `G-02`), `docs/adr/0005-playlist-selection.md` (resolving `G-03`), `docs/architecture/playlist.md` (`SE-2`), contract tests, and [[brain/inbox/ai-session-2026-11-26-farhan-MF-04]] (Issue #34, PR #35) |
-| 2026-11-26 12:14 | Mohammed Farhan | MF-06 Test Plan and Defect Log | Authored `docs/testing/test-plan.md` (full SRS test ID matrix, PR vs live CI plan, `NFR-1` benchmark protocol), `docs/testing/defect-log.md` (`TQ-8` template), traceability updates, and [[brain/inbox/ai-session-2026-11-26-farhan-MF-06]] (Issue #36) |
+| 2026-11-26 12:14 | Mohammed Farhan | MF-06 Test Plan and Defect Log | Authored `docs/testing/test-plan.md` (full SRS test ID matrix, PR vs live CI plan, `NFR-1` benchmark protocol), `docs/testing/defect-log.md` (`TQ-8` template), traceability updates, and [[brain/inbox/ai-session-2026-11-26-farhan-MF-06]] (Issue #36, PR #37) |

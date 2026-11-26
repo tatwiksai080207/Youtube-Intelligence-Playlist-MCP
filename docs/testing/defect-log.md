@@ -4,7 +4,7 @@
 - **Owner:** Mohammed Farhan (`@farhan4599`)
 - **Reviewer:** Madire Shiva Reddy (`@Shiva0025`)
 - **GitHub Issue:** `#36`
-- **GitHub PR:** pending (`MF-06`)
+- **GitHub PR:** `#37`
 - **Requirements:** `TQ-8`, `SE-5`, `NFR-10`, `SB-1`
 
 ## 1. Defect Handling Protocol (`TQ-8`)
