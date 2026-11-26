@@ -26,6 +26,14 @@ from yt_intel_mcp.playlist.language import (
     is_video_language_eligible,
     primary_language_subtag,
 )
+from yt_intel_mcp.playlist.solver import (
+    BindingConstraint,
+    PlaylistSolution,
+    SelectedPlaylistVideo,
+    SolverAlgorithm,
+    score_candidates_for_topic,
+    solve_playlist_selection,
+)
 
 __all__ = [
     "MAX_PLAYLIST_VIDEOS",
@@ -38,8 +46,12 @@ __all__ = [
     "MIN_VIDEO_LIMIT_MINUTES",
     "UNVERIFIED_AUDIO_LANGUAGE_LABEL",
     "AudioLanguageStatus",
+    "BindingConstraint",
     "LanguageCheckResult",
     "PlaylistConstraints",
+    "PlaylistSolution",
+    "SelectedPlaylistVideo",
+    "SolverAlgorithm",
     "build_playlist_constraints",
     "evaluate_selection_constraints",
     "evaluate_video_audio_language",
@@ -48,4 +60,6 @@ __all__ = [
     "is_video_duration_eligible",
     "is_video_language_eligible",
     "primary_language_subtag",
+    "score_candidates_for_topic",
+    "solve_playlist_selection",
 ]
