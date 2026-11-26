@@ -28,6 +28,7 @@ issues:
   - "#46"
   - "#48"
   - "#50"
+  - "#52"
 prs:
   - "#10"
   - "#13"
@@ -83,3 +84,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 18:55 | Madire Shiva Reddy | SR-11 TTL Metadata Cache | Implemented `src/yt_intel_mcp/cache.py` (`MetadataCache` and `CachedYouTubeProvider`) and `cache_entries` persistence in `store.py` (`24h`/`6h`/`15m` TTLs, `NFR-7` personal purge, `NFR-1` `<= 500 ms`, `QUOTA_EXHAUSTED_UPSTREAM` blocking), added `IT_CACHE` and `NT_QUOTA` tests, and recorded [[brain/inbox/ai-session-2026-11-26-shiva-SR-11]] (Issue #46, PR #47) |
 | 2026-11-26 19:09 | Molleti Tatwik Sai | TS-06 ID and Bounds Validation | Replaced `validation/ids.py` stubs with strict `11` char video ID, `UC...`/`@handle`, playlist ID, allow listed YouTube URL host, and bounded range validators (`bounds.py`), updated `test_contracts.py`, added `UT_ID` (`tests/unit/test_validation_ids.py`) and `NT_VAL` (`tests/negative/test_input_validation.py`), and added [[brain/inbox/ai-session-2026-11-26-tatwik-TS-06]] (Issue #48, PR #49) |
 | 2026-11-26 19:24 | Mohammed Farhan | MF-07 Metadata Sanitisation | Replaced `sanitize.py` stubs with `NFKC` normalization, invisible/bidi/tag/control char stripping, URL/Markdown link removal, `escape_html`, and `sanitize_video_meta`; updated `test_contracts.py`; added `tests/security/test_sanitize.py` and [[brain/inbox/ai-session-2026-11-26-farhan-MF-07]] (Issue #50, PR #51) |
+| 2026-11-26 19:38 | Molleti Tatwik Sai | TS-07 ISO-8601 Durations | Implemented `src/yt_intel_mcp/durations.py` (`parse_iso8601_duration`, `parse_optional_duration`, `is_live_or_zero_duration`, `format_duration`, `format_duration_clock`, `format_iso8601_duration`), added `UT_DUR` unit tests in `tests/unit/test_durations.py`, and recorded [[brain/inbox/ai-session-2026-11-26-tatwik-TS-07]] (Issue #52) |
