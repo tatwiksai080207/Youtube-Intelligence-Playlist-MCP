@@ -11,9 +11,11 @@ import pytest
 from yt_intel_mcp.config import QuotaConfig
 from yt_intel_mcp.errors import ErrorCode, ToolError
 from yt_intel_mcp.models import CostEstimate
+from yt_intel_mcp.playlist import DraftStore
 from yt_intel_mcp.provider import FixtureYouTubeProvider
 from yt_intel_mcp.quota import PersistentQuotaLedger
 from yt_intel_mcp.store import SQLiteStore
+from yt_intel_mcp.tools import execute_draft_curated_playlist
 
 FIXTURES_DIR = Path(__file__).resolve().parents[2] / "tests" / "fixtures"
 
@@ -139,3 +141,46 @@ def test_QT_preflight_blocks_when_upstream_exhausted_until_pt_reset(tmp_path: Pa
     current = datetime(2026, 11, 27, 8, 0, 0, tzinfo=UTC)
     status = ledger.preflight(ledger.estimate("videos.list"))
     assert status.upstream_exhausted is False
+
+
+@pytest.mark.anyio
+async def test_QT_3_draft_curated_playlist_rejects_insufficient_workflow_budget_with_zero_calls(
+    tmp_path: Path,
+) -> None:
+    ledger, provider = _make_ledger_and_provider(tmp_path, units_limit=10_000, search_limit=100)
+    # 400 remaining units suffices for reads (5u), but NOT 8-video worst-case writes (455u total).
+    ledger.charge(CostEstimate(units=9_600, search_calls=10, operation="prior_usage"))
+    draft_store = DraftStore()
+
+    with pytest.raises(ToolError) as unit_err:
+        await execute_draft_curated_playlist(
+            {"topic": "python asyncio", "target_total_minutes": 20, "max_videos": 8},
+            provider=provider,
+            quota_guard=ledger,
+            draft_store=draft_store,
+        )
+    assert unit_err.value.code is ErrorCode.QUOTA_BUDGET_INSUFFICIENT
+    assert "units" in unit_err.value.details["exceeded_budgets"]
+    assert unit_err.value.details["requested_units"] == 455
+    assert provider.calls == []
+    assert provider.created_playlists == []
+    assert draft_store.list_active_ids() == ()
+    assert ledger.status().units_used == 9_600
+    assert ledger.status().search_calls_used == 10
+
+    # Also enforce search_calls bucket: 2 remaining searches < 3 planned searches => zero API calls.
+    search_ledger, search_provider = _make_ledger_and_provider(
+        tmp_path / "search_cap", units_limit=10_000, search_limit=100
+    )
+    search_ledger.charge(CostEstimate(units=50, search_calls=98, operation="prior_searches"))
+    with pytest.raises(ToolError) as search_err:
+        await execute_draft_curated_playlist(
+            {"topic": "python asyncio", "target_total_minutes": 20, "max_videos": 8},
+            provider=search_provider,
+            quota_guard=search_ledger,
+            draft_store=DraftStore(),
+        )
+    assert search_err.value.code is ErrorCode.QUOTA_BUDGET_INSUFFICIENT
+    assert "search_calls" in search_err.value.details["exceeded_budgets"]
+    assert search_provider.calls == []
+    assert search_ledger.status().search_calls_used == 98

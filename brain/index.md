@@ -33,6 +33,7 @@ issues:
   - "#56"
   - "#58"
   - "#60"
+  - "#62"
 prs:
   - "#10"
   - "#13"
@@ -55,6 +56,7 @@ prs:
   - "#57"
   - "#59"
   - "#61"
+  - "#63"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -132,6 +134,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-08|AI Session TS-08]]: Implement `similarity/text.py` (`TfidfVectorizer`, sublinear TF IDF, bounded `cosine_similarity`, query/overlap helpers) with `UT_SIM` and `X_PERF_SCORE` tests (Issue #56, PR #57).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-09|AI Session MF-09]]: Implement `playlist/language.py` (`defaultAudioLanguage`-only primary subtag filter, ignoring `defaultLanguage`, `"Audio language unverified"` opt in) with `UT_LANG` and `NT_LANG` tests (Issue #58, PR #59).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-10|AI Session MF-10]]: Implement `playlist/solver.py` (TF IDF relevance maximizing constrained solver within 500 ms for 200 candidates, deterministic tie breaking, rich `CONSTRAINTS_UNSATISFIABLE` diagnostics) with `UT_SOLV` and `X_PERF_SELECT` tests (Issue #60, PR #61).
+- [[brain/inbox/ai-session-2026-11-26-farhan-MF-11|AI Session MF-11]]: Implement `playlist/drafts.py` (`PlaylistDraft`, `DraftStore` 10m TTL) and `tools/draft_curated_playlist.py` (`G-03` workflow preflight, zero writes) with `ST_FR5`, `DRAFT_EXPIRED`, and `QT_3` tests (Issue #62, PR #63).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
