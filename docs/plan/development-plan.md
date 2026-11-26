@@ -24,7 +24,7 @@
 |---|---|---|---|---|---|
 | `D-01` | Decision | Repository location | `tatwiksai080207/Youtube-Intelligence-Playlist-MCP` | Tatwik | RESOLVED |
 | `D-02` | Decision | Runtime stack (SRS Section 2.3) | Python 3.11+ and official `mcp` SDK (`ADR-0001`, `#21`) | Shiva | RESOLVED |
-| `C-01` | Conflict | R-1 single 10k quota vs. SRS C-2 dual budget | Follow SRS C-2 (both budgets configurable); re-check R-5 in `SR-10` | Shiva | RESOLVED (SRS) |
+| `C-01` | Conflict | R-1 single 10k quota vs. SRS C-2 dual budget | Follow SRS C-2 (both budgets configurable); re-verified against SRS Section 3.2 R-5 costs in `SR-10` (`#44`) | Shiva | RESOLVED (SRS) |
 | `C-02` | Conflict | `src/mcp/schemas/` vs. Python `mcp` SDK package name | Use `src/yt_intel_mcp/schemas/` (`ADR-0001`, `#21`) | Shiva | RESOLVED |
 | `C-03` | Conflict | R-2 SE-7 "e.g., OpenAPI" vs. stdio MCP server | Generate `docs/developer/tool-reference.md` from JSON Schemas (`SR-17`) | Shiva | PROPOSED |
 | `G-01` | Gap | Error code for nonexistent channel in FR-2 | Team vote open in Issue `#28` (`INVALID_ARGUMENT` vs `CHANNEL_UNAVAILABLE`) before `TS-11` negative test | Tatwik | OPEN |
