@@ -24,6 +24,7 @@ issues:
   - "#38"
   - "#40"
   - "#42"
+  - "#44"
 prs:
   - "#10"
   - "#13"
@@ -37,6 +38,7 @@ prs:
   - "#39"
   - "#41"
   - "#43"
+  - "#45"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -71,3 +73,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 12:22 | Madire Shiva Reddy | SR-07 Stage 2 Review and SB-1 Audit | Audited Stage 2 `SB-1` back links and `SB-3` citations across all 7 ADRs and 4 skills, compiled Stage 2 evals in `docs/testing/skill-evals.md`, authored [[brain/projects/stage-2-review]], updated `CHANGELOG.md` for `v0.2.0` (`stage-2`), and added [[brain/inbox/ai-session-2026-11-26-shiva-SR-07]] (Issue #38, PR #39) |
 | 2026-11-26 13:58 | Madire Shiva Reddy | SR-08 Fixture Provider and Scrubber | Implemented `src/yt_intel_mcp/provider/fixture.py`, `scripts/scrub_fixture.py`, scrubbed public and synthetic fixtures under `tests/fixtures/`, `IT_PROV` and `SEC_PII` tests, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-08]] (Issue #40, PR #41) |
 | 2026-11-26 16:15 | Madire Shiva Reddy | SR-09 MCP System Test Harness | Built `tests/system/conftest.py` (in memory and stdio MCP sessions, `FixtureYouTubeProvider`, temp WAL SQLite, toggleable elicitation simulation), `tests/system/test_harness.py`, `docs/developer/testing.md`, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-09]] (Issue #42, PR #43) |
+| 2026-11-26 18:26 | Madire Shiva Reddy | SR-10 Quota Ledger and Store | Implemented `src/yt_intel_mcp/store.py`, `src/yt_intel_mcp/quota/ledger.py`, `src/yt_intel_mcp/tools/get_quota_status.py` (`youtube://metrics/quota`), re-verified R-5 costs (`C-01`), added `UT_QUOTA` and `QT_1`..`QT_3` tests, and recorded [[brain/inbox/ai-session-2026-11-26-shiva-SR-10]] (Issue #44, PR #45) |

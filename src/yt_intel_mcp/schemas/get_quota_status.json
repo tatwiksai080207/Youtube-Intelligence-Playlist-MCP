@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-intel-mcp.local/schemas/get_quota_status.json",
+  "title": "get_quota_status",
+  "description": "Report remaining daily YouTube quota units and search calls without calling upstream APIs (FR-6.1, C-2).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {}
+}

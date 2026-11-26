@@ -24,6 +24,7 @@ issues:
   - "#38"
   - "#40"
   - "#42"
+  - "#44"
 prs:
   - "#10"
   - "#13"
@@ -37,6 +38,7 @@ prs:
   - "#39"
   - "#41"
   - "#43"
+  - "#45"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -105,6 +107,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-07|AI Session SR-07]]: Compile Stage 2 skill evaluations, audit `SB-1` back links, author `stage-2-review.md`, and prepare `v0.2.0` (`stage-2`) release changelog (Issue #38, PR #39).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-08|AI Session SR-08]]: Implement `FixtureYouTubeProvider`, `scripts/scrub_fixture.py`, scrubbed public and synthetic user fixtures, and `IT_PROV`/`SEC_PII` tests (Issue #40, PR #41).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-09|AI Session SR-09]]: Build MCP end to end system test harness (`tests/system/conftest.py`, `tests/system/test_harness.py`) and `docs/developer/testing.md` (Issue #42, PR #43).
+- [[brain/inbox/ai-session-2026-11-26-shiva-SR-10|AI Session SR-10]]: Implement `store.py`, `quota/ledger.py`, `get_quota_status` tool and `youtube://metrics/quota` resource, `UT_QUOTA`, and `QT_1`..`QT_3` tests (Issue #44, PR #45).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
