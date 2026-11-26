@@ -16,7 +16,8 @@ requirements:
   - SB-1
 issues:
   - "#58"
-prs: []
+prs:
+  - "#59"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Section 4.5 FR-5.1a (checked 2026-11-26)"
   - "docs/adr/0005-playlist-selection.md Section 2 (checked 2026-11-26)"
@@ -25,7 +26,7 @@ sources:
 # AI Session MF-09 Spoken Audio-Language Validator
 
 ## Task Summary
-Implemented `src/yt_intel_mcp/playlist/language.py` (`MF-09`, Issue `#58`), enforcing `FR-5.1a` and `INV-10` spoken audio language validation against `snippet.defaultAudioLanguage` solely.
+Implemented `src/yt_intel_mcp/playlist/language.py` (`MF-09`, Issue `#58`, PR `#59`), enforcing `FR-5.1a` and `INV-10` spoken audio language validation against `snippet.defaultAudioLanguage` solely.
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/playlist/language.py` (exported in `src/yt_intel_mcp/playlist/__init__.py`):
