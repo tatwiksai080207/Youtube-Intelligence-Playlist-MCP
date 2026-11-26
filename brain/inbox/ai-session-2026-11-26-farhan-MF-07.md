@@ -17,7 +17,8 @@ requirements:
   - SB-1
 issues:
   - "#50"
-prs: []
+prs:
+  - "#51"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Section 5 NFR-6 (checked 2026-11-26)"
   - "src/yt_intel_mcp/sanitize.py Stage 2 contract stub (SR-04, PR #26)"
@@ -26,7 +27,7 @@ sources:
 # AI Session MF-07 Untrusted Metadata Sanitisation
 
 ## Task Summary
-Implemented `src/yt_intel_mcp/sanitize.py` (`MF-07`, Issue `#50`), enforcing `NFR-6` and `INV-22` across untrusted YouTube metadata fields.
+Implemented `src/yt_intel_mcp/sanitize.py` (`MF-07`, Issue `#50`, PR `#51`), enforcing `NFR-6` and `INV-22` across untrusted YouTube metadata fields.
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/sanitize.py`:
