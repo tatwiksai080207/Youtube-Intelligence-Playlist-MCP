@@ -133,9 +133,7 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
         assert res.isError is False
         payload: dict[str, Any] = res.structuredContent or {}
         assert payload["quota_used"] == {"units": 1, "search_calls": 0}
-        assert "Summary based on video metadata, not on the video's content" in (
-            payload["summary"]
-        )
+        assert "Summary based on video metadata, not on the video's content" in payload["summary"]
         data = payload["data"]
         assert data["video_id"] == "dQw4w9WgXcQ"
         assert "https://" not in data["title"]
