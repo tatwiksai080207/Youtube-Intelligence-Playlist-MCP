@@ -110,16 +110,15 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
     register_get_video_details(server, provider=provider, quota_guard=ledger)
 
     async with (
-        create_client_server_memory_streams() as (c_to_s_read, c_to_s_write),
-        create_client_server_memory_streams() as (s_to_c_read, s_to_c_write),
+        create_client_server_memory_streams() as (client_streams, server_streams),
         anyio.create_task_group() as tg,
-        ClientSession(s_to_c_read, c_to_s_write) as session,
+        ClientSession(client_streams[0], client_streams[1]) as session,
     ):
         tg.start_soon(
-            server._mcp_server.run,
-            c_to_s_read,
-            s_to_c_write,
-            server._mcp_server.create_initialization_options(),
+            server._lowlevel_server.run,
+            server_streams[0],
+            server_streams[1],
+            server._lowlevel_server.create_initialization_options(),
         )
         await session.initialize()
         tools_res = await session.list_tools()
@@ -130,8 +129,8 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
             "get_video_details",
             {"video_id": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"},
         )
-        assert res.isError is False
-        payload: dict[str, Any] = res.structuredContent or {}
+        assert res.is_error is False
+        payload: dict[str, Any] = dict(res.structured_content or {})
         assert payload["quota_used"] == {"units": 1, "search_calls": 0}
         assert "Summary based on video metadata, not on the video's content" in payload["summary"]
         data = payload["data"]
@@ -156,8 +155,8 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
         assert set(data).isdisjoint(FORBIDDEN_POPULARITY_KEYS)
 
         live_res = await session.call_tool("get_video_details", {"video_id": "liveVid0005"})
-        assert live_res.isError is False
-        live_data = (live_res.structuredContent or {})["data"]
+        assert live_res.is_error is False
+        live_data = dict(live_res.structured_content or {})["data"]
         assert live_data["is_live"] is True
         assert live_data["duration_human"] == "Live"
 
@@ -165,8 +164,8 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
             "get_video_details",
             {"video_id": "dQw4w9WgXcQ", "extra_field": 1},
         )
-        assert bad_res.isError is True
-        err = bad_res.structuredContent or {}
+        assert bad_res.is_error is True
+        err = dict(bad_res.structured_content or {})
         assert err["code"] == "INVALID_ARGUMENT"
         assert err["quota_used"] == {"units": 0, "search_calls": 0}
         tg.cancel_scope.cancel()
