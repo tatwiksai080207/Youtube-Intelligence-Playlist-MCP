@@ -31,6 +31,7 @@ issues:
   - "#52"
   - "#54"
   - "#56"
+  - "#58"
 prs:
   - "#10"
   - "#13"
@@ -51,6 +52,7 @@ prs:
   - "#53"
   - "#55"
   - "#57"
+  - "#59"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -126,6 +128,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-07|AI Session TS-07]]: Implement ISO-8601 duration parsing (`PT#H#M#S`, `P#DT...`, `P0D`), live/zero detection, and human readable formatting with `UT_DUR` unit tests (Issue #52, PR #53).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-08|AI Session MF-08]]: Implement `playlist/constraints.py` (`PlaylistConstraints`, `build_playlist_constraints`, exact `Decimal` window `[T*(1-tol), T]`, inclusive `max_video_minutes`, upper bound `max_videos`) with `UT_SOLV_WINDOW` tests (Issue #54, PR #55).
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-08|AI Session TS-08]]: Implement `similarity/text.py` (`TfidfVectorizer`, sublinear TF IDF, bounded `cosine_similarity`, query/overlap helpers) with `UT_SIM` and `X_PERF_SCORE` tests (Issue #56, PR #57).
+- [[brain/inbox/ai-session-2026-11-26-farhan-MF-09|AI Session MF-09]]: Implement `playlist/language.py` (`defaultAudioLanguage`-only primary subtag filter, ignoring `defaultLanguage`, `"Audio language unverified"` opt in) with `UT_LANG` and `NT_LANG` tests (Issue #58, PR #59).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
