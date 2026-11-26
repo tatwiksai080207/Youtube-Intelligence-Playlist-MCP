@@ -19,6 +19,7 @@ issues:
   - "#27"
   - "#30"
   - "#32"
+  - "#34"
 prs:
   - "#10"
   - "#13"
@@ -56,3 +57,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 01:42 | Molleti Tatwik Sai | TS-04 Analysis Design Contract | Authored 5 strict tool JSON Schemas (`NFR-5`) under `src/yt_intel_mcp/schemas/`, `docs/adr/0003-similarity-scoring.md`, `docs/adr/0007-interest-profile.md` (resolving `G-05`, `G-06`), `docs/architecture/analysis.md` (`SE-2`), and schema contract tests; logged `G-01` team vote in Issue #28; added [[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]] (Issue #27, PR #29) |
 | 2026-11-26 02:00 | Madire Shiva Reddy | SR-05 System Architecture and ADR-0006 | Authored `docs/architecture/overview.md` (`SE-2` component, deployment, SQLite ER for `quota_ledger`, `cache_entries`, and `first_observed`, quota preflight and OAuth read/write/revoke sequences) and `docs/adr/0006-token-storage-and-persistence.md` (OS keyring, AES-256-GCM fallback, WAL SQLite, delete on revoke); added [[brain/inbox/ai-session-2026-11-26-shiva-SR-05]] (Issue #30, PR #31) |
 | 2026-11-26 02:15 | Madire Shiva Reddy | SR-06 Brain Query Skill (brain-query) | Authored `skills/brain-query/SKILL.md` (`SK-5`), [[brain/areas/skill-brain-query]], `SE-QRY-01`..`SE-QRY-04` evals with demonstrated vault draft in `docs/testing/skill-evals.md`, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-06]] (Issue #32, PR #33) |
+| 2026-11-26 11:12 | Mohammed Farhan | MF-04 Playlist Design Contract | Authored `draft_curated_playlist.json` and `create_curated_playlist.json` (`draft_id` only), `docs/adr/0004-trusted-confirmation.md` (resolving `G-02`), `docs/adr/0005-playlist-selection.md` (resolving `G-03`), `docs/architecture/playlist.md` (`SE-2`), contract tests, and [[brain/inbox/ai-session-2026-11-26-farhan-MF-04]] (Issue #34) |

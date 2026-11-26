@@ -28,8 +28,8 @@
 | `C-02` | Conflict | `src/mcp/schemas/` vs. Python `mcp` SDK package name | Use `src/yt_intel_mcp/schemas/` (`ADR-0001`, `#21`) | Shiva | RESOLVED |
 | `C-03` | Conflict | R-2 SE-7 "e.g., OpenAPI" vs. stdio MCP server | Generate `docs/developer/tool-reference.md` from JSON Schemas (`SR-17`) | Shiva | PROPOSED |
 | `G-01` | Gap | Error code for nonexistent channel in FR-2 | Team vote open in Issue `#28` (`INVALID_ARGUMENT` vs `CHANNEL_UNAVAILABLE`) before `TS-11` negative test | Tatwik | OPEN |
-| `G-02` | Gap | Step order inside `create_curated_playlist` | Freeze in ADR-0004 (`MF-04`) | Farhan | OPEN |
-| `G-03` | Gap | Draft-time write-cost preflight before count is known | Freeze in ADR-0005 (`MF-04`) | Farhan | OPEN |
+| `G-02` | Gap | Step order inside `create_curated_playlist` | Frozen in `docs/adr/0004-trusted-confirmation.md` (`MF-04`, `#34`): 9 step sequence covering draft lookup, session identity, trusted confirmation, single use token verification, combined preflight and stale check, `youtube.force-ssl` consent, channel check, exact write preflight, and non retried ordered writes | Farhan | RESOLVED |
+| `G-03` | Gap | Draft-time write-cost preflight before count is known | Frozen in `docs/adr/0005-playlist-selection.md` (`MF-04`, `#34`): worst case `50 + 50 * max_videos` workflow preflight before discovery reads (charging actual reads only) plus exact `50 + 50 * N` preflight before writes | Farhan | RESOLVED |
 | `G-04` | Gap | Scheduled live CI (`TQ-5`) vs. 7-day Testing token and no delete | Read only live workflow; decide via `type:decision` issue before `SR-16` | Shiva | OPEN |
 | `G-05` | Gap | Optional `first_observed` store (FR-3.2 vs FR-4.3) | Frozen in `docs/adr/0007-interest-profile.md` (`TS-04`, `#27`): neutral `0.5` weight in `FR-3.2`, tracked separately in `FR-4.3` | Tatwik | RESOLVED |
 | `G-06` | Gap | Fixed neutral weight value for undated items (FR-3.2) | Frozen in `docs/adr/0007-interest-profile.md` (`TS-04`, `#27`): `ProfileConfig.undated_weight = 0.5` | Tatwik | RESOLVED |

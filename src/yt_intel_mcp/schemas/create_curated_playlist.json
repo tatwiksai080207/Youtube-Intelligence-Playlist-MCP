@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-intel-mcp.local/schemas/create_curated_playlist.json",
+  "title": "create_curated_playlist",
+  "description": "Create a YouTube playlist from an immutable draft after trusted out of band confirmation, stale recheck, write consent, and quota preflight (FR-5.4, FR-5.5, FR-6.2, FR-7.1, write side effect).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "draft_id"
+  ],
+  "properties": {
+    "draft_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "description": "Opaque immutable draft identifier returned by draft_curated_playlist; approval tokens, video IDs, and content parameters are forbidden."
+    }
+  }
+}

@@ -7,7 +7,9 @@ from importlib.resources import files
 from typing import Any
 
 __all__ = [
+    "ALL_SCHEMA_NAMES",
     "ANALYSIS_SCHEMA_NAMES",
+    "PLAYLIST_SCHEMA_NAMES",
     "list_schema_names",
     "load_schema",
 ]
@@ -19,6 +21,13 @@ ANALYSIS_SCHEMA_NAMES: tuple[str, ...] = (
     "get_recommendations",
     "analyze_engagement",
 )
+
+PLAYLIST_SCHEMA_NAMES: tuple[str, ...] = (
+    "draft_curated_playlist",
+    "create_curated_playlist",
+)
+
+ALL_SCHEMA_NAMES: tuple[str, ...] = ANALYSIS_SCHEMA_NAMES + PLAYLIST_SCHEMA_NAMES
 
 _SCHEMA_PACKAGE = __package__ or "yt_intel_mcp.schemas"
 
