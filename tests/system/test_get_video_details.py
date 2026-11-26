@@ -112,65 +112,63 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
     async with (
         create_client_server_memory_streams() as (c_to_s_read, c_to_s_write),
         create_client_server_memory_streams() as (s_to_c_read, s_to_c_write),
+        anyio.create_task_group() as tg,
+        ClientSession(s_to_c_read, c_to_s_write) as session,
     ):
-        async with (
-            anyio.create_task_group() as tg,
-            ClientSession(s_to_c_read, c_to_s_write) as session,
-        ):
-            tg.start_soon(
-                server._mcp_server.run,
-                c_to_s_read,
-                s_to_c_write,
-                server._mcp_server.create_initialization_options(),
-            )
-            await session.initialize()
-            tools_res = await session.list_tools()
-            tool_names = [t.name for t in tools_res.tools]
-            assert "get_video_details" in tool_names
+        tg.start_soon(
+            server._mcp_server.run,
+            c_to_s_read,
+            s_to_c_write,
+            server._mcp_server.create_initialization_options(),
+        )
+        await session.initialize()
+        tools_res = await session.list_tools()
+        tool_names = [t.name for t in tools_res.tools]
+        assert "get_video_details" in tool_names
 
-            res = await session.call_tool(
-                "get_video_details",
-                {"video_id": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"},
-            )
-            assert res.isError is False
-            payload: dict[str, Any] = res.structuredContent or {}
-            assert payload["quota_used"] == {"units": 1, "search_calls": 0}
-            assert "Summary based on video metadata, not on the video's content" in (
-                payload["summary"]
-            )
-            data = payload["data"]
-            assert data["video_id"] == "dQw4w9WgXcQ"
-            assert "https://" not in data["title"]
-            assert "\u200b" not in data["title"]
-            assert "https://" not in data["description"]
-            assert data["duration_seconds"] == 620
-            assert data["duration_human"] == "10m 20s"
-            assert data["duration_clock"] == "10:20"
-            assert data["is_live"] is False
-            assert data["default_audio_language"] == "en"
-            assert data["chapters"] == [
-                {"start_seconds": 0, "start_timestamp": "0:00", "title": "Event loop basics"},
-                {"start_seconds": 330, "start_timestamp": "5:30", "title": "Task scheduling"},
-                {
-                    "start_seconds": 615,
-                    "start_timestamp": "10:15",
-                    "title": "Cancellation & timeouts",
-                },
-            ]
-            assert set(data).isdisjoint(FORBIDDEN_POPULARITY_KEYS)
+        res = await session.call_tool(
+            "get_video_details",
+            {"video_id": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"},
+        )
+        assert res.isError is False
+        payload: dict[str, Any] = res.structuredContent or {}
+        assert payload["quota_used"] == {"units": 1, "search_calls": 0}
+        assert "Summary based on video metadata, not on the video's content" in (
+            payload["summary"]
+        )
+        data = payload["data"]
+        assert data["video_id"] == "dQw4w9WgXcQ"
+        assert "https://" not in data["title"]
+        assert "\u200b" not in data["title"]
+        assert "https://" not in data["description"]
+        assert data["duration_seconds"] == 620
+        assert data["duration_human"] == "10m 20s"
+        assert data["duration_clock"] == "10:20"
+        assert data["is_live"] is False
+        assert data["default_audio_language"] == "en"
+        assert data["chapters"] == [
+            {"start_seconds": 0, "start_timestamp": "0:00", "title": "Event loop basics"},
+            {"start_seconds": 330, "start_timestamp": "5:30", "title": "Task scheduling"},
+            {
+                "start_seconds": 615,
+                "start_timestamp": "10:15",
+                "title": "Cancellation & timeouts",
+            },
+        ]
+        assert set(data).isdisjoint(FORBIDDEN_POPULARITY_KEYS)
 
-            live_res = await session.call_tool("get_video_details", {"video_id": "liveVid0005"})
-            assert live_res.isError is False
-            live_data = (live_res.structuredContent or {})["data"]
-            assert live_data["is_live"] is True
-            assert live_data["duration_human"] == "Live"
+        live_res = await session.call_tool("get_video_details", {"video_id": "liveVid0005"})
+        assert live_res.isError is False
+        live_data = (live_res.structuredContent or {})["data"]
+        assert live_data["is_live"] is True
+        assert live_data["duration_human"] == "Live"
 
-            bad_res = await session.call_tool(
-                "get_video_details",
-                {"video_id": "dQw4w9WgXcQ", "extra_field": 1},
-            )
-            assert bad_res.isError is True
-            err = bad_res.structuredContent or {}
-            assert err["code"] == "INVALID_ARGUMENT"
-            assert err["quota_used"] == {"units": 0, "search_calls": 0}
-            tg.cancel_scope.cancel()
+        bad_res = await session.call_tool(
+            "get_video_details",
+            {"video_id": "dQw4w9WgXcQ", "extra_field": 1},
+        )
+        assert bad_res.isError is True
+        err = bad_res.structuredContent or {}
+        assert err["code"] == "INVALID_ARGUMENT"
+        assert err["quota_used"] == {"units": 0, "search_calls": 0}
+        tg.cancel_scope.cancel()

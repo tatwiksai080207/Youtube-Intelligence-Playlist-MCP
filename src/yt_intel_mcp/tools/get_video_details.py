@@ -47,7 +47,7 @@ _REQUIRED_FIELDS: tuple[str, ...] = tuple(load_schema("get_video_details")["requ
 
 _CHAPTER_LINE_RE = re.compile(
     r"^\s*\[?(?:(?P<hours>\d{1,2}):)?(?P<minutes>\d{1,2}):(?P<seconds>[0-5]\d)\]?"
-    r"\s*(?:[-–—|:]\s*)?(?P<title>.+?)\s*$"
+    r"\s*(?:[-\u2013\u2014|:]\s*)?(?P<title>.+?)\s*$"
 )
 
 
