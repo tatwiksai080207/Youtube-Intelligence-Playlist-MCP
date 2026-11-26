@@ -95,7 +95,7 @@ The read-only fixture tool invocation remains pending MF-16. The v1 evaluation u
 
 ---
 
-## Stage 2 Evaluation Compilation and `SB-3` Audit (`SR-07`, `#38`)
+## Stage 2 Compilation Audit (`SR-07`, `#38`, PR `#39`)
 
 - **Audit Date & Auditor:** 2026-11-26 — Madire Shiva Reddy (`@Shiva0025`)
 - **Stage 2 Baseline Verified:** `main` at commit `b308efe` (`CI run 45770744075`: `100 passed in 3.88s`, `99.31%` coverage, `ruff`, `mypy`, `gitleaks`, `validate_skills.py`, `validate_brain.py`).

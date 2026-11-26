@@ -25,7 +25,8 @@ requirements:
   - TQ-7
 issues:
   - "#38"
-prs: []
+prs:
+  - "#39"
 sources:
   - "Final_SRS_Submission.pdf Sections 3, 4, 5, and 6 (checked 2026-11-26)"
   - "SDLC_and_Workflow.pdf Section 1 SB-2, Section 4, and Section 7 Stage 2 (checked 2026-11-26)"
@@ -66,7 +67,7 @@ Stage 2 completed the full design, contract, and Second Brain tooling baseline a
 | `SR-06`: `brain-query` Skill (`SK-5`) | Shiva | `#32` | `#33` | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, `SE-QRY-01`–`04` |
 | `MF-04`: Playlist Schemas, `ADR-0004`, `ADR-0005`, `playlist.md` `[CONTRACT]` | Farhan | `#34` | `#35` | 2 JSON Schemas in `schemas/`, `docs/architecture/playlist.md`, `test_playlist_schemas.py` |
 | `MF-06`: Master Test Plan, CI Plan & Defect Log (`TQ-1`–`TQ-8`) | Farhan | `#36` | `#37` | `docs/testing/test-plan.md`, `docs/testing/defect-log.md` |
-| `SR-07`: Stage 2 Review, Compiled Evals, `SB-1` Audit & `v0.2.0` | Shiva | `#38` | `pending` | `brain/projects/stage-2-review.md`, `docs/testing/skill-evals.md`, `CHANGELOG.md`, `docs/traceability.md` |
+| `SR-07`: Stage 2 Review, Compiled Evals, `SB-1` Audit & `v0.2.0` | Shiva | `#38` | `#39` | `brain/projects/stage-2-review.md`, `docs/testing/skill-evals.md`, `CHANGELOG.md`, `docs/traceability.md` |
 
 - **Linux CI Verification (`main` run `45770744075`):** `gitleaks`, `ruff check`, `ruff format --check`, `mypy src`, `pytest` (`100 passed in 3.88s`, `99.31%` branch coverage), `validate_skills.py` (4 skills), and `validate_brain.py` (42 notes prior to `SR-07`) all passed.
 - **Pre Merge and Post Tag Manual Steps (`Guide F`):** Visually verify `brain/` Graph View in Obsidian prior to merge, then push annotated tags `stage-2` and `v0.2.0` on `main` after dual review (`@tatwiksai080207`, `@farhan4599`) and merge.

@@ -20,7 +20,7 @@ Stage 2 deliverable baseline: Accepted ADRs `0001` through `0007`, frozen shared
 - **`brain-query` Skill (`SR-06`, `#32`, PR `#33`):** Authored `skills/brain-query/SKILL.md` (`SK-5`), distilled `brain/areas/skill-brain-query.md`, and `SE-QRY-01`–`SE-QRY-04` evaluations with a vault grounded drafted specification excerpt.
 - **Playlist Design Contract (`MF-04`, `#34`, PR `#35`):** Authored `draft_curated_playlist.json` and `create_curated_playlist.json` (`draft_id` only), `docs/adr/0004-trusted-confirmation.md` (`G-02` resolved), `docs/adr/0005-playlist-selection.md` (`G-03` resolved), `docs/architecture/playlist.md`, and `tests/unit/test_playlist_schemas.py`.
 - **Master Test Plan and Defect Log (`MF-06`, `#36`, PR `#37`):** Authored `docs/testing/test-plan.md` mapping all SRS test IDs, PR vs. scheduled live CI, and `NFR-1` benchmark protocol plus `docs/testing/defect-log.md` (`TQ-8`).
-- **Stage 2 Review and Audit (`SR-07`, `#38`):** Authored `brain/projects/stage-2-review.md`, compiled Stage 2 skill evaluation evidence in `docs/testing/skill-evals.md`, and completed the `SB-1` back link audit across `docs/traceability.md` and `brain/`.
+- **Stage 2 Review and Audit (`SR-07`, `#38`, PR `#39`):** Authored `brain/projects/stage-2-review.md`, compiled Stage 2 skill evaluation evidence in `docs/testing/skill-evals.md`, and completed the `SB-1` back link audit across `docs/traceability.md` and `brain/`.
 
 ## [0.1.0] - 2026-11-25 (`stage-1`)
 

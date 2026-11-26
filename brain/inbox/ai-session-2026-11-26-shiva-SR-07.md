@@ -21,7 +21,8 @@ requirements:
   - SE-5
 issues:
   - "#38"
-prs: []
+prs:
+  - "#39"
 sources:
   - "Final_SRS_Submission.pdf Sections 3 through 6 (checked 2026-11-26)"
   - "GitHub main CI run 45770744075 and PRs #20 through #37 (checked 2026-11-26)"
