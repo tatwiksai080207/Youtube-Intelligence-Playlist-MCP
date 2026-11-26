@@ -8,8 +8,8 @@ This document records formal evaluations of every Agent Skill before each stage 
 |---|---|---|---|---|---|---|
 | Stage 1 | `SK-3` | `brain-ingest` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, CI run `45619944133` |
 | Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19`, PR `#20` |
-| Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24` |
-| Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32`, PR `#33` |
+| Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24`, CI run `45660229608` |
+| Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32`, PR `#33`, CI run `45698759114` |
 
 ---
 
@@ -92,3 +92,15 @@ The read-only fixture tool invocation remains pending MF-16. The v1 evaluation u
 > Prior to any upstream call, preflight checks reject insufficient remaining capacity across either budget with `QUOTA_BUDGET_INSUFFICIENT`, while every dispatched call including failures charges the ledger and an upstream `quotaExceeded` response marks `QUOTA_EXHAUSTED_UPSTREAM` until daily reset ([[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]). Metadata caching reduces quota spend at `0` unit cost for cache hits using TTLs of `24 h` for videos and channels, `6 h` for searches, and `15 min` for personal user lists, while targeting `<= 500 ms` cached tool latency ([[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]).
 >
 > User authentication runs as an installed desktop OAuth 2.0 Authorization Code flow with PKCE (`S256`) over a `127.0.0.1` loopback redirect requesting `youtube.readonly` only at initial login (`C-6`), and uses a separate full consent request for `youtube.force-ssl` on playlist creation (`C-7`, `FR-7.1`) because installed desktop apps do not support incremental authorization ([[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle in Testing Publishing Status]]). Access and refresh tokens are stored encrypted at rest via the OS keyring or an `AES-256-GCM` file fallback (`NFR-3`), never logged or exposed in `get_auth_status`, refreshed silently until Testing mode `7` day expiry (`invalid_grant` -> `AUTH_REAUTHORIZATION_REQUIRED`), checked for channel presence (`youtubeSignupRequired` -> `CHANNEL_REQUIRED` on writes while reads continue), and deleted alongside cached personal user lists upon revocation (`NFR-7`) ([[brain/resources/google-oauth-testing-mode|Google OAuth Lifecycle in Testing Publishing Status]], [[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]).
+
+---
+
+## Stage 2 Compilation Audit (`SR-07`, `#38`, PR `#39`)
+
+- **Audit Date & Auditor:** 2026-11-26 — Madire Shiva Reddy (`@Shiva0025`)
+- **Stage 2 Baseline Verified:** `main` at commit `b308efe` (`CI run 45770744075`: `100 passed in 3.88s`, `99.31%` coverage, `ruff`, `mypy`, `gitleaks`, `validate_skills.py`, `validate_brain.py`).
+- **Skills Validated (`4` of `5` SRS skills complete through Stage 2; `SK-1` `video-to-playlist` arrives in Stage 3 `MF-15`):**
+  - `SK-3` (`brain-ingest`, `#3`, PR `#13`): cites `[[brain/areas/second-brain]]` (`distilled`).
+  - `SK-4` (`brain-refine`, `#19`, PR `#20`): cites `[[brain/areas/second-brain]]` and `[[brain/areas/skill-brain-refine]]` (`distilled`).
+  - `SK-2` (`local-check` v1, `#23`, PR `#24`): cites `[[brain/areas/skill-local-check]]` (`distilled`); Step 4 fixture fetch stays explicitly `NOT RUN` until `MF-16`.
+  - `SK-5` (`brain-query`, `#32`, PR `#33`): cites `[[brain/areas/second-brain]]`, `[[brain/resources/agent-skills-specification]]`, and `[[brain/areas/skill-brain-query]]` (`distilled`).

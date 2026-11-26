@@ -6,6 +6,22 @@ The format follows Keep a Changelog, and releases correspond to Stage milestones
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-26 (`stage-2`)
+
+Stage 2 deliverable baseline: Accepted ADRs `0001` through `0007`, frozen shared domain and provider contracts (`CT-1`), strict draft 2020-12 JSON Schemas for all seven functional tools, system and subsystem architecture diagrams (`SE-2`), refined PARA Second Brain, core Agent Skills (`SK-2`, `SK-4`, `SK-5`), and master test and defect plans (`TQ-1` through `TQ-8`).
+
+### Added
+- **Runtime and Packaging Decision (`SR-03`, `#21`, PR `#22`):** Accepted `docs/adr/0001-runtime-and-toolchain.md` confirming Python 3.11+, the official `mcp` SDK, toolchain standards, and `src/yt_intel_mcp/schemas/` (`D-02` and `C-02` resolved).
+- **Shared Core Contracts Freeze (`SR-04`, `#25`, PR `#26`):** Froze `errors.py` (17 `ErrorCode`s, envelopes, `map_upstream_error`), objective `models.py` (`INV-01`), `config.py` defaults, `YouTubeProvider` Protocol (`SE-6`), `QuotaGuard` Protocol, Stage 2 stubs (`sanitize.py`, `validation/ids.py`), `docs/adr/0002-provider-and-errors.md`, `docs/developer/fixtures.md`, and `tests/unit/test_contracts.py`.
+- **`brain-refine` Skill and First PARA Run (`TS-05`, `#19`, PR `#20`):** Authored `skills/brain-refine/SKILL.md` (`SK-4`) and `brain/areas/skill-brain-refine.md`, consolidated duplicate OAuth notes, promoted seven Stage 1 research notes to `status: distilled` PARA folders, and repaired vault links.
+- **`local-check` Skill v1 (`MF-05`, `#23`, PR `#24`):** Authored `skills/local-check/SKILL.md` (`SK-2`), `scripts/local_check.py`, `brain/areas/skill-local-check.md`, and `tests/unit/test_local_check.py` verifying wheel build, fixture tests, and stdio MCP initialization.
+- **Analysis Design Contract (`TS-04`, `#27`, PR `#29`):** Authored five strict tool JSON Schemas (`get_video_details`, `get_similar_videos`, `get_similar_channels`, `get_recommendations`, `analyze_engagement`), `docs/adr/0003-similarity-scoring.md`, `docs/adr/0007-interest-profile.md` (`G-05` and `G-06` resolved), `docs/architecture/analysis.md`, `tests/unit/test_analysis_schemas.py`, and logged team decision `G-01` in Issue `#28`.
+- **System Architecture and Persistence (`SR-05`, `#30`, PR `#31`):** Authored `docs/architecture/overview.md` (component, deployment, SQLite `erDiagram` for `quota_ledger`/`cache_entries`/`first_observed`, quota preflight, and OAuth flows) and `docs/adr/0006-token-storage-and-persistence.md` (OS keyring, `AES-256-GCM` fallback, WAL SQLite, delete on revoke).
+- **`brain-query` Skill (`SR-06`, `#32`, PR `#33`):** Authored `skills/brain-query/SKILL.md` (`SK-5`), distilled `brain/areas/skill-brain-query.md`, and `SE-QRY-01`–`SE-QRY-04` evaluations with a vault grounded drafted specification excerpt.
+- **Playlist Design Contract (`MF-04`, `#34`, PR `#35`):** Authored `draft_curated_playlist.json` and `create_curated_playlist.json` (`draft_id` only), `docs/adr/0004-trusted-confirmation.md` (`G-02` resolved), `docs/adr/0005-playlist-selection.md` (`G-03` resolved), `docs/architecture/playlist.md`, and `tests/unit/test_playlist_schemas.py`.
+- **Master Test Plan and Defect Log (`MF-06`, `#36`, PR `#37`):** Authored `docs/testing/test-plan.md` mapping all SRS test IDs, PR vs. scheduled live CI, and `NFR-1` benchmark protocol plus `docs/testing/defect-log.md` (`TQ-8`).
+- **Stage 2 Review and Audit (`SR-07`, `#38`, PR `#39`):** Authored `brain/projects/stage-2-review.md`, compiled Stage 2 skill evaluation evidence in `docs/testing/skill-evals.md`, and completed the `SB-1` back link audit across `docs/traceability.md` and `brain/`.
+
 ## [0.1.0] - 2026-11-25 (`stage-1`)
 
 Stage 1 deliverable baseline: Requirements specification, Second Brain foundation, Python package skeleton, standalone validators, and gating fixture CI.

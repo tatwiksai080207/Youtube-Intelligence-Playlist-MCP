@@ -21,6 +21,7 @@ issues:
   - "#32"
   - "#34"
   - "#36"
+  - "#38"
 prs:
   - "#10"
   - "#13"
@@ -31,6 +32,7 @@ prs:
   - "#33"
   - "#35"
   - "#37"
+  - "#39"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -51,6 +53,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 ## Active Projects
 - [[brain/projects/youtube-mcp/project-overview|YouTube MCP Project Overview]]: Goals, milestones, and active deadlines.
 - [[brain/projects/stage-1-review|Stage 1 Review]]: Requirements baseline audit, skill evaluation summary, and process findings.
+- [[brain/projects/stage-2-review|Stage 2 Review]]: Architecture, ADRs `0001`–`0007`, contracts, Stage 2 skill evals, and `SB-1` audit.
 - [[brain/projects/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]: Duration buckets, comparison edge cases, and privacy rules for `FR-4`.
 - [[brain/projects/playlist-constraints|Playlist Duration and Spoken Language Constraints]]: Duration boundaries and default audio language checks under `FR-5.1` and `FR-5.1a`.
 - [[brain/projects/partial-playlist-outcomes|Playlist Writes and Partial Outcomes]]: Stale draft checks, ordered writes, and outcome reporting under `FR-5.5`.
@@ -95,6 +98,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-06|AI Session SR-06]]: Author `brain-query` (`SK-5`) skill, distilled skill note, and vault grounded draft evaluations (Issue #32, PR #33).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-04|AI Session MF-04]]: Author strict playlist JSON Schemas (`NFR-5`), `ADR-0004` (`G-02`), `ADR-0005` (`G-03`), and `docs/architecture/playlist.md` diagrams (Issue #34, PR #35).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-06|AI Session MF-06]]: Author master test plan, PR vs live CI plan, `NFR-1` benchmark method, and `TQ-8` defect log template (Issue #36, PR #37).
+- [[brain/inbox/ai-session-2026-11-26-shiva-SR-07|AI Session SR-07]]: Compile Stage 2 skill evaluations, audit `SB-1` back links, author `stage-2-review.md`, and prepare `v0.2.0` (`stage-2`) release changelog (Issue #38, PR #39).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
