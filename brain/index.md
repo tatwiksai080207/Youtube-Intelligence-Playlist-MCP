@@ -26,6 +26,7 @@ issues:
   - "#42"
   - "#44"
   - "#46"
+  - "#48"
 prs:
   - "#10"
   - "#13"
@@ -41,6 +42,7 @@ prs:
   - "#43"
   - "#45"
   - "#47"
+  - "#49"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -111,6 +113,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-09|AI Session SR-09]]: Build MCP end to end system test harness (`tests/system/conftest.py`, `tests/system/test_harness.py`) and `docs/developer/testing.md` (Issue #42, PR #43).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-10|AI Session SR-10]]: Implement `store.py`, `quota/ledger.py`, `get_quota_status` tool and `youtube://metrics/quota` resource, `UT_QUOTA`, and `QT_1`..`QT_3` tests (Issue #44, PR #45).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-11|AI Session SR-11]]: Implement `cache.py` (`MetadataCache`, `CachedYouTubeProvider`), `IT_CACHE`, and `NT_QUOTA` tests (Issue #46, PR #47).
+- [[brain/inbox/ai-session-2026-11-26-tatwik-TS-06|AI Session TS-06]]: Implement strict YouTube video, channel, playlist, URL host, and range bounds validation with `UT_ID` and `NT_VAL` tests (Issue #48, PR #49).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
