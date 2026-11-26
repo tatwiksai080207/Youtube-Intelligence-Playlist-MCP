@@ -20,7 +20,8 @@ requirements:
   - TQ-1
 issues:
   - "#56"
-prs: []
+prs:
+  - "#57"
 sources:
   - "docs/adr/0003-similarity-scoring.md (checked 2026-11-26)"
   - "Final_SRS_Submission.pdf Sections 4.1, 4.2, and 5 (checked 2026-11-26)"
@@ -29,7 +30,7 @@ sources:
 # AI Session TS-08 TF-IDF and Cosine Similarity Engine
 
 ## Task Summary
-Implemented the pure objective TF-IDF vectorization, cosine similarity, and query term extraction engine for Stage 3 task `TS-08` (Issue `#56`).
+Implemented the pure objective TF-IDF vectorization, cosine similarity, and query term extraction engine for Stage 3 task `TS-08` (Issue `#56`, PR `#57`).
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/similarity/__init__.py` and `src/yt_intel_mcp/similarity/text.py`: implemented `tokenize_text`, `tokenize_tags`, `ENGLISH_STOP_WORDS`, `TfidfVectorizer` (sublinear term frequency `1 + ln(tf)`, smoothed IDF `ln((1 + N) / (1 + df)) + 1`, L2 normalization), bounded `cosine_similarity`, `score_texts_cosine`, `extract_key_terms`, `build_search_query`, and `shared_matched_terms` with zero HTTP/Google imports and zero popularity signals (`INV-01`).

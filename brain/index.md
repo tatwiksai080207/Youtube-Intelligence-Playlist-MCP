@@ -50,6 +50,7 @@ prs:
   - "#51"
   - "#53"
   - "#55"
+  - "#57"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -124,7 +125,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-07|AI Session MF-07]]: Implement `sanitize.py` (`NFKC`, invisible/bidi/tag/control char stripping, URL/Markdown link stripping, HTML escaping, `sanitize_video_meta`) with adversarial tests in `tests/security/test_sanitize.py` (Issue #50, PR #51).
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-07|AI Session TS-07]]: Implement ISO-8601 duration parsing (`PT#H#M#S`, `P#DT...`, `P0D`), live/zero detection, and human readable formatting with `UT_DUR` unit tests (Issue #52, PR #53).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-08|AI Session MF-08]]: Implement `playlist/constraints.py` (`PlaylistConstraints`, `build_playlist_constraints`, exact `Decimal` window `[T*(1-tol), T]`, inclusive `max_video_minutes`, upper bound `max_videos`) with `UT_SOLV_WINDOW` tests (Issue #54, PR #55).
-- [[brain/inbox/ai-session-2026-11-26-tatwik-TS-08|AI Session TS-08]]: Implement `similarity/text.py` (`TfidfVectorizer`, sublinear TF IDF, bounded `cosine_similarity`, query/overlap helpers) with `UT_SIM` and `X_PERF_SCORE` tests (Issue #56).
+- [[brain/inbox/ai-session-2026-11-26-tatwik-TS-08|AI Session TS-08]]: Implement `similarity/text.py` (`TfidfVectorizer`, sublinear TF IDF, bounded `cosine_similarity`, query/overlap helpers) with `UT_SIM` and `X_PERF_SCORE` tests (Issue #56, PR #57).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
