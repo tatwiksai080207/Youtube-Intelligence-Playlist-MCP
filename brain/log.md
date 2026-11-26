@@ -29,6 +29,7 @@ issues:
   - "#48"
   - "#50"
   - "#52"
+  - "#54"
 prs:
   - "#10"
   - "#13"
@@ -47,6 +48,7 @@ prs:
   - "#49"
   - "#51"
   - "#53"
+  - "#55"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -86,3 +88,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 19:09 | Molleti Tatwik Sai | TS-06 ID and Bounds Validation | Replaced `validation/ids.py` stubs with strict `11` char video ID, `UC...`/`@handle`, playlist ID, allow listed YouTube URL host, and bounded range validators (`bounds.py`), updated `test_contracts.py`, added `UT_ID` (`tests/unit/test_validation_ids.py`) and `NT_VAL` (`tests/negative/test_input_validation.py`), and added [[brain/inbox/ai-session-2026-11-26-tatwik-TS-06]] (Issue #48, PR #49) |
 | 2026-11-26 19:24 | Mohammed Farhan | MF-07 Metadata Sanitisation | Replaced `sanitize.py` stubs with `NFKC` normalization, invisible/bidi/tag/control char stripping, URL/Markdown link removal, `escape_html`, and `sanitize_video_meta`; updated `test_contracts.py`; added `tests/security/test_sanitize.py` and [[brain/inbox/ai-session-2026-11-26-farhan-MF-07]] (Issue #50, PR #51) |
 | 2026-11-26 19:38 | Molleti Tatwik Sai | TS-07 ISO-8601 Durations | Implemented `src/yt_intel_mcp/durations.py` (`parse_iso8601_duration`, `parse_optional_duration`, `is_live_or_zero_duration`, `format_duration`, `format_duration_clock`, `format_iso8601_duration`), added `UT_DUR` unit tests in `tests/unit/test_durations.py`, and recorded [[brain/inbox/ai-session-2026-11-26-tatwik-TS-07]] (Issue #52, PR #53) |
+| 2026-11-26 19:49 | Mohammed Farhan | MF-08 Playlist Constraint Model | Implemented `src/yt_intel_mcp/playlist/__init__.py` and `src/yt_intel_mcp/playlist/constraints.py` (`PlaylistConstraints`, `build_playlist_constraints`, `is_video_duration_eligible`, `is_total_in_window`, `evaluate_selection_constraints`), added `UT_SOLV_WINDOW` tests in `tests/unit/test_playlist_constraints.py`, updated traceability, and added [[brain/inbox/ai-session-2026-11-26-farhan-MF-08]] (Issue #54, PR #55) |
