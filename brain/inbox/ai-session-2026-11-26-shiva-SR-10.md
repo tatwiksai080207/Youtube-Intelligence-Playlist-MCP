@@ -23,7 +23,8 @@ requirements:
   - SB-6
 issues:
   - "#44"
-prs: []
+prs:
+  - "#45"
 sources:
   - "Final_SRS_Submission.pdf Sections 2.4 C-2, 3.1, 3.2 (R-5 checked 12 Nov 2026), and 4.6 (checked 2026-11-26)"
   - "docs/architecture/overview.md Section 4 and docs/adr/0006-token-storage-and-persistence.md (checked 2026-11-26)"
