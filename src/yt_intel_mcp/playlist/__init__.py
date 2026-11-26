@@ -17,6 +17,15 @@ from yt_intel_mcp.playlist.constraints import (
     is_total_in_window,
     is_video_duration_eligible,
 )
+from yt_intel_mcp.playlist.language import (
+    UNVERIFIED_AUDIO_LANGUAGE_LABEL,
+    AudioLanguageStatus,
+    LanguageCheckResult,
+    evaluate_video_audio_language,
+    filter_videos_by_language,
+    is_video_language_eligible,
+    primary_language_subtag,
+)
 
 __all__ = [
     "MAX_PLAYLIST_VIDEOS",
@@ -27,9 +36,16 @@ __all__ = [
     "MIN_TARGET_MINUTES",
     "MIN_TOLERANCE_PERCENT",
     "MIN_VIDEO_LIMIT_MINUTES",
+    "UNVERIFIED_AUDIO_LANGUAGE_LABEL",
+    "AudioLanguageStatus",
+    "LanguageCheckResult",
     "PlaylistConstraints",
     "build_playlist_constraints",
     "evaluate_selection_constraints",
+    "evaluate_video_audio_language",
+    "filter_videos_by_language",
     "is_total_in_window",
     "is_video_duration_eligible",
+    "is_video_language_eligible",
+    "primary_language_subtag",
 ]

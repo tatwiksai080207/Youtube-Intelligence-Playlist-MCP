@@ -66,7 +66,7 @@ All automated verification enforces the product invariants (`INV-01`..`INV-24`) 
 | `NT_VAL` | `negative` | `tests/negative/test_input_validation.py` | Tatwik | `TS-06` | `FR-1.1`, `FR-2.1`, `NFR-5`, `INV-02` (malformed IDs, rejected hosts, out of range bounds -> `INVALID_ARGUMENT`, 0 calls) |
 | `NT_VID` | `negative` | `tests/negative/test_video_availability.py` | Tatwik | `TS-09`, `TS-10` | `FR-1.4`, `INV-03` (private, deleted, live videos excluded or returning `VIDEO_UNAVAILABLE`) |
 | `NT_SIG` | `negative` | `tests/negative/test_user_signals.py` | Tatwik | `TS-13` | `FR-3.3`, `INV-06` (empty explicit signal history -> `INSUFFICIENT_USER_SIGNAL`) |
-| `NT_LANG` | `negative` | `tests/negative/test_playlist_language.py` | Farhan | `MF-09` | `FR-5.1a`, `INV-10` (conflicting `defaultLanguage` vs `defaultAudioLanguage`, missing audio excluded by default) |
+| `NT_LANG` | `negative` | `tests/negative/test_language_conflicts.py` | Farhan | `MF-09` | `FR-5.1a`, `INV-10` (conflicting `defaultLanguage` vs `defaultAudioLanguage`, missing audio excluded by default) |
 | `NT_HITL` | `negative` | `tests/negative/test_hitl_confirmation.py` | Farhan | `MF-07`, `MF-12`, `MF-13` | `FR-5.4`, `NFR-6`, `INV-13`, `INV-14`, `INV-22` (`CONFIRMATION_MISMATCH`, `DRAFT_EXPIRED`, `CONFIRMATION_REUSED`, `CONFIRMATION_DECLINED`, prompt injection rejection, hidden token) |
 | `NT_HITL_UNAVAIL` | `negative` | `tests/negative/test_hitl_confirmation.py` | Farhan | `MF-13` | `FR-5.4`, `INV-13` (no elicitation and no loopback UI -> `CONFIRMATION_UNAVAILABLE`, zero writes) |
 | `NT_DRAFT_STALE` | `negative` | `tests/negative/test_draft_stale.py` | Farhan | `MF-14` | `FR-5.5(1)`, `INV-15` (stale/changed video pre write -> `DRAFT_STALE`, zero writes) |
