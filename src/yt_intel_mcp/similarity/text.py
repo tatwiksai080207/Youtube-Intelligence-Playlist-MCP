@@ -296,10 +296,10 @@ def extract_key_terms(documents: Sequence[Sequence[str]], *, max_terms: int = 8)
         return ()
 
     vectors = TfidfVectorizer().fit_transform(documents)
-    aggregated: Counter[str] = Counter()
+    aggregated: dict[str, float] = {}
     for vector in vectors:
         for term, weight in vector.items():
-            aggregated[term] += weight
+            aggregated[term] = aggregated.get(term, 0.0) + weight
 
     ranked = sorted(aggregated.items(), key=lambda item: (-item[1], item[0]))
     return tuple(term for term, _ in ranked[:max_terms])
