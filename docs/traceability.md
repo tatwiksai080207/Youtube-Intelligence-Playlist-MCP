@@ -45,8 +45,8 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 ## Non-Functional Requirements
 | Req | Owner | Task(s) | Issue | PR | Tests | Skill | Brain Note |
 |---|---|---|---|---|---|---|---|
-| NFR-1 | Tatwik / Farhan / Shiva | SR-02, TS-08, MF-04, MF-10, SR-11 | #5 (SR-02), #34 (MF-04), pending (TS-08) | #15 (SR-02), #35 (MF-04), pending (TS-08) | X_PERF_SCORE, X_PERF_SELECT, IT_CACHE | n/a — performance target | brain/resources/nfr-targets.md |
-| NFR-2 | Shiva / Farhan | SR-02, MF-04, SR-10, SR-16, MF-15 | #5 (SR-02), #34 (MF-04), pending (SR-10) | #15 (SR-02), #35 (MF-04), pending (SR-10) | QT_1..3, SK-1 budget, live cap | video-to-playlist | brain/resources/nfr-targets.md |
+| NFR-1 | Tatwik / Farhan / Shiva | SR-02, TS-08, MF-04, MF-06, MF-10, SR-11 | #5 (SR-02), #34 (MF-04), #36 (MF-06), pending (TS-08) | #15 (SR-02), #35 (MF-04), pending (MF-06, TS-08) | X_PERF_SCORE, X_PERF_SELECT, IT_CACHE | n/a — performance target | brain/resources/nfr-targets.md |
+| NFR-2 | Shiva / Farhan | SR-02, MF-04, MF-06, SR-10, SR-16, MF-15 | #5 (SR-02), #34 (MF-04), #36 (MF-06), pending (SR-10) | #15 (SR-02), #35 (MF-04), pending (MF-06, SR-10) | QT_1..3, SK-1 budget, live cap | video-to-playlist | brain/resources/nfr-targets.md |
 | NFR-3 | Shiva | SR-02, SR-05, SR-12, SR-13 | #5 (SR-02), #30 (SR-05), pending (SR-12) | #15 (SR-02), #31 (SR-05), pending (SR-12) | SEC_OAUTH | n/a — auth storage | brain/resources/nfr-targets.md |
 | NFR-4 | Farhan | MF-02, TS-00 | #1, #8 | #10 (TS-00), #16 (MF-02) | Gitleaks CI | n/a — repo hygiene | brain/resources/nfr-targets.md |
 | NFR-5 | Tatwik | TS-06, TS-04, MF-04 | #27 (TS-04), #34 (MF-04), pending (TS-06) | #29 (TS-04), #35 (MF-04), pending (TS-06) | NT_VAL | n/a — input validation | brain/resources/nfr-targets.md |
@@ -54,7 +54,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | NFR-7 | Shiva / Tatwik | SR-02, SR-05, SR-08, SR-12, TS-14 | #5 (SR-02), #30 (SR-05), pending (SR-08) | #15 (SR-02), #31 (SR-05), pending (SR-08) | SEC_PII | n/a — privacy | brain/resources/nfr-targets.md |
 | NFR-8 | Shiva / Farhan | SR-02, SR-04, MF-04, SR-14, MF-14 | #5 (SR-02), #25 (SR-04), #34 (MF-04), pending (SR-14) | #15 (SR-02), #26 (SR-04), #35 (MF-04), pending (SR-14) | IT_PROV retry, IT_DRAFT_PARTIAL, CT_1 | n/a — reliability | brain/resources/nfr-targets.md |
 | NFR-9 | Farhan / all | TS-04, MF-04, SR-17, TS-16 | #27 (TS-04), #34 (MF-04) | #29 (TS-04), #35 (MF-04) | Tool reference CI check | n/a — usability | brain/resources/nfr-targets.md |
-| NFR-10 | Farhan / Shiva | SR-01, SR-02, SR-03, SR-04, MF-02, SR-15, MF-18 | #2 (SR-01), #5 (SR-02), #21 (SR-03), #25 (SR-04), #8 (MF-02) | #11 (SR-01), #15 (SR-02), #22 (SR-03), #26 (SR-04), #16 (MF-02), pending (SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
+| NFR-10 | Farhan / Shiva | SR-01, SR-02, SR-03, SR-04, MF-02, MF-06, SR-15, MF-18 | #2 (SR-01), #5 (SR-02), #21 (SR-03), #25 (SR-04), #8 (MF-02), #36 (MF-06) | #11 (SR-01), #15 (SR-02), #22 (SR-03), #26 (SR-04), #16 (MF-02), pending (MF-06, SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
 
 ## SDLC Process Requirements (R-2)
 | Req | Owner | Task(s) | Evidence Location |
@@ -66,9 +66,9 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | SE-5 Traceability | All | TS-00..SR-18 (#1, PR #10) | `docs/traceability.md` |
 | SE-6 Provider interface | Shiva | SR-04 (#25, PR #26), SR-15 | `src/yt_intel_mcp/provider/base.py` |
 | SE-7 User & Developer docs | Tatwik, Shiva | SR-04 (#25, PR #26), TS-16, SR-17 | `docs/user/`, `docs/developer/` (`docs/developer/fixtures.md`) |
-| SB-1..SB-6 Second Brain | All | TS-01 (#3, PR #13), TS-02 (#6, PR #14), SR-02 (#5, PR #15), MF-03 (#7, PR #17), TS-03 (#9, PR #18), TS-04 (#27, PR #29), TS-05 (#19, PR #20), SR-05 (#30, PR #31), SR-06 (#32, PR #33), MF-04 (#34, PR #35) | `brain/` & git history (`brain/projects/stage-1-review.md`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-03]]`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]]`, `[[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-05]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-06]]`, `[[brain/inbox/ai-session-2026-11-26-farhan-MF-04]]`) |
+| SB-1..SB-6 Second Brain | All | TS-01 (#3, PR #13), TS-02 (#6, PR #14), SR-02 (#5, PR #15), MF-03 (#7, PR #17), TS-03 (#9, PR #18), TS-04 (#27, PR #29), TS-05 (#19, PR #20), SR-05 (#30, PR #31), SR-06 (#32, PR #33), MF-04 (#34, PR #35), MF-06 (#36, pending PR) | `brain/` & git history (`brain/projects/stage-1-review.md`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-03]]`, `[[brain/inbox/ai-session-2026-11-25-tatwik-TS-05]]`, `[[brain/inbox/ai-session-2026-11-26-tatwik-TS-04]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-05]]`, `[[brain/inbox/ai-session-2026-11-26-shiva-SR-06]]`, `[[brain/inbox/ai-session-2026-11-26-farhan-MF-04]]`, `[[brain/inbox/ai-session-2026-11-26-farhan-MF-06]]`) |
 | SB-1, SB-3 Validator checks | Farhan | MF-01 (#4, PR #12) | `scripts/validate_brain.py`, `scripts/validate_skills.py`, `tests/unit/test_validators.py` (TQ-1, TQ-4), [[brain/inbox/ai-session-2026-11-23-farhan-MF-01]] |
 | SB-6 Farhan's Stage 1 research notes | Farhan | MF-03 (#7, PR #17) | [[brain/inbox/ai-session-2026-11-25-farhan-MF-03]] |
 | TQ-5 Fixture CI | Farhan | MF-02 (#8, PR #16) | `.github/workflows/ci.yml`, [[brain/inbox/ai-session-2026-11-25-farhan-MF-02]] |
 | TQ-7 Skill evaluations | All | TS-03 (#9, PR #18), TS-05 (#19, PR #20), SR-06 (#32, PR #33), SR-07, MF-17 | `docs/testing/skill-evals.md` |
-| TQ-8 Defect log & regressions | Fixer | MF-06, ongoing | `docs/testing/defect-log.md` |
+| TQ-1..TQ-8 Test plan & defect log | Farhan / Fixer | MF-06 (#36, pending PR), ongoing | `docs/testing/test-plan.md`, `docs/testing/defect-log.md`, [[brain/inbox/ai-session-2026-11-26-farhan-MF-06]] |
