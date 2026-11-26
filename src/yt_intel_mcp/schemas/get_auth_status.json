@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-intel-mcp.local/schemas/get_auth_status.json",
+  "title": "get_auth_status",
+  "description": "Report OAuth authentication status, granted scopes, storage backend, and channel presence without exposing tokens (FR-7.2, NFR-3).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {}
+}

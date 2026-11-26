@@ -35,6 +35,7 @@ issues:
   - "#60"
   - "#62"
   - "#64"
+  - "#66"
 prs:
   - "#10"
   - "#13"
@@ -104,3 +105,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 20:58 | Mohammed Farhan | MF-10 Constrained Playlist Solver | Implemented `src/yt_intel_mcp/playlist/solver.py` (`score_candidates_for_topic`, `solve_playlist_selection`, `PlaylistSolution`, `SelectedPlaylistVideo`) maximising TF IDF topic relevance over strict `FR-5.1` and `FR-5.1a` constraints within `<= 500 ms` for `200` candidates with rich `CONSTRAINTS_UNSATISFIABLE` diagnostics, added `UT_SOLV` and `X_PERF_SELECT` tests, and recorded [[brain/inbox/ai-session-2026-11-26-farhan-MF-10]] (Issue #60, PR #61) |
 | 2026-11-26 21:24 | Mohammed Farhan | MF-11 Draft Tool and Expiring Drafts | Implemented `src/yt_intel_mcp/playlist/drafts.py` (`DraftVideo`, `PlaylistDraft`, `DraftStore`) and `src/yt_intel_mcp/tools/draft_curated_playlist.py` (`validate_draft_arguments`, `estimate_draft_workflow_cost`, `execute_draft_curated_playlist`, `register_draft_curated_playlist`), added unit, `ST_FR5`, `DRAFT_EXPIRED`, and `QT_3` tests, and recorded [[brain/inbox/ai-session-2026-11-26-farhan-MF-11]] (Issue #62, PR #63) |
 | 2026-11-26 21:40 | Molleti Tatwik Sai | TS-09 get_video_details Tool | Implemented `src/yt_intel_mcp/tools/get_video_details.py` (`validate_get_video_details_arguments`, `parse_chapters_from_description`, `execute_get_video_details`, `register_get_video_details`) with `1 u` preflight, sanitization, live status, and human duration; added `tests/system/test_get_video_details.py`, `NT_VID` (`tests/negative/test_video_availability.py`), and [[brain/inbox/ai-session-2026-11-26-tatwik-TS-09]] (Issue #64, PR #65) |
+| 2026-11-26 21:52 | Madire Shiva Reddy | SR-12 Encrypted Token Store | Implemented `src/yt_intel_mcp/auth/token_store.py` (OS keyring + `AES-256-GCM` `tokens.enc` fallback, `TokenBundle` redaction, revoke purge), `src/yt_intel_mcp/tools/get_auth_status.py`, `src/yt_intel_mcp/schemas/get_auth_status.json`, `SEC_OAUTH`, `SEC_PII` revoke test, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-12]] (Issue #66) |

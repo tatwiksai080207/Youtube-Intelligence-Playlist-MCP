@@ -35,6 +35,7 @@ issues:
   - "#60"
   - "#62"
   - "#64"
+  - "#66"
 prs:
   - "#10"
   - "#13"
@@ -138,6 +139,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-10|AI Session MF-10]]: Implement `playlist/solver.py` (TF IDF relevance maximizing constrained solver within 500 ms for 200 candidates, deterministic tie breaking, rich `CONSTRAINTS_UNSATISFIABLE` diagnostics) with `UT_SOLV` and `X_PERF_SELECT` tests (Issue #60, PR #61).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-11|AI Session MF-11]]: Implement `playlist/drafts.py` (`PlaylistDraft`, `DraftStore` 10m TTL) and `tools/draft_curated_playlist.py` (`G-03` workflow preflight, zero writes) with `ST_FR5`, `DRAFT_EXPIRED`, and `QT_3` tests (Issue #62, PR #63).
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-09|AI Session TS-09]]: Implement `tools/get_video_details.py` (`1 u` preflight, chapter parsing, sanitized objective metadata, human duration, `VIDEO_UNAVAILABLE`) with MCP system and `NT_VID` negative tests (Issue #64, PR #65).
+- [[brain/inbox/ai-session-2026-11-26-shiva-SR-12|AI Session SR-12]]: Implement `auth/token_store.py` (OS keyring + `AES-256-GCM` fallback, revoke purge), `tools/get_auth_status.py`, `schemas/get_auth_status.json`, `SEC_OAUTH`, and `SEC_PII` revoke test (Issue #66).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
