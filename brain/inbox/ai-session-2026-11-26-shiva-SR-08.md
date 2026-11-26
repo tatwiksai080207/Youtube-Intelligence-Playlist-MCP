@@ -22,7 +22,8 @@ requirements:
   - SB-6
 issues:
   - "#40"
-prs: []
+prs:
+  - "#41"
 sources:
   - "Final_SRS_Submission.pdf Sections 4.8, 5, and 6.1 (checked 2026-11-26)"
   - "docs/developer/fixtures.md and docs/testing/test-plan.md (checked 2026-11-26)"
