@@ -116,3 +116,80 @@ async def test_SEC_PII_fixture_provider_outputs_exclude_popularity_and_secrets()
         "rated_likes": [asdict(v) for v in await provider.list_liked_videos_rated()],
     }
     assert scrub_fixture.scan_payload_for_violations(outputs) == []
+
+
+def test_SEC_PII_auth_revoke_deletes_tokens_and_personal_cache_but_retains_quota(
+    tmp_path: Path,
+) -> None:
+    from datetime import UTC, datetime, timedelta
+
+    from yt_intel_mcp.auth import YOUTUBE_READONLY_SCOPE, TokenBundle, TokenStore
+    from yt_intel_mcp.cache import MetadataCache
+    from yt_intel_mcp.models import CostEstimate
+    from yt_intel_mcp.quota import PersistentQuotaLedger
+    from yt_intel_mcp.store import SQLiteStore
+    from yt_intel_mcp.tools import execute_get_auth_status
+
+    class _MemKeyring:
+        def __init__(self) -> None:
+            self.items: dict[tuple[str, str], str] = {}
+
+        def get_password(self, service_name: str, username: str) -> str | None:
+            return self.items.get((service_name, username))
+
+        def set_password(self, service_name: str, username: str, password: str) -> None:
+            self.items[(service_name, username)] = password
+
+        def delete_password(self, service_name: str, username: str) -> None:
+            self.items.pop((service_name, username), None)
+
+    data_dir = tmp_path / "revoke_dir"
+    store = SQLiteStore(data_dir / "yt_intel.db")
+    ledger = PersistentQuotaLedger(store)
+    ledger.charge(CostEstimate(units=25, search_calls=2, operation="prior"))
+    cache = MetadataCache(store)
+    cache.put("videos:item:vid_seed_py01", "videos", {"video_id": "vid_seed_py01"})
+    cache.put("user_lists:subscriptions_mine:50", "user_lists", [{"video_id": "v1"}])
+    with store.transaction(immediate=True) as conn:
+        conn.execute(
+            """
+            INSERT INTO first_observed (source, item_id, first_observed_utc)
+            VALUES ('liked_video', 'vid_seed_py01', '2026-11-26T10:00:00Z');
+            """
+        )
+
+    kr = _MemKeyring()
+    now = datetime(2026, 11, 26, 15, 0, tzinfo=UTC)
+    bundle = TokenBundle(
+        access_token="ya29." + "revoke_test_access_token",
+        refresh_token="1//0g" + "revoke_test_refresh_token",
+        scopes=(YOUTUBE_READONLY_SCOPE,),
+        expires_at_utc=now + timedelta(hours=1),
+        issued_at_utc=now,
+        channel_id="UC_SYNTH_USER_001",
+    )
+
+    # Save encrypted file first, then also populate keyring to verify revoke clears both.
+    file_store = TokenStore(data_dir, use_system_keyring=False)
+    file_store.save_bundle(bundle)
+    assert file_store.tokens_path.is_file()
+
+    kr_store = TokenStore(data_dir, keyring_backend=kr)
+    kr.set_password(kr_store.service_name, kr_store.account_key, "serialized")
+
+    result = kr_store.revoke(store=store)
+    assert result.keyring_cleared is True
+    assert result.encrypted_file_deleted is True
+    assert result.personal_cache_deleted == 1
+    assert result.first_observed_deleted == 1
+
+    assert not file_store.tokens_path.exists()
+    assert kr.items == {}
+    assert kr_store.load_bundle() is None
+    assert execute_get_auth_status(kr_store)["data"]["authenticated"] is False
+
+    # Public metadata cache and daily quota ledger remain intact (ADR-0006).
+    assert cache.get("videos:item:vid_seed_py01") == {"video_id": "vid_seed_py01"}
+    assert cache.get("user_lists:subscriptions_mine:50") is None
+    assert ledger.status().units_used == 25
+    assert ledger.status().search_calls_used == 2
