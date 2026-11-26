@@ -18,7 +18,8 @@ requirements:
   - TQ-1
 issues:
   - "#52"
-prs: []
+prs:
+  - "#53"
 sources:
   - "Final_SRS_Submission.pdf Sections 4.4, 4.5, 5, and 6.1 (checked 2026-11-26)"
   - "docs/testing/test-plan.md UT_DUR target specification (checked 2026-11-26)"
@@ -27,7 +28,7 @@ sources:
 # AI Session TS-07 ISO-8601 Duration Parsing and Formatting
 
 ## Task Summary
-Implemented ISO-8601 duration parsing, live/zero duration filtering helpers, and human readable formatting for Stage 3 task `TS-07` (Issue `#52`).
+Implemented ISO-8601 duration parsing, live/zero duration filtering helpers, and human readable formatting for Stage 3 task `TS-07` (Issue `#52`, PR `#53`).
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/durations.py`: implemented `parse_iso8601_duration` (`PT#H#M#S`, `P#DT#H#M#S`, `P#W`, fractional seconds, and `P0D` zero/live handling), `parse_optional_duration`, `is_live_or_zero_duration` (`INV-03`, `INV-07`), `format_duration` (`NFR-9`), `format_duration_clock`, and `format_iso8601_duration`.
