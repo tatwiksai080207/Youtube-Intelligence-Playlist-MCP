@@ -17,7 +17,8 @@ requirements:
   - SB-1
 issues:
   - "#60"
-prs: []
+prs:
+  - "#61"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Section 4.5 FR-5.2 and Section 5 NFR-1 (checked 2026-11-26)"
   - "docs/adr/0005-playlist-selection.md Section 3 (checked 2026-11-26)"
@@ -26,7 +27,7 @@ sources:
 # AI Session MF-10 Constrained Playlist Selection Solver
 
 ## Task Summary
-Implemented `src/yt_intel_mcp/playlist/solver.py` (`MF-10`, Issue `#60`) per `docs/adr/0005-playlist-selection.md`, maximising objective TF IDF topic relevance over strict duration and spoken audio language constraints within the `<= 500 ms` (`NFR-1`) performance ceiling for `200` candidates.
+Implemented `src/yt_intel_mcp/playlist/solver.py` (`MF-10`, Issue `#60`, PR `#61`) per `docs/adr/0005-playlist-selection.md`, maximising objective TF IDF topic relevance over strict duration and spoken audio language constraints within the `<= 500 ms` (`NFR-1`) performance ceiling for `200` candidates.
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/playlist/solver.py` (exported from `src/yt_intel_mcp/playlist/__init__.py`):
@@ -42,4 +43,4 @@ Implemented `src/yt_intel_mcp/playlist/solver.py` (`MF-10`, Issue `#60`) per `do
 - [[brain/resources/knapsack-constraint-solving|Knapsack Constraint Solving]]
 
 ## Verification
-- Pending local check run (`ruff`, `mypy`, `validate_skills.py`, `validate_brain.py`, `pytest`) and CI checks on Pull Request.
+- Verified `ruff check .`, `ruff format --check .`, `mypy src`, `scripts/validate_skills.py`, `scripts/validate_brain.py`, and pytest suites in fixture mode (`291 passed`, `95.52%` total coverage, `X_PERF_SELECT` within budget).

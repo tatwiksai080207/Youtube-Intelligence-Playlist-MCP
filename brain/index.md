@@ -54,6 +54,7 @@ prs:
   - "#55"
   - "#57"
   - "#59"
+  - "#61"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -130,7 +131,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-08|AI Session MF-08]]: Implement `playlist/constraints.py` (`PlaylistConstraints`, `build_playlist_constraints`, exact `Decimal` window `[T*(1-tol), T]`, inclusive `max_video_minutes`, upper bound `max_videos`) with `UT_SOLV_WINDOW` tests (Issue #54, PR #55).
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-08|AI Session TS-08]]: Implement `similarity/text.py` (`TfidfVectorizer`, sublinear TF IDF, bounded `cosine_similarity`, query/overlap helpers) with `UT_SIM` and `X_PERF_SCORE` tests (Issue #56, PR #57).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-09|AI Session MF-09]]: Implement `playlist/language.py` (`defaultAudioLanguage`-only primary subtag filter, ignoring `defaultLanguage`, `"Audio language unverified"` opt in) with `UT_LANG` and `NT_LANG` tests (Issue #58, PR #59).
-- [[brain/inbox/ai-session-2026-11-26-farhan-MF-10|AI Session MF-10]]: Implement `playlist/solver.py` (TF IDF relevance maximizing constrained solver within 500 ms for 200 candidates, deterministic tie breaking, rich `CONSTRAINTS_UNSATISFIABLE` diagnostics) with `UT_SOLV` and `X_PERF_SELECT` tests (Issue #60).
+- [[brain/inbox/ai-session-2026-11-26-farhan-MF-10|AI Session MF-10]]: Implement `playlist/solver.py` (TF IDF relevance maximizing constrained solver within 500 ms for 200 candidates, deterministic tie breaking, rich `CONSTRAINTS_UNSATISFIABLE` diagnostics) with `UT_SOLV` and `X_PERF_SELECT` tests (Issue #60, PR #61).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
