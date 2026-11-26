@@ -28,6 +28,7 @@ prs:
   - "#29"
   - "#31"
   - "#33"
+  - "#35"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -90,7 +91,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-04|AI Session TS-04]]: Author strict `FR-1..FR-4` tool JSON Schemas, `ADR-0003`, `ADR-0007`, analysis architecture diagrams, and Decision `G-01` (Issue #27, Issue #28, PR #29).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-05|AI Session SR-05]]: Author system architecture overview, deployment/ER/sequence diagrams, and `ADR-0006` for encrypted token storage and WAL SQLite persistence (Issue #30, PR #31).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-06|AI Session SR-06]]: Author `brain-query` (`SK-5`) skill, distilled skill note, and vault grounded draft evaluations (Issue #32, PR #33).
-- [[brain/inbox/ai-session-2026-11-26-farhan-MF-04|AI Session MF-04]]: Author strict playlist JSON Schemas (`NFR-5`), `ADR-0004` (`G-02`), `ADR-0005` (`G-03`), and `docs/architecture/playlist.md` diagrams (Issue #34).
+- [[brain/inbox/ai-session-2026-11-26-farhan-MF-04|AI Session MF-04]]: Author strict playlist JSON Schemas (`NFR-5`), `ADR-0004` (`G-02`), `ADR-0005` (`G-03`), and `docs/architecture/playlist.md` diagrams (Issue #34, PR #35).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

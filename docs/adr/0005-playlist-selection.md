@@ -5,7 +5,7 @@
 - **Decision Makers:** Mohammed Farhan (owner), Madire Shiva Reddy, Molleti Tatwik Sai
 - **Task:** `MF-04`
 - **GitHub Issue:** `#34`
-- **GitHub PR:** pending (`MF-04`)
+- **GitHub PR:** `#35`
 - **Requirements:** `FR-5.1`, `FR-5.1a`, `FR-5.2`, `FR-5.3`, `FR-6.2`, `NFR-1`, `NFR-2`, `NFR-5`, `NFR-9`, `SE-3`, `SB-3`
 - **Distilled Brain Sources (`SB-3`):**
   - [[brain/projects/playlist-constraints|Playlist Duration and Spoken Language Constraints]]

@@ -5,7 +5,7 @@
 - **Decision Makers:** Mohammed Farhan (owner), Madire Shiva Reddy, Molleti Tatwik Sai
 - **Task:** `MF-04`
 - **GitHub Issue:** `#34`
-- **GitHub PR:** pending (`MF-04`)
+- **GitHub PR:** `#35`
 - **Requirements:** `FR-5.4`, `FR-5.5`, `FR-6.2`, `FR-7.1`, `FR-7.3`, `NFR-5`, `NFR-6`, `NFR-8`, `NFR-9`, `SE-3`, `SB-3`
 - **Distilled Brain Sources (`SB-3`):**
   - [[brain/resources/mcp-elicitation-confirmation|Trusted Playlist Confirmation with MCP Elicitation]]

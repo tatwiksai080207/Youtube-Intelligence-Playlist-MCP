@@ -2,6 +2,8 @@
 
 - **Task:** `MF-04` (`SE-2`)
 - **Owner:** Mohammed Farhan (`@farhan4599`)
+- **GitHub Issue:** `#34`
+- **GitHub PR:** `#35`
 - **Requirements:** `FR-5.1`, `FR-5.1a`, `FR-5.2`, `FR-5.3`, `FR-5.4`, `FR-5.5`, `FR-6.2`, `FR-7.1`, `FR-7.3`, `NFR-1`, `NFR-2`, `NFR-5`, `NFR-6`, `NFR-8`, `NFR-9`, `SE-2`, `SE-6`
 - **Related ADRs:**
   - `docs/adr/0002-provider-and-errors.md` (`YouTubeProvider`, `QuotaGuard`, 17 `ErrorCode`s)

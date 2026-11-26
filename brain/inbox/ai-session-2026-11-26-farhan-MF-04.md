@@ -33,7 +33,8 @@ requirements:
   - SB-3
 issues:
   - "#34"
-prs: []
+prs:
+  - "#35"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Sections 3.1, 3.3, 4.5, 4.6, 4.7, and 5 (checked 2026-11-26)"
   - "src/yt_intel_mcp/config.py, errors.py, models.py, and provider/base.py frozen contracts (SR-04, PR #26)"
@@ -42,7 +43,7 @@ sources:
 # AI Session MF-04 Playlist Schemas, ADR-0004, ADR-0005 and Architecture Design
 
 ## Task Summary
-Completed the Stage 2 playlist curation and trusted confirmation design contract (`MF-04`, Issue `#34`), resolving open planning gaps `G-02` and `G-03`.
+Completed the Stage 2 playlist curation and trusted confirmation design contract (`MF-04`, Issue `#34`, PR `#35`), resolving open planning gaps `G-02` and `G-03`.
 
 ## Deliverables Authored
 - Strict Draft 2020-12 JSON Schemas (`additionalProperties: false`, zero popularity keys, strict bounds) in `src/yt_intel_mcp/schemas/`:
@@ -61,4 +62,5 @@ Completed the Stage 2 playlist curation and trusted confirmation design contract
 - Related index: [[brain/index|Second Brain Index]].
 
 ## Verification
-- Verified `ruff check .`, `ruff format --check .`, `mypy src`, `pytest -m "not live" --cov=yt_intel_mcp --cov-fail-under=85`, `scripts/validate_skills.py`, and `scripts/validate_brain.py`.
+- Passed locally: `ruff check .`, `ruff format --check .`, `mypy src`, `scripts/validate_skills.py`, `scripts/validate_brain.py`, and all 50 non validator unit tests (`test_playlist_schemas.py` 6/6, `test_analysis_schemas.py`, `test_contracts.py`, `test_local_check.py`, `test_smoke.py`) at 99.31% source coverage.
+- Noted pre existing Windows path separator failure in `tests/unit/test_validators.py` (28 assertions expecting POSIX `/` paths on Windows); verified against Linux CI on `ubuntu-latest` for PR `#35`.
