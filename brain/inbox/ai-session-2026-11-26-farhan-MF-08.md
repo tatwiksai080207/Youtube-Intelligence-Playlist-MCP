@@ -17,7 +17,8 @@ requirements:
   - SB-1
 issues:
   - "#54"
-prs: []
+prs:
+  - "#55"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Section 4.5 FR-5.1 (checked 2026-11-26)"
   - "docs/adr/0005-playlist-selection.md and src/yt_intel_mcp/durations.py (checked 2026-11-26)"
@@ -26,7 +27,7 @@ sources:
 # AI Session MF-08 Playlist Constraint Model and Window Logic
 
 ## Task Summary
-Implemented `src/yt_intel_mcp/playlist/__init__.py` and `src/yt_intel_mcp/playlist/constraints.py` (`MF-08`, Issue `#54`), enforcing strict duration window logic, inclusive `max_video_minutes`, upper bound `max_videos`, and pre quota parameter validation.
+Implemented `src/yt_intel_mcp/playlist/__init__.py` and `src/yt_intel_mcp/playlist/constraints.py` (`MF-08`, Issue `#54`, PR `#55`), enforcing strict duration window logic, inclusive `max_video_minutes`, upper bound `max_videos`, and pre quota parameter validation.
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/playlist/constraints.py`:
