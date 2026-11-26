@@ -19,7 +19,8 @@ requirements:
   - SB-1
 issues:
   - "#62"
-prs: []
+prs:
+  - "#63"
 sources:
   - "Final_SRS_Submission.pdf v1.0, Section 4.5 FR-5.1..5.3 and FR-6.2 (checked 2026-11-26)"
   - "docs/adr/0005-playlist-selection.md Section 4 and Section 5 (checked 2026-11-26)"
@@ -28,7 +29,7 @@ sources:
 # AI Session MF-11 draft_curated_playlist Tool and Immutable Expiring Drafts
 
 ## Task Summary
-Implemented `src/yt_intel_mcp/playlist/drafts.py` and `src/yt_intel_mcp/tools/draft_curated_playlist.py` (`MF-11`, Issue `#62`), freezing immutable 10 minute expiring drafts (`FR-5.3`, `INV-12`) and enforcing `G-03` worst case workflow quota preflight (`FR-6.2`, `QT_3`) with read only candidate discovery and zero YouTube write calls.
+Implemented `src/yt_intel_mcp/playlist/drafts.py` and `src/yt_intel_mcp/tools/draft_curated_playlist.py` (`MF-11`, Issue `#62`, PR `#63`), freezing immutable 10 minute expiring drafts (`FR-5.3`, `INV-12`) and enforcing `G-03` worst case workflow quota preflight (`FR-6.2`, `QT_3`) with read only candidate discovery and zero YouTube write calls.
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/playlist/drafts.py` (exported in `src/yt_intel_mcp/playlist/__init__.py`):
@@ -46,4 +47,4 @@ Implemented `src/yt_intel_mcp/playlist/drafts.py` and `src/yt_intel_mcp/tools/dr
 - [[brain/resources/youtube-quota-costs|YouTube API Quota Costs]]
 
 ## Verification
-- Pending local check run (`ruff`, `mypy`, `validate_skills.py`, `validate_brain.py`, `pytest`) and CI checks on Pull Request.
+- Verified `ruff check .`, `ruff format --check .`, `mypy src`, `scripts/validate_skills.py`, `scripts/validate_brain.py`, and pytest suites in fixture mode (`298 passed`, `95.84%` total coverage).
