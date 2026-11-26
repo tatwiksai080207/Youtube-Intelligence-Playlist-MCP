@@ -17,7 +17,8 @@ requirements:
   - NFR-5
 issues:
   - "#48"
-prs: []
+prs:
+  - "#49"
 sources:
   - "Final_SRS_Submission.pdf Sections 3.1, 4.1, 4.2, and 5 (checked 2026-11-26)"
   - "docs/testing/test-plan.md UT_ID and NT_VAL targets (checked 2026-11-26)"
@@ -26,7 +27,7 @@ sources:
 # AI Session TS-06 Video, Channel, Playlist and Bounds Validation
 
 ## Task Summary
-Implemented strict pre quota identifier, URL host allow list, and bounded parameter validation for Stage 3 task `TS-06` (Issue `#48`), replacing Stage 2 stubs in `src/yt_intel_mcp/validation/ids.py`.
+Implemented strict pre quota identifier, URL host allow list, and bounded parameter validation for Stage 3 task `TS-06` (Issue `#48`, PR `#49`), replacing Stage 2 stubs in `src/yt_intel_mcp/validation/ids.py`.
 
 ## Deliverables Authored
 - `src/yt_intel_mcp/validation/ids.py`: implemented `extract_video_id` (`11` character IDs and allow listed watch/shorts/live/embed/v/`youtu.be` URLs), `parse_channel_reference` and `extract_channel_id` (`24` character `UC...` IDs, `3..30` character `@handle`s, `/channel/UC...` and `/@handle` URLs), and `extract_playlist_id` (playlist IDs and `/playlist?list=...` URLs). Rejects custom ports, userinfo authority tricks, control characters, non YouTube hosts, and malformed inputs with `ToolError(ErrorCode.INVALID_ARGUMENT)`.
