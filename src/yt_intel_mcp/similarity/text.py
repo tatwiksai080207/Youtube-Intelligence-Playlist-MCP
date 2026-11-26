@@ -217,8 +217,7 @@ class TfidfVectorizer:
         n_docs = len(documents)
         self._num_docs = n_docs
         self._idf = {
-            term: math.log((1.0 + n_docs) / (1.0 + df)) + 1.0
-            for term, df in doc_freq.items()
+            term: math.log((1.0 + n_docs) / (1.0 + df)) + 1.0 for term, df in doc_freq.items()
         }
         return self
 
