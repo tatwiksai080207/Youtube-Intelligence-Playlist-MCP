@@ -20,7 +20,8 @@ requirements:
   - SB-6
 issues:
   - "#42"
-prs: []
+prs:
+  - "#43"
 sources:
   - "docs/testing/test-plan.md and docs/adr/0004-trusted-confirmation.md (checked 2026-11-26)"
   - "src/yt_intel_mcp/provider/fixture.py and src/yt_intel_mcp/server.py (checked 2026-11-26)"
