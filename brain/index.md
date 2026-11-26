@@ -22,6 +22,7 @@ issues:
   - "#34"
   - "#36"
   - "#38"
+  - "#40"
 prs:
   - "#10"
   - "#13"
@@ -99,6 +100,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-04|AI Session MF-04]]: Author strict playlist JSON Schemas (`NFR-5`), `ADR-0004` (`G-02`), `ADR-0005` (`G-03`), and `docs/architecture/playlist.md` diagrams (Issue #34, PR #35).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-06|AI Session MF-06]]: Author master test plan, PR vs live CI plan, `NFR-1` benchmark method, and `TQ-8` defect log template (Issue #36, PR #37).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-07|AI Session SR-07]]: Compile Stage 2 skill evaluations, audit `SB-1` back links, author `stage-2-review.md`, and prepare `v0.2.0` (`stage-2`) release changelog (Issue #38, PR #39).
+- [[brain/inbox/ai-session-2026-11-26-shiva-SR-08|AI Session SR-08]]: Implement `FixtureYouTubeProvider`, `scripts/scrub_fixture.py`, scrubbed public and synthetic user fixtures, and `IT_PROV`/`SEC_PII` tests (Issue #40).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

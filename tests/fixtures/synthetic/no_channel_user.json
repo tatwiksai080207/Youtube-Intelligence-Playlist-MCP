@@ -1,0 +1,19 @@
+{
+  "has_channel": false,
+  "channel": null,
+  "subscriptions": [
+    {
+      "source": "subscription",
+      "time_kind": "dated",
+      "event_time": "2026-11-12T10:00:00Z",
+      "channel_id": "UC_PUB_TECH_001",
+      "title": "Systems Craft",
+      "tags": ["python", "asyncio"]
+    }
+  ],
+  "playlists": [],
+  "playlist_items": {},
+  "liked_videos_rated": [
+    "vid_seed_py01"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "has_channel": true,
+  "channel": {
+    "channel_id": "UC_SYNTH_USER_001",
+    "title": "Synthetic Learner Channel",
+    "description": "Synthetic test persona channel for offline fixture testing.",
+    "custom_url": "@synthlearner",
+    "published_at": "2024-01-01T00:00:00Z",
+    "country": "US",
+    "default_language": "en",
+    "topic_categories": [
+      "https://en.wikipedia.org/wiki/Technology"
+    ],
+    "keywords": ["python", "learning"],
+    "uploads_playlist_id": "UU_SYNTH_USER_001",
+    "likes_playlist_id": "LL_SYNTH_USER_001"
+  },
+  "subscriptions": [
+    {
+      "source": "subscription",
+      "time_kind": "dated",
+      "event_time": "2026-11-10T12:00:00Z",
+      "channel_id": "UC_PUB_TECH_001",
+      "title": "Systems Craft",
+      "tags": ["python", "asyncio", "systems"]
+    },
+    {
+      "source": "subscription",
+      "time_kind": "dated",
+      "event_time": "2026-11-02T09:00:00Z",
+      "channel_id": "UC_PUB_TECH_002",
+      "title": "Code Mechanics",
+      "tags": ["python", "mcp", "architecture"]
+    },
+    {
+      "source": "subscription",
+      "time_kind": "dated",
+      "event_time": "2026-08-15T18:00:00Z",
+      "channel_id": "UC_PUB_TECH_003",
+      "title": "Storage Foundry",
+      "tags": ["sqlite", "database", "distributed"]
+    }
+  ],
+  "playlists": [
+    {
+      "playlist_id": "LL_SYNTH_USER_001",
+      "title": "Liked videos",
+      "description": "Synthetic likes playlist exposing dated playlistItems.snippet.publishedAt events.",
+      "channel_id": "UC_SYNTH_USER_001",
+      "channel_title": "Synthetic Learner Channel",
+      "published_at": "2024-01-01T00:00:00Z",
+      "item_count": 3,
+      "privacy_status": "private"
+    },
+    {
+      "playlist_id": "PL_SYNTH_STUDY_001",
+      "title": "Synthetic Systems Study Queue",
+      "description": "Synthetic saved playlist for offline FR-3 and FR-4 fixtures.",
+      "channel_id": "UC_SYNTH_USER_001",
+      "channel_title": "Synthetic Learner Channel",
+      "published_at": "2026-10-01T10:00:00Z",
+      "item_count": 3,
+      "privacy_status": "private"
+    }
+  ],
+  "playlist_items": {
+    "LL_SYNTH_USER_001": [
+      {
+        "source": "liked_video",
+        "time_kind": "dated",
+        "event_time": "2026-11-22T15:00:00Z",
+        "video_id": "vid_seed_py01",
+        "channel_id": "UC_PUB_TECH_001",
+        "playlist_id": "LL_SYNTH_USER_001",
+        "title": "Python Asyncio Internals and Event Loops",
+        "category_id": "28",
+        "duration_seconds": 620,
+        "tags": ["python", "asyncio", "concurrency", "systems"]
+      },
+      {
+        "source": "liked_video",
+        "time_kind": "dated",
+        "event_time": "2026-11-15T11:30:00Z",
+        "video_id": "vid_short006",
+        "channel_id": "UC_PUB_TECH_003",
+        "playlist_id": "LL_SYNTH_USER_001",
+        "title": "SQLite WAL Mode in Three Minutes",
+        "category_id": "27",
+        "duration_seconds": 195,
+        "tags": ["sqlite", "database", "python"]
+      },
+      {
+        "source": "liked_video",
+        "time_kind": "dated",
+        "event_time": "2026-09-28T08:45:00Z",
+        "video_id": "vid_long1208",
+        "channel_id": "UC_PUB_TECH_003",
+        "playlist_id": "LL_SYNTH_USER_001",
+        "title": "Distributed Consensus and State Machines",
+        "category_id": "27",
+        "duration_seconds": 1440,
+        "tags": ["distributed-systems", "raft", "consensus"]
+      }
+    ],
+    "PL_SYNTH_STUDY_001": [
+      {
+        "source": "playlist_item",
+        "time_kind": "dated",
+        "event_time": "2026-11-20T17:00:00Z",
+        "video_id": "vid_med_2407",
+        "channel_id": "UC_PUB_TECH_002",
+        "playlist_id": "PL_SYNTH_STUDY_001",
+        "title": "Designing Deterministic MCP Servers in Python",
+        "category_id": "28",
+        "duration_seconds": 240,
+        "tags": ["mcp", "python", "architecture"]
+      },
+      {
+        "source": "playlist_item",
+        "time_kind": "dated",
+        "event_time": "2026-11-04T19:00:00Z",
+        "video_id": "vid_notags02",
+        "channel_id": "UC_PUB_TECH_002",
+        "playlist_id": "PL_SYNTH_STUDY_001",
+        "title": "Async Concurrency Patterns in Python 3.11",
+        "category_id": "28",
+        "duration_seconds": 540,
+        "tags": []
+      },
+      {
+        "source": "playlist_item",
+        "time_kind": "dated",
+        "event_time": "2026-09-12T10:15:00Z",
+        "video_id": "vid_bake_012",
+        "channel_id": "UC_PUB_COOK_005",
+        "playlist_id": "PL_SYNTH_STUDY_001",
+        "title": "Sourdough Fermentation Chemistry",
+        "category_id": "26",
+        "duration_seconds": 780,
+        "tags": ["baking", "fermentation", "bread"]
+      }
+    ]
+  },
+  "liked_videos_rated": [
+    "vid_unk_au10",
+    "vid_bake_012"
+  ]
+}

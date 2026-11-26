@@ -1,0 +1,35 @@
+{
+  "video_queries": {
+    "python asyncio": [
+      "vid_seed_py01",
+      "vid_notags02",
+      "vid_med_2407",
+      "vid_short006",
+      "vid_es_lang9",
+      "vid_unk_au10",
+      "vid_live0005",
+      "vid_priv0003"
+    ],
+    "systems concurrency": [
+      "vid_seed_py01",
+      "vid_notags02",
+      "vid_long1208",
+      "vid_short006",
+      "vid_unk_au10"
+    ],
+    "sourdough": [
+      "vid_bake_012"
+    ]
+  },
+  "channel_queries": {
+    "systems python": [
+      "UC_PUB_TECH_001",
+      "UC_PUB_TECH_002",
+      "UC_PUB_TECH_003",
+      "UC_PUB_TECH_004"
+    ],
+    "baking": [
+      "UC_PUB_COOK_005"
+    ]
+  }
+}

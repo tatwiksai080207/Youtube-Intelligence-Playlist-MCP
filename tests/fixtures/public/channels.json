@@ -1,0 +1,89 @@
+{
+  "channels": [
+    {
+      "channel_id": "UC_PUB_TECH_001",
+      "title": "Systems Craft",
+      "description": "Deep dives into Python internals, asyncio event loops, and Linux systems engineering.",
+      "custom_url": "@systemscraft",
+      "published_at": "2020-03-15T00:00:00Z",
+      "country": "US",
+      "default_language": "en",
+      "topic_categories": [
+        "https://en.wikipedia.org/wiki/Technology",
+        "https://en.wikipedia.org/wiki/Computer_science"
+      ],
+      "keywords": ["python", "asyncio", "systems", "concurrency"],
+      "uploads_playlist_id": "UU_PUB_TECH_001",
+      "likes_playlist_id": null
+    },
+    {
+      "channel_id": "UC_PUB_TECH_002",
+      "title": "Code Mechanics",
+      "description": "Practical Python concurrency, MCP servers, and clean architecture walkthroughs.",
+      "custom_url": "@codemechanics",
+      "published_at": "2021-06-01T00:00:00Z",
+      "country": "US",
+      "default_language": "en",
+      "topic_categories": [
+        "https://en.wikipedia.org/wiki/Technology",
+        "https://en.wikipedia.org/wiki/Software_engineering"
+      ],
+      "keywords": ["python", "asyncio", "mcp", "architecture"],
+      "uploads_playlist_id": "UU_PUB_TECH_002",
+      "likes_playlist_id": null
+    },
+    {
+      "channel_id": "UC_PUB_TECH_003",
+      "title": "Storage Foundry",
+      "description": "SQLite WAL internals, distributed consensus, and reliable storage engines.",
+      "custom_url": "@storagefoundry",
+      "published_at": "2019-11-20T00:00:00Z",
+      "country": "GB",
+      "default_language": "en",
+      "topic_categories": [
+        "https://en.wikipedia.org/wiki/Computer_science",
+        "https://en.wikipedia.org/wiki/Database"
+      ],
+      "keywords": ["sqlite", "database", "distributed", "raft"],
+      "uploads_playlist_id": "UU_PUB_TECH_003",
+      "likes_playlist_id": null
+    },
+    {
+      "channel_id": "UC_PUB_TECH_004",
+      "title": "Aula Sistemas",
+      "description": "Spanish spoken engineering lectures on Python concurrency and networking.",
+      "custom_url": "@aulasistemas",
+      "published_at": "2022-02-10T00:00:00Z",
+      "country": "ES",
+      "default_language": "es",
+      "topic_categories": [
+        "https://en.wikipedia.org/wiki/Technology"
+      ],
+      "keywords": ["python", "asyncio", "sistemas"],
+      "uploads_playlist_id": "UU_PUB_TECH_004",
+      "likes_playlist_id": null
+    },
+    {
+      "channel_id": "UC_PUB_COOK_005",
+      "title": "Kitchen Lab",
+      "description": "Fermentation science, sourdough baking, and culinary chemistry experiments.",
+      "custom_url": "@kitchenlab",
+      "published_at": "2018-09-01T00:00:00Z",
+      "country": "US",
+      "default_language": "en",
+      "topic_categories": [
+        "https://en.wikipedia.org/wiki/Food"
+      ],
+      "keywords": ["baking", "sourdough", "fermentation"],
+      "uploads_playlist_id": "UU_PUB_COOK_005",
+      "likes_playlist_id": null
+    }
+  ],
+  "uploads": {
+    "UU_PUB_TECH_001": ["vid_seed_py01"],
+    "UU_PUB_TECH_002": ["vid_notags02", "vid_med_2407", "vid_inj_0011"],
+    "UU_PUB_TECH_003": ["vid_short006", "vid_long1208", "vid_unk_au10"],
+    "UU_PUB_TECH_004": ["vid_es_lang9"],
+    "UU_PUB_COOK_005": ["vid_bake_012"]
+  }
+}
