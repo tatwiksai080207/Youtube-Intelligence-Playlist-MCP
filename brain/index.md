@@ -29,6 +29,7 @@ issues:
   - "#48"
   - "#50"
   - "#52"
+  - "#54"
 prs:
   - "#10"
   - "#13"
@@ -120,6 +121,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-06|AI Session TS-06]]: Implement strict YouTube video, channel, playlist, URL host, and range bounds validation with `UT_ID` and `NT_VAL` tests (Issue #48, PR #49).
 - [[brain/inbox/ai-session-2026-11-26-farhan-MF-07|AI Session MF-07]]: Implement `sanitize.py` (`NFKC`, invisible/bidi/tag/control char stripping, URL/Markdown link stripping, HTML escaping, `sanitize_video_meta`) with adversarial tests in `tests/security/test_sanitize.py` (Issue #50, PR #51).
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-07|AI Session TS-07]]: Implement ISO-8601 duration parsing (`PT#H#M#S`, `P#DT...`, `P0D`), live/zero detection, and human readable formatting with `UT_DUR` unit tests (Issue #52, PR #53).
+- [[brain/inbox/ai-session-2026-11-26-farhan-MF-08|AI Session MF-08]]: Implement `playlist/constraints.py` (`PlaylistConstraints`, `build_playlist_constraints`, exact `Decimal` window `[T*(1-tol), T]`, inclusive `max_video_minutes`, upper bound `max_videos`) with `UT_SOLV_WINDOW` tests (Issue #54).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
