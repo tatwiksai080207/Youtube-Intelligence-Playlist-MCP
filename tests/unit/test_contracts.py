@@ -419,10 +419,8 @@ def test_CT_1_stage2_stubs_raise_not_implemented() -> None:
     assert DEFAULT_MAX_DESCRIPTION_LENGTH == 1000
     sample_video = VideoMeta(video_id="dQw4w9WgXcQ", title="Sample")
 
-    with pytest.raises(NotImplementedError):
-        sanitize_text("hello")
-    with pytest.raises(NotImplementedError):
-        sanitize_video_meta(sample_video)
+    assert sanitize_text("hello") == "hello"
+    assert sanitize_video_meta(sample_video) == sample_video
 
     assert extract_video_id is validation_ids.extract_video_id
     assert extract_channel_id is validation_ids.extract_channel_id

@@ -27,6 +27,7 @@ issues:
   - "#44"
   - "#46"
   - "#48"
+  - "#50"
 prs:
   - "#10"
   - "#13"
@@ -43,6 +44,7 @@ prs:
   - "#45"
   - "#47"
   - "#49"
+  - "#51"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -114,6 +116,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-10|AI Session SR-10]]: Implement `store.py`, `quota/ledger.py`, `get_quota_status` tool and `youtube://metrics/quota` resource, `UT_QUOTA`, and `QT_1`..`QT_3` tests (Issue #44, PR #45).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-11|AI Session SR-11]]: Implement `cache.py` (`MetadataCache`, `CachedYouTubeProvider`), `IT_CACHE`, and `NT_QUOTA` tests (Issue #46, PR #47).
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-06|AI Session TS-06]]: Implement strict YouTube video, channel, playlist, URL host, and range bounds validation with `UT_ID` and `NT_VAL` tests (Issue #48, PR #49).
+- [[brain/inbox/ai-session-2026-11-26-farhan-MF-07|AI Session MF-07]]: Implement `sanitize.py` (`NFKC`, invisible/bidi/tag/control char stripping, URL/Markdown link stripping, HTML escaping, `sanitize_video_meta`) with adversarial tests in `tests/security/test_sanitize.py` (Issue #50, PR #51).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
