@@ -58,6 +58,7 @@ prs:
   - "#59"
   - "#61"
   - "#63"
+  - "#65"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -102,4 +103,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 20:45 | Mohammed Farhan | MF-09 Spoken Audio Language | Implemented `src/yt_intel_mcp/playlist/language.py` (`primary_language_subtag`, `evaluate_video_audio_language`, `is_video_language_eligible`, `filter_videos_by_language`, `UNVERIFIED_AUDIO_LANGUAGE_LABEL`) enforcing `defaultAudioLanguage`-only checks and ignoring `defaultLanguage`, added `UT_LANG` and `NT_LANG` tests, and added [[brain/inbox/ai-session-2026-11-26-farhan-MF-09]] (Issue #58, PR #59) |
 | 2026-11-26 20:58 | Mohammed Farhan | MF-10 Constrained Playlist Solver | Implemented `src/yt_intel_mcp/playlist/solver.py` (`score_candidates_for_topic`, `solve_playlist_selection`, `PlaylistSolution`, `SelectedPlaylistVideo`) maximising TF IDF topic relevance over strict `FR-5.1` and `FR-5.1a` constraints within `<= 500 ms` for `200` candidates with rich `CONSTRAINTS_UNSATISFIABLE` diagnostics, added `UT_SOLV` and `X_PERF_SELECT` tests, and recorded [[brain/inbox/ai-session-2026-11-26-farhan-MF-10]] (Issue #60, PR #61) |
 | 2026-11-26 21:24 | Mohammed Farhan | MF-11 Draft Tool and Expiring Drafts | Implemented `src/yt_intel_mcp/playlist/drafts.py` (`DraftVideo`, `PlaylistDraft`, `DraftStore`) and `src/yt_intel_mcp/tools/draft_curated_playlist.py` (`validate_draft_arguments`, `estimate_draft_workflow_cost`, `execute_draft_curated_playlist`, `register_draft_curated_playlist`), added unit, `ST_FR5`, `DRAFT_EXPIRED`, and `QT_3` tests, and recorded [[brain/inbox/ai-session-2026-11-26-farhan-MF-11]] (Issue #62, PR #63) |
-| 2026-11-26 21:40 | Molleti Tatwik Sai | TS-09 get_video_details Tool | Implemented `src/yt_intel_mcp/tools/get_video_details.py` (`validate_get_video_details_arguments`, `parse_chapters_from_description`, `execute_get_video_details`, `register_get_video_details`) with `1 u` preflight, sanitization, live status, and human duration; added `tests/system/test_get_video_details.py`, `NT_VID` (`tests/negative/test_video_availability.py`), and [[brain/inbox/ai-session-2026-11-26-tatwik-TS-09]] (Issue #64) |
+| 2026-11-26 21:40 | Molleti Tatwik Sai | TS-09 get_video_details Tool | Implemented `src/yt_intel_mcp/tools/get_video_details.py` (`validate_get_video_details_arguments`, `parse_chapters_from_description`, `execute_get_video_details`, `register_get_video_details`) with `1 u` preflight, sanitization, live status, and human duration; added `tests/system/test_get_video_details.py`, `NT_VID` (`tests/negative/test_video_availability.py`), and [[brain/inbox/ai-session-2026-11-26-tatwik-TS-09]] (Issue #64, PR #65) |
