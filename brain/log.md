@@ -25,6 +25,7 @@ issues:
   - "#40"
   - "#42"
   - "#44"
+  - "#46"
 prs:
   - "#10"
   - "#13"
@@ -74,3 +75,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 13:58 | Madire Shiva Reddy | SR-08 Fixture Provider and Scrubber | Implemented `src/yt_intel_mcp/provider/fixture.py`, `scripts/scrub_fixture.py`, scrubbed public and synthetic fixtures under `tests/fixtures/`, `IT_PROV` and `SEC_PII` tests, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-08]] (Issue #40, PR #41) |
 | 2026-11-26 16:15 | Madire Shiva Reddy | SR-09 MCP System Test Harness | Built `tests/system/conftest.py` (in memory and stdio MCP sessions, `FixtureYouTubeProvider`, temp WAL SQLite, toggleable elicitation simulation), `tests/system/test_harness.py`, `docs/developer/testing.md`, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-09]] (Issue #42, PR #43) |
 | 2026-11-26 18:26 | Madire Shiva Reddy | SR-10 Quota Ledger and Store | Implemented `src/yt_intel_mcp/store.py`, `src/yt_intel_mcp/quota/ledger.py`, `src/yt_intel_mcp/tools/get_quota_status.py` (`youtube://metrics/quota`), re-verified R-5 costs (`C-01`), added `UT_QUOTA` and `QT_1`..`QT_3` tests, and recorded [[brain/inbox/ai-session-2026-11-26-shiva-SR-10]] (Issue #44, PR #45) |
+| 2026-11-26 18:55 | Madire Shiva Reddy | SR-11 TTL Metadata Cache | Implemented `src/yt_intel_mcp/cache.py` (`MetadataCache` and `CachedYouTubeProvider`) and `cache_entries` persistence in `store.py` (`24h`/`6h`/`15m` TTLs, `NFR-7` personal purge, `NFR-1` `<= 500 ms`, `QUOTA_EXHAUSTED_UPSTREAM` blocking), added `IT_CACHE` and `NT_QUOTA` tests, and recorded [[brain/inbox/ai-session-2026-11-26-shiva-SR-11]] (Issue #46) |

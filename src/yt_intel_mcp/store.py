@@ -7,10 +7,16 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal, cast
 
 from yt_intel_mcp.config import AppConfig
 
-__all__ = ["QuotaLedgerRow", "SQLiteStore"]
+__all__ = ["CacheEntryKind", "CacheEntryRow", "QuotaLedgerRow", "SQLiteStore"]
+
+CacheEntryKind = Literal["videos", "channels", "searches", "user_lists", "categories"]
+_VALID_CACHE_KINDS: frozenset[str] = frozenset(
+    {"videos", "channels", "searches", "user_lists", "categories"}
+)
 
 _SCHEMA_SQL = """
 CREATE TABLE IF NOT EXISTS quota_ledger (
@@ -60,6 +66,32 @@ class QuotaLedgerRow:
     upstream_exhausted: bool
     exhausted_until_utc: str | None
     updated_at_utc: str
+
+
+@dataclass(frozen=True, slots=True)
+class CacheEntryRow:
+    """Persisted TTL metadata cache entry in SQLite."""
+
+    cache_key: str
+    entry_kind: CacheEntryKind
+    is_personal: bool
+    payload_json: str
+    created_at_utc: str
+    expires_at_utc: str
+
+
+def _row_to_cache_entry(row: sqlite3.Row) -> CacheEntryRow:
+    kind_raw = str(row["entry_kind"])
+    if kind_raw not in _VALID_CACHE_KINDS:
+        raise ValueError(f"Invalid stored cache entry_kind: {kind_raw!r}")
+    return CacheEntryRow(
+        cache_key=str(row["cache_key"]),
+        entry_kind=cast(CacheEntryKind, kind_raw),
+        is_personal=bool(row["is_personal"]),
+        payload_json=str(row["payload_json"]),
+        created_at_utc=str(row["created_at_utc"]),
+        expires_at_utc=str(row["expires_at_utc"]),
+    )
 
 
 class SQLiteStore:
@@ -230,3 +262,124 @@ class SQLiteStore:
             )
             observed_cursor = conn.execute("DELETE FROM first_observed;")
             return (max(cache_cursor.rowcount, 0), max(observed_cursor.rowcount, 0))
+
+    def read_cache_entry(
+        self,
+        conn: sqlite3.Connection,
+        cache_key: str,
+    ) -> CacheEntryRow | None:
+        """Fetch a single cache entry inside an active transaction."""
+        row = conn.execute(
+            """
+            SELECT
+                cache_key,
+                entry_kind,
+                is_personal,
+                payload_json,
+                created_at_utc,
+                expires_at_utc
+            FROM cache_entries
+            WHERE cache_key = ?;
+            """,
+            (cache_key,),
+        ).fetchone()
+        return _row_to_cache_entry(row) if row is not None else None
+
+    def read_cache_entries(
+        self,
+        conn: sqlite3.Connection,
+        cache_keys: list[str] | tuple[str, ...],
+    ) -> dict[str, CacheEntryRow]:
+        """Batch fetch cache entries by key inside an active transaction."""
+        unique_keys = list(dict.fromkeys(cache_keys))
+        if not unique_keys:
+            return {}
+        placeholders = ",".join("?" for _ in unique_keys)
+        rows = conn.execute(
+            f"""
+            SELECT
+                cache_key,
+                entry_kind,
+                is_personal,
+                payload_json,
+                created_at_utc,
+                expires_at_utc
+            FROM cache_entries
+            WHERE cache_key IN ({placeholders});
+            """,
+            unique_keys,
+        ).fetchall()
+        result: dict[str, CacheEntryRow] = {}
+        for row in rows:
+            entry = _row_to_cache_entry(row)
+            result[entry.cache_key] = entry
+        return result
+
+    def get_cache_entry(self, cache_key: str) -> CacheEntryRow | None:
+        """Read a committed cache row outside a caller managed transaction."""
+        with self.transaction(immediate=False) as conn:
+            return self.read_cache_entry(conn, cache_key)
+
+    def upsert_cache_entry(
+        self,
+        conn: sqlite3.Connection,
+        *,
+        cache_key: str,
+        entry_kind: CacheEntryKind,
+        is_personal: bool,
+        payload_json: str,
+        created_at_utc: str,
+        expires_at_utc: str,
+    ) -> CacheEntryRow:
+        """Insert or replace a cache entry inside an active transaction."""
+        conn.execute(
+            """
+            INSERT INTO cache_entries (
+                cache_key,
+                entry_kind,
+                is_personal,
+                payload_json,
+                created_at_utc,
+                expires_at_utc
+            ) VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(cache_key) DO UPDATE SET
+                entry_kind = excluded.entry_kind,
+                is_personal = excluded.is_personal,
+                payload_json = excluded.payload_json,
+                created_at_utc = excluded.created_at_utc,
+                expires_at_utc = excluded.expires_at_utc;
+            """,
+            (
+                cache_key,
+                entry_kind,
+                int(is_personal),
+                payload_json,
+                created_at_utc,
+                expires_at_utc,
+            ),
+        )
+        stored = self.read_cache_entry(conn, cache_key)
+        assert stored is not None
+        return stored
+
+    def delete_cache_entry(self, conn: sqlite3.Connection, cache_key: str) -> bool:
+        """Delete a single cache entry inside an active transaction."""
+        cursor = conn.execute("DELETE FROM cache_entries WHERE cache_key = ?;", (cache_key,))
+        return cursor.rowcount > 0
+
+    def delete_cache_entries_by_prefix(self, conn: sqlite3.Connection, prefix: str) -> int:
+        """Delete cache entries whose key starts with ``prefix`` inside a transaction."""
+        escaped = prefix.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        cursor = conn.execute(
+            "DELETE FROM cache_entries WHERE cache_key LIKE ? ESCAPE '\\';",
+            (f"{escaped}%",),
+        )
+        return max(cursor.rowcount, 0)
+
+    def delete_expired_cache_entries(self, conn: sqlite3.Connection, *, now_utc_iso: str) -> int:
+        """Delete all cache entries with ``expires_at_utc <= now_utc_iso``."""
+        cursor = conn.execute(
+            "DELETE FROM cache_entries WHERE expires_at_utc <= ?;",
+            (now_utc_iso,),
+        )
+        return max(cursor.rowcount, 0)
