@@ -22,7 +22,8 @@ requirements:
   - SB-1
 issues:
   - "#76"
-prs: []
+prs:
+  - "#77"
 sources:
   - "Final_SRS_Submission.pdf (v1.0)"
   - "docs/adr/0003-similarity-scoring.md"

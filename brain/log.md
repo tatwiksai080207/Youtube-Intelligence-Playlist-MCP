@@ -70,6 +70,7 @@ prs:
   - "#71"
   - "#73"
   - "#75"
+  - "#77"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -120,4 +121,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-27 12:00 | Mohammed Farhan | MF-12 Confirmation Tokens | Implemented src/yt_intel_mcp/confirmation/tokens.py (ConfirmationDecision, ConfirmationToken, ConfirmationTokenStore) bound to channel, draft, ordered videos, title, privacy, and expiry with single use consumption and zero token leakage; added NT_HITL tests in tests/negative/test_hitl_confirmation.py and unit tests in tests/unit/test_confirmation_tokens.py, and [[brain/inbox/ai-session-2026-11-27-farhan-MF-12]] (Issue #70, PR #71) |
 | 2026-11-27 12:50 | Mohammed Farhan | MF-13 Trusted Confirmation Channels | Implemented MCP elicitation dialog channel with schema validation, local loopback confirmation page strictly bound to 127.0.0.1 with CSRF protection and CSP, NT_HITL adversarial tests, ST_FR5_CONFIRM system tests, and [[brain/inbox/ai-session-2026-11-27-farhan-MF-13]] (Issue #72, PR #73) |
 | 2026-11-27 14:10 | Madire Shiva Reddy | SR-14 Live Provider | Implemented src/yt_intel_mcp/provider/live.py (LiveYouTubeProvider, UrllibLiveHttpTransport) with exponential backoff on reads (<=3 retries), zero write retries, strict exclusion of statistics, quota ledger charging, upstream error mapping, and IT_PROV integration tests in tests/integration/test_live_provider.py, and [[brain/inbox/ai-session-2026-11-27-shiva-SR-14]] (Issue #74, PR #75) |
-| 2026-11-27 16:03 | Molleti Tatwik Sai | TS-10 get_similar_videos Tool | Implemented `src/yt_intel_mcp/similarity/videos.py` (`rank_similar_videos`, dynamic missing feature weight redistribution, MMR diversity) and `src/yt_intel_mcp/tools/get_similar_videos.py` (`<= 1s + 2u` preflight, objective metadata only) with `UT_SIM`, `ST_FR1`, and `NT_VID` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-10]] (Issue #76) |
+| 2026-11-27 16:03 | Molleti Tatwik Sai | TS-10 get_similar_videos Tool | Implemented `src/yt_intel_mcp/similarity/videos.py` (`rank_similar_videos`, dynamic missing feature weight redistribution, MMR diversity) and `src/yt_intel_mcp/tools/get_similar_videos.py` (`<= 1s + 2u` preflight, objective metadata only) with `UT_SIM`, `ST_FR1`, and `NT_VID` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-10]] (Issue #76, PR #77) |
