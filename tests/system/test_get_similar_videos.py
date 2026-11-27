@@ -292,7 +292,7 @@ def test_NT_VID_get_similar_videos_rejects_unavailable_and_invalid_inputs(
         assert payload2["code"] == "INVALID_ARGUMENT"
         assert provider2.trace == []
 
-        # Insufficient quota -> QUOTA_EXHAUSTED_LOCAL with ZERO provider calls.
+        # Insufficient quota -> QUOTA_BUDGET_INSUFFICIENT with ZERO provider calls.
         is_err3, payload3, provider3 = await _call_get_similar_videos(
             fixture_dir,
             tmp_path / "q3.db",
@@ -300,7 +300,7 @@ def test_NT_VID_get_similar_videos_rejects_unavailable_and_invalid_inputs(
             quota_config=QuotaConfig(daily_units_limit=1, daily_search_limit=1),
         )
         assert is_err3 is True
-        assert payload3["code"] == "QUOTA_EXHAUSTED_LOCAL"
+        assert payload3["code"] == "QUOTA_BUDGET_INSUFFICIENT"
         assert provider3.trace == []
 
     anyio.run(_run)
