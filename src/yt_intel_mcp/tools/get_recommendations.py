@@ -261,9 +261,7 @@ async def execute_get_recommendations(
             status_before_searches=status_before.search_calls_used,
             coro=provider.list_liked_videos_rated(max_results=50),
         )
-        collected_events.extend(
-            events_from_liked_videos(liked, store=store, now_utc=reference_now)
-        )
+        collected_events.extend(events_from_liked_videos(liked, store=store, now_utc=reference_now))
 
     try:
         profile = build_interest_profile(

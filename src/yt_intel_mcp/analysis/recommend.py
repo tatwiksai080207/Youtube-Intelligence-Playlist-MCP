@@ -162,9 +162,8 @@ def score_recommendations(
             weights=profile.term_weights,
             limit=3,
         )
-        weighted_overlap = (
-            sum(profile.term_weights.get(t, 0.0) for t in doc_set)
-            / max(1.0, sum(profile.term_weights.get(t, 0.0) for t in profile_tokens))
+        weighted_overlap = sum(profile.term_weights.get(t, 0.0) for t in doc_set) / max(
+            1.0, sum(profile.term_weights.get(t, 0.0) for t in profile_tokens)
         )
         cat_affinity = (
             profile.category_weights.get(cand.category_id, 0.0) / max_cat_weight
