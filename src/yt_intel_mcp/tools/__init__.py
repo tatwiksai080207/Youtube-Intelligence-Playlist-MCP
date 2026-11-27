@@ -2,6 +2,16 @@
 
 from __future__ import annotations
 
+from yt_intel_mcp.tools.analyze_engagement import (
+    ANALYZE_ENGAGEMENT_DESCRIPTION,
+    USER_CONTEXT_RESOURCE_URI,
+    AnalyzeEngagementRequest,
+    estimate_engagement_cost,
+    execute_analyze_engagement,
+    read_user_context_resource,
+    register_analyze_engagement,
+    validate_analyze_engagement_arguments,
+)
 from yt_intel_mcp.tools.create_curated_playlist import (
     CREATE_PLAYLIST_DESCRIPTION,
     execute_create_curated_playlist,
@@ -49,6 +59,7 @@ from yt_intel_mcp.tools.get_similar_videos import (
 )
 
 __all__ = [
+    "ANALYZE_ENGAGEMENT_DESCRIPTION",
     "AUTH_TOOL_DESCRIPTION",
     "CREATE_PLAYLIST_DESCRIPTION",
     "DRAFT_MAX_LIST_CALLS",
@@ -58,13 +69,17 @@ __all__ = [
     "GET_SIMILAR_VIDEOS_DESCRIPTION",
     "QUOTA_RESOURCE_URI",
     "QUOTA_TOOL_DESCRIPTION",
+    "USER_CONTEXT_RESOURCE_URI",
+    "AnalyzeEngagementRequest",
     "RecommendationsRequest",
     "SimilarVideosRequest",
     "build_auth_status_payload",
     "build_quota_metrics_payload",
     "estimate_draft_workflow_cost",
+    "estimate_engagement_cost",
     "estimate_recommendations_cost",
     "estimate_similar_videos_cost",
+    "execute_analyze_engagement",
     "execute_create_curated_playlist",
     "execute_draft_curated_playlist",
     "execute_get_auth_status",
@@ -72,12 +87,15 @@ __all__ = [
     "execute_get_recommendations",
     "execute_get_similar_videos",
     "read_quota_metrics_resource",
+    "read_user_context_resource",
+    "register_analyze_engagement",
     "register_auth_status",
     "register_create_curated_playlist",
     "register_draft_curated_playlist",
     "register_get_recommendations",
     "register_get_similar_videos",
     "register_quota_status",
+    "validate_analyze_engagement_arguments",
     "validate_create_curated_playlist_arguments",
     "validate_draft_arguments",
     "validate_get_recommendations_arguments",
