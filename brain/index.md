@@ -40,6 +40,7 @@ issues:
   - "#70"
   - "#72"
   - "#74"
+  - "#76"
 prs:
   - "#10"
   - "#13"
@@ -153,6 +154,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-27-farhan-MF-12|AI Session MF-12]]: Implement server held confirmation tokens, draft binding, single use consumption, and NT_HITL tests (Issue #70, PR #71).
 - [[brain/inbox/ai-session-2026-11-27-farhan-MF-13|AI Session MF-13]]: Implement MCP elicitation and local loopback confirmation channels (Issue #72, PR #73).
 - [[brain/inbox/ai-session-2026-11-27-shiva-SR-14|AI Session SR-14]]: Implement live YouTube Data API v3 provider with retry policies, zero write retries, quota tracking, error mapping, and IT_PROV tests (Issue #74, PR #75).
+- [[brain/inbox/ai-session-2026-11-27-tatwik-TS-10|AI Session TS-10]]: Implement `similarity/videos.py` and `tools/get_similar_videos.py` (`ADR-0003` weights, dynamic missing feature redistribution, MMR diversity, `<= 1s + 2u` preflight, zero popularity signals) with `UT_SIM`, `ST_FR1`, and `NT_VID` tests (Issue #76).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
