@@ -20,7 +20,8 @@ requirements:
   - SB-1
 issues:
   - "#84"
-prs: []
+prs:
+  - "#85"
 sources:
   - "Final_SRS_Submission.pdf (v1.0)"
   - "docs/adr/0007-interest-profile.md"

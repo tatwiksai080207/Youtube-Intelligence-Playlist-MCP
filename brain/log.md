@@ -78,6 +78,7 @@ prs:
   - "#79"
   - "#81"
   - "#83"
+  - "#85"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -132,4 +133,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-27 17:15 | Mohammed Farhan | MF-14 Playlist Write Path and Outcome Reporting | Implemented `src/yt_intel_mcp/playlist/writer.py` (`write_curated_playlist`, `check_draft_staleness`) and `src/yt_intel_mcp/tools/create_curated_playlist.py` (9-step ADR-0004 pipeline) with 0 write retries, item failure continuation, `DRAFT_STALE` guard, `IT_DRAFT`, `IT_DRAFT_PARTIAL`, `NT_DRAFT_STALE`, and `ST_FR5` tests, and [[brain/inbox/ai-session-2026-11-27-farhan-MF-14]] (Issue #78, PR #79) |
 | 2026-11-27 18:02 | Molleti Tatwik Sai | TS-12 Event Time Extraction and Interest Profile | Implemented `src/yt_intel_mcp/analysis/events.py` (`INV-04` event time extraction, `first_observed` provenance) and `src/yt_intel_mcp/analysis/profile.py` (90 day half life decay, `0.5` undated weight, cross source deduplication) with `UT_STAT_TS` and `UT_PROF` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-12]] (Issue #80, PR #81) |
 | 2026-11-27 18:40 | Molleti Tatwik Sai | TS-13 get_recommendations Tool | Implemented `src/yt_intel_mcp/analysis/recommend.py` (`score_recommendations`, human reasons, MMR diversity) and `src/yt_intel_mcp/tools/get_recommendations.py` (`<= 3s + <= 25u` preflight, exclude seen videos, `INSUFFICIENT_USER_SIGNAL`) with `ST_FR3` and `NT_SIG` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-13]] (Issue #82, PR #83) |
-| 2026-11-27 19:01 | Molleti Tatwik Sai | TS-14 analyze_engagement Tool and User Context | Implemented `src/yt_intel_mcp/analysis/engagement.py` (duration buckets, monthly trends, period comparisons, aggregate only serialization) and `src/yt_intel_mcp/tools/analyze_engagement.py` (`analyze_engagement` and `youtube://user/context`) with `UT_STAT_BUCKET`, `UT_STAT_ZERO`, `UT_STAT_TS`, `ST_FR4`, and `SEC_PII` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-14]] (Issue #84) |
+| 2026-11-27 19:01 | Molleti Tatwik Sai | TS-14 analyze_engagement Tool and User Context | Implemented `src/yt_intel_mcp/analysis/engagement.py` (duration buckets, monthly trends, period comparisons, aggregate only serialization) and `src/yt_intel_mcp/tools/analyze_engagement.py` (`analyze_engagement` and `youtube://user/context`) with `UT_STAT_BUCKET`, `UT_STAT_ZERO`, `UT_STAT_TS`, `ST_FR4`, and `SEC_PII` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-14]] (Issue #84, PR #85) |

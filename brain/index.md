@@ -78,6 +78,7 @@ prs:
   - "#79"
   - "#81"
   - "#83"
+  - "#85"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -166,7 +167,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-27-farhan-MF-14|AI Session MF-14]]: Implement confirmed playlist creation write path, zero write retries, item error continuation, and COMPLETE/PARTIAL outcome reporting (Issue #78, PR #79).
 - [[brain/inbox/ai-session-2026-11-27-tatwik-TS-12|AI Session TS-12]]: Implement `analysis/events.py` (`INV-04` event time extraction, `first_observed` policy) and `analysis/profile.py` (90 day half life decay, neutral `0.5` undated weight) with `UT_STAT_TS` and `UT_PROF` tests (Issue #80, PR #81).
 - [[brain/inbox/ai-session-2026-11-27-tatwik-TS-13|AI Session TS-13]]: Implement `analysis/recommend.py` and `tools/get_recommendations.py` (`<= 3s + <= 25u` preflight, exclude liked/saved videos, human reasons, `INSUFFICIENT_USER_SIGNAL`) with `ST_FR3` and `NT_SIG` tests (Issue #82, PR #83).
-- [[brain/inbox/ai-session-2026-11-27-tatwik-TS-14|AI Session TS-14]]: Implement `analysis/engagement.py`, `tools/analyze_engagement.py`, and `youtube://user/context` (duration buckets, monthly trends, period comparison, timestamp coverage, aggregates only) with `UT_STAT_BUCKET`, `UT_STAT_ZERO`, `UT_STAT_TS`, `ST_FR4`, and `SEC_PII` tests (Issue #84).
+- [[brain/inbox/ai-session-2026-11-27-tatwik-TS-14|AI Session TS-14]]: Implement `analysis/engagement.py`, `tools/analyze_engagement.py`, and `youtube://user/context` (duration buckets, monthly trends, period comparison, timestamp coverage, aggregates only) with `UT_STAT_BUCKET`, `UT_STAT_ZERO`, `UT_STAT_TS`, `ST_FR4`, and `SEC_PII` tests (Issue #84, PR #85).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
