@@ -95,7 +95,7 @@ def validate_brain(root: Path) -> list[str]:
     log = brain / "log.md"
     for entry in (index, log):
         if not entry.is_file():
-            errors.append(f"{entry.relative_to(root)}: missing entry point")
+            errors.append(f"{entry.relative_to(root).as_posix()}: missing entry point")
 
     allowed_ids = {
         line.strip()
@@ -105,7 +105,7 @@ def validate_brain(root: Path) -> list[str]:
     notes = sorted(path for path in brain.rglob("*.md") if path.is_file())
     indexed_notes: set[Path] = set()
     for path in notes:
-        label = path.relative_to(root)
+        label = path.relative_to(root).as_posix()
         try:
             metadata, body = read_frontmatter(path)
         except (OSError, UnicodeError, ValueError) as error:
@@ -124,7 +124,8 @@ def validate_brain(root: Path) -> list[str]:
 
     for path in notes:
         if path != index and path not in indexed_notes:
-            errors.append(f"{path.relative_to(root)}: missing wikilink in brain/index.md")
+            posix_path = path.relative_to(root).as_posix()
+            errors.append(f"{posix_path}: missing wikilink in brain/index.md")
     return errors
 
 

@@ -37,6 +37,7 @@ issues:
   - "#64"
   - "#66"
   - "#68"
+  - "#70"
 prs:
   - "#10"
   - "#13"
@@ -63,6 +64,7 @@ prs:
   - "#65"
   - "#67"
   - "#69"
+  - "#71"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -110,3 +112,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-26 21:40 | Molleti Tatwik Sai | TS-09 get_video_details Tool | Implemented `src/yt_intel_mcp/tools/get_video_details.py` (`validate_get_video_details_arguments`, `parse_chapters_from_description`, `execute_get_video_details`, `register_get_video_details`) with `1 u` preflight, sanitization, live status, and human duration; added `tests/system/test_get_video_details.py`, `NT_VID` (`tests/negative/test_video_availability.py`), and [[brain/inbox/ai-session-2026-11-26-tatwik-TS-09]] (Issue #64, PR #65) |
 | 2026-11-26 21:52 | Madire Shiva Reddy | SR-12 Encrypted Token Store | Implemented `src/yt_intel_mcp/auth/token_store.py` (OS keyring + `AES-256-GCM` `tokens.enc` fallback, `TokenBundle` redaction, revoke purge), `src/yt_intel_mcp/tools/get_auth_status.py`, `src/yt_intel_mcp/schemas/get_auth_status.json`, `SEC_OAUTH`, `SEC_PII` revoke test, and [[brain/inbox/ai-session-2026-11-26-shiva-SR-12]] (Issue #66, PR #67) |
 | 2026-11-27 11:35 | Madire Shiva Reddy | SR-13 OAuth PKCE Flow and Channel Guard | Implemented RFC 7636 PKCE code verifier and S256 challenge generation, ephemeral 127.0.0.1 callback server, initial login requesting youtube.readonly only (C-6), separate full write consent requesting youtube.force-ssl (C-7, FR-7.1), silent token refresh mapping invalid_grant to AUTH_REAUTHORIZATION_REQUIRED (C-4), channel check raising CHANNEL_REQUIRED on writes (C-5, FR-7.3), tests in tests/security/test_oauth_security.py and tests/negative/test_oauth_errors.py, and [[brain/inbox/ai-session-2026-11-27-shiva-SR-13]] (Issue #68, PR #69) |
+| 2026-11-27 12:00 | Mohammed Farhan | MF-12 Confirmation Tokens | Implemented src/yt_intel_mcp/confirmation/tokens.py (ConfirmationDecision, ConfirmationToken, ConfirmationTokenStore) bound to channel, draft, ordered videos, title, privacy, and expiry with single use consumption and zero token leakage; added NT_HITL tests in tests/negative/test_hitl_confirmation.py and unit tests in tests/unit/test_confirmation_tokens.py, and [[brain/inbox/ai-session-2026-11-27-farhan-MF-12]] (Issue #70, PR #71) |
