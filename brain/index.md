@@ -37,6 +37,7 @@ issues:
   - "#64"
   - "#66"
   - "#68"
+  - "#70"
 prs:
   - "#10"
   - "#13"
@@ -63,6 +64,7 @@ prs:
   - "#65"
   - "#67"
   - "#69"
+  - "#71"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -144,6 +146,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-26-tatwik-TS-09|AI Session TS-09]]: Implement `tools/get_video_details.py` (`1 u` preflight, chapter parsing, sanitized objective metadata, human duration, `VIDEO_UNAVAILABLE`) with MCP system and `NT_VID` negative tests (Issue #64, PR #65).
 - [[brain/inbox/ai-session-2026-11-26-shiva-SR-12|AI Session SR-12]]: Implement `auth/token_store.py` (OS keyring + `AES-256-GCM` fallback, revoke purge), `tools/get_auth_status.py`, `schemas/get_auth_status.json`, `SEC_OAUTH`, and `SEC_PII` revoke test (Issue #66, PR #67).
 - [[brain/inbox/ai-session-2026-11-27-shiva-SR-13|AI Session SR-13]]: Implement OAuth PKCE flow, loopback listener, separate write consent (`youtube.force-ssl`), silent refresh (`invalid_grant`), and channel check (Issue #68, PR #69).
+- [[brain/inbox/ai-session-2026-11-27-farhan-MF-12|AI Session MF-12]]: Implement server held confirmation tokens, draft binding, single use consumption, and NT_HITL tests (Issue #70, PR #71).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

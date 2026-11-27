@@ -31,7 +31,7 @@ def validate_skills(root: Path) -> list[str]:
         if not folder.is_dir() or folder.name.startswith("."):
             continue
         skill = folder / "SKILL.md"
-        label = skill.relative_to(root)
+        label = skill.relative_to(root).as_posix()
         if not skill.is_file():
             errors.append(f"{label}: missing skill file")
             continue
