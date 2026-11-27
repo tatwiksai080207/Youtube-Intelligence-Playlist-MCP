@@ -74,6 +74,7 @@ prs:
   - "#75"
   - "#77"
   - "#79"
+  - "#81"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -160,7 +161,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-27-shiva-SR-14|AI Session SR-14]]: Implement live YouTube Data API v3 provider with retry policies, zero write retries, quota tracking, error mapping, and IT_PROV tests (Issue #74, PR #75).
 - [[brain/inbox/ai-session-2026-11-27-tatwik-TS-10|AI Session TS-10]]: Implement `similarity/videos.py` and `tools/get_similar_videos.py` (`ADR-0003` weights, dynamic missing feature redistribution, MMR diversity, `<= 1s + 2u` preflight, zero popularity signals) with `UT_SIM`, `ST_FR1`, and `NT_VID` tests (Issue #76, PR #77).
 - [[brain/inbox/ai-session-2026-11-27-farhan-MF-14|AI Session MF-14]]: Implement confirmed playlist creation write path, zero write retries, item error continuation, and COMPLETE/PARTIAL outcome reporting (Issue #78, PR #79).
-- [[brain/inbox/ai-session-2026-11-27-tatwik-TS-12|AI Session TS-12]]: Implement `analysis/events.py` (`INV-04` event time extraction, `first_observed` policy) and `analysis/profile.py` (90 day half life decay, neutral `0.5` undated weight) with `UT_STAT_TS` and `UT_PROF` tests (Issue #80).
+- [[brain/inbox/ai-session-2026-11-27-tatwik-TS-12|AI Session TS-12]]: Implement `analysis/events.py` (`INV-04` event time extraction, `first_observed` policy) and `analysis/profile.py` (90 day half life decay, neutral `0.5` undated weight) with `UT_STAT_TS` and `UT_PROF` tests (Issue #80, PR #81).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
