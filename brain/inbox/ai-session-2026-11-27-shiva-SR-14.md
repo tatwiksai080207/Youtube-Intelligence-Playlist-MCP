@@ -22,7 +22,8 @@ requirements:
   - SB-6
 issues:
   - "#74"
-prs: []
+prs:
+  - "#75"
 sources:
   - "Final_SRS_Submission.pdf Section 3.2, 4.2, 4.8 (checked 2026-11-27)"
   - "docs/adr/0002-provider-and-errors.md (checked 2026-11-27)"
