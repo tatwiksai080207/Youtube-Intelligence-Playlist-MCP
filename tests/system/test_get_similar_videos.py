@@ -57,25 +57,22 @@ async def _call_get_similar_videos(
     server = create_server()
     register_get_similar_videos(server, provider=provider, quota_guard=ledger)
 
-    try:
-        async with create_client_server_memory_streams() as (client_streams, server_streams):
-            read_c, write_c = client_streams
-            read_s, write_s = server_streams
-            async with anyio.create_task_group() as tg:
-                tg.start_soon(
-                    server._lowlevel_server.run,
-                    read_s,
-                    write_s,
-                    server._lowlevel_server.create_initialization_options(),
-                )
-                async with ClientSession(read_c, write_c) as session:
-                    await session.initialize()
-                    result = await session.call_tool("get_similar_videos", arguments)
-                    tg.cancel_scope.cancel()
-        assert result.structured_content is not None
-        return result.is_error, dict(result.structured_content), provider
-    finally:
-        store.close()
+    async with create_client_server_memory_streams() as (client_streams, server_streams):
+        read_c, write_c = client_streams
+        read_s, write_s = server_streams
+        async with anyio.create_task_group() as tg:
+            tg.start_soon(
+                server._lowlevel_server.run,
+                read_s,
+                write_s,
+                server._lowlevel_server.create_initialization_options(),
+            )
+            async with ClientSession(read_c, write_c) as session:
+                await session.initialize()
+                result = await session.call_tool("get_similar_videos", arguments)
+                tg.cancel_scope.cancel()
+    assert result.structured_content is not None
+    return result.is_error, dict(result.structured_content), provider
 
 
 def test_ST_FR1_get_similar_videos_ranks_objective_metadata_within_quota(
