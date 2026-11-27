@@ -27,9 +27,9 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | FR-6.1 | Shiva | SR-02, SR-05, SR-10 | #5 (SR-02), #30 (SR-05), #44 (SR-10) | #15 (SR-02), #31 (SR-05), #45 (SR-10) | UT_QUOTA | video-to-playlist | brain/resources/youtube-quota-costs.md |
 | FR-6.2 | Shiva | SR-02, SR-04, SR-05, MF-04, SR-10, MF-11, MF-14 | #5 (SR-02), #25 (SR-04), #30 (SR-05), #34 (MF-04), #44 (SR-10), #62 (MF-11) | #15 (SR-02), #26 (SR-04), #31 (SR-05), #35 (MF-04), #45 (SR-10), #63 (MF-11) | QT_1, QT_2, QT_3, CT_1 | video-to-playlist | brain/resources/youtube-quota-costs.md |
 | FR-6.3 | Shiva | SR-02, SR-05, SR-11 | #5 (SR-02), #30 (SR-05), #46 (SR-11) | #15 (SR-02), #31 (SR-05), #47 (SR-11) | IT_CACHE, NT_QUOTA | video-to-playlist | brain/resources/youtube-quota-costs.md |
-| FR-7.1 | Shiva | SR-02, SR-05, SR-13 | #5 (SR-02), #30 (SR-05), pending (SR-13) | #15 (SR-02), #31 (SR-05), pending (SR-13) | SEC_OAUTH | local-check | brain/resources/google-oauth-testing-mode.md |
-| FR-7.2 | Shiva | SR-02, SR-05, SR-12, SR-13 | #5 (SR-02), #30 (SR-05), #66 (SR-12) | #15 (SR-02), #31 (SR-05), #67 (SR-12) | NT_AUTH, SEC_OAUTH | local-check | brain/resources/google-oauth-testing-mode.md |
-| FR-7.3 | Shiva | SR-02, SR-05, SR-13, MF-14 | #5 (SR-02), #30 (SR-05), pending (SR-13) | #15 (SR-02), #31 (SR-05), pending (SR-13) | NT_ACC | local-check | brain/resources/google-oauth-testing-mode.md |
+| FR-7.1 | Shiva | SR-02, SR-05, SR-13 | #5 (SR-02), #30 (SR-05), #68 (SR-13) | #15 (SR-02), #31 (SR-05), #69 (SR-13) | SEC_OAUTH | local-check | brain/resources/google-oauth-testing-mode.md |
+| FR-7.2 | Shiva | SR-02, SR-05, SR-12, SR-13 | #5 (SR-02), #30 (SR-05), #66 (SR-12), #68 (SR-13) | #15 (SR-02), #31 (SR-05), #67 (SR-12), #69 (SR-13) | NT_AUTH, SEC_OAUTH | local-check | brain/resources/google-oauth-testing-mode.md |
+| FR-7.3 | Shiva | SR-02, SR-05, SR-13, MF-14 | #5 (SR-02), #30 (SR-05), #68 (SR-13), pending (MF-14) | #15 (SR-02), #31 (SR-05), #69 (SR-13), pending (MF-14) | NT_ACC | local-check | brain/resources/google-oauth-testing-mode.md |
 | FR-8.1 | Shiva | SR-02, SR-04, SR-08, SR-14, SR-15 | #5 (SR-02), #25 (SR-04), #40 (SR-08) | #15 (SR-02), #26 (SR-04), #41 (SR-08) | IT_PROV, CT_1 | local-check | brain/areas/engineering/provider-interface-pattern.md |
 | FR-8.2 | Shiva | SR-02, SR-08 | #5 (SR-02), #40 (SR-08) | #15 (SR-02), #41 (SR-08) | SEC_PII | local-check | brain/areas/engineering/provider-interface-pattern.md |
 
@@ -47,7 +47,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 |---|---|---|---|---|---|---|---|
 | NFR-1 | Tatwik / Farhan / Shiva | SR-02, TS-08, MF-04, MF-06, MF-10, SR-11 | #5 (SR-02), #34 (MF-04), #36 (MF-06), #46 (SR-11), #56 (TS-08), #60 (MF-10) | #15 (SR-02), #35 (MF-04), #37 (MF-06), #47 (SR-11), #57 (TS-08), #61 (MF-10) | X_PERF_SCORE, X_PERF_SELECT, IT_CACHE | n/a — performance target | brain/resources/nfr-targets.md |
 | NFR-2 | Shiva / Farhan | SR-02, MF-04, MF-06, SR-10, SR-16, MF-15 | #5 (SR-02), #34 (MF-04), #36 (MF-06), #44 (SR-10) | #15 (SR-02), #35 (MF-04), #37 (MF-06), #45 (SR-10) | QT_1..3, SK-1 budget, live cap | video-to-playlist | brain/resources/nfr-targets.md |
-| NFR-3 | Shiva | SR-02, SR-05, SR-12, SR-13 | #5 (SR-02), #30 (SR-05), #66 (SR-12) | #15 (SR-02), #31 (SR-05), #67 (SR-12) | SEC_OAUTH | n/a — auth storage | brain/resources/nfr-targets.md |
+| NFR-3 | Shiva | SR-02, SR-05, SR-12, SR-13 | #5 (SR-02), #30 (SR-05), #66 (SR-12), #68 (SR-13) | #15 (SR-02), #31 (SR-05), #67 (SR-12), #69 (SR-13) | SEC_OAUTH | n/a — auth storage | brain/resources/nfr-targets.md |
 | NFR-4 | Farhan | MF-02, TS-00 | #1, #8 | #10 (TS-00), #16 (MF-02) | Gitleaks CI | n/a — repo hygiene | brain/resources/nfr-targets.md |
 | NFR-5 | Tatwik | TS-06, TS-04, MF-04 | #27 (TS-04), #34 (MF-04), #48 (TS-06) | #29 (TS-04), #35 (MF-04), #49 (TS-06) | NT_VAL, UT_ID | n/a — input validation | brain/resources/nfr-targets.md |
 | NFR-6 | Farhan | MF-03, MF-04, MF-07, MF-13 | #7 (MF-03), #34 (MF-04), #50 (MF-07), pending (MF-13) | #17 (MF-03), #35 (MF-04), #51 (MF-07), pending (MF-13) | NFR_6 (test_sanitize), NT_HITL injection | video-to-playlist | brain/areas/security/prompt-injection-defence.md |
