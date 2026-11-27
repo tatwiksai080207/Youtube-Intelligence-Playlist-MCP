@@ -14,6 +14,7 @@ from mcp.server.mcpserver import MCPServer
 
 from yt_intel_mcp.cache import CachedYouTubeProvider, MetadataCache
 from yt_intel_mcp.config import AppConfig, DraftConfig
+from yt_intel_mcp.confirmation import ConfirmationTokenStore
 from yt_intel_mcp.errors import ErrorCode, ToolError
 from yt_intel_mcp.models import CreatedPlaylist, QuotaUsed, SearchHit, VideoMeta
 from yt_intel_mcp.playlist import DraftStore
@@ -21,7 +22,11 @@ from yt_intel_mcp.provider import FixtureYouTubeProvider
 from yt_intel_mcp.quota import PersistentQuotaLedger
 from yt_intel_mcp.server import create_server
 from yt_intel_mcp.store import SQLiteStore
-from yt_intel_mcp.tools import execute_draft_curated_playlist, register_draft_curated_playlist
+from yt_intel_mcp.tools import (
+    execute_draft_curated_playlist,
+    register_create_curated_playlist,
+    register_draft_curated_playlist,
+)
 
 FIXTURES_DIR = Path(__file__).resolve().parents[2] / "tests" / "fixtures"
 
@@ -422,3 +427,167 @@ async def test_ST_FR5_pagination_cache_hit_and_read_error_charging(
     assert batch_err_ledger.status().upstream_exhausted is True
     assert batch_err_ledger.status().units_used == 1
     assert batch_err_ledger.status().search_calls_used == 1
+
+
+@pytest.mark.anyio
+async def test_ST_FR5_create_curated_playlist_end_to_end_complete(
+    system_harness_factory: object,
+    tmp_path: Path,
+) -> None:
+    """Verify end to end draft and confirmed playlist creation flow with elicitation (ST_FR5)."""
+    factory = system_harness_factory
+    assert callable(factory)
+
+    current = datetime(2026, 11, 27, 12, 0, tzinfo=UTC)
+    store = SQLiteStore(tmp_path / "create_sys.db")
+    ledger = PersistentQuotaLedger(store, clock=lambda: current)
+    draft_store = DraftStore(DraftConfig(ttl_seconds=600), clock=lambda: current)
+    confirmation_store = ConfirmationTokenStore(clock=lambda: current)
+
+    def _configure_both(
+        server: MCPServer, config: AppConfig, provider: FixtureYouTubeProvider
+    ) -> None:
+        register_draft_curated_playlist(
+            server,
+            provider=provider,
+            quota_guard=ledger,
+            draft_store=draft_store,
+            app_config=config,
+        )
+        register_create_curated_playlist(
+            server,
+            provider=provider,
+            quota_guard=ledger,
+            draft_store=draft_store,
+            confirmation_store=confirmation_store,
+        )
+
+    async with factory(
+        transport="memory",
+        enable_elicitation=True,
+        elicitation_action="accept",
+        quota_guard=ledger,
+        configure_server=_configure_both,
+    ) as harness:
+        tools = await harness.list_tool_names()
+        assert "draft_curated_playlist" in tools
+        assert "create_curated_playlist" in tools
+
+        # 1. Draft a playlist
+        _, draft_payload = await harness.call_tool_json(
+            "draft_curated_playlist",
+            {
+                "topic": "python asyncio",
+                "target_total_minutes": 20,
+                "tolerance_percent": 5,
+                "max_video_minutes": 15,
+                "language": "en",
+            },
+        )
+        assert draft_payload is not None
+        draft_id = draft_payload["data"]["draft_id"]
+        approved_count = len(draft_payload["data"]["videos"])
+        assert approved_count > 0
+
+        # 2. Call create_curated_playlist with draft_id
+        res, create_payload = await harness.call_tool_json(
+            "create_curated_playlist",
+            {"draft_id": draft_id},
+        )
+        assert res.is_error is False
+        assert create_payload is not None
+
+        data = create_payload["data"]
+        assert data["status"] == "COMPLETE"
+        assert data["video_count"] == approved_count
+        assert data["playlist_url"].startswith("https://www.youtube.com/playlist?list=")
+        assert len(data["inserted_videos"]) == approved_count
+        assert len(data["failed_videos"]) == 0
+        assert len(data["unattempted_videos"]) == 0
+        assert len(data["unmet_constraints"]) == 0
+
+        # Verify elicitation was captured
+        assert harness.elicitation.call_count == 1
+
+        # 3. Draft expiry rejection: after TTL, creation attempt fails with DRAFT_EXPIRED
+        current = current + timedelta(seconds=601)
+        err_res, err_payload = await harness.call_tool_json(
+            "create_curated_playlist",
+            {"draft_id": draft_id},
+        )
+        assert err_res.is_error is True
+        assert err_payload is not None
+        assert err_payload["code"] == "DRAFT_EXPIRED"
+
+        # 4. Unknown draft ID rejection
+        bad_res, bad_payload = await harness.call_tool_json(
+            "create_curated_playlist",
+            {"draft_id": "draft_nonexistent_12345"},
+        )
+        assert bad_res.is_error is True
+        assert bad_payload is not None
+        assert bad_payload["code"] == "INVALID_ARGUMENT"
+
+
+@pytest.mark.anyio
+async def test_ST_FR5_create_curated_playlist_declined_zero_writes(
+    system_harness_factory: object,
+    tmp_path: Path,
+) -> None:
+    """Verify user declining elicitation results in zero writes and CONFIRMATION_DECLINED."""
+    factory = system_harness_factory
+    assert callable(factory)
+
+    current = datetime(2026, 11, 27, 12, 0, tzinfo=UTC)
+    store = SQLiteStore(tmp_path / "decline_sys.db")
+    ledger = PersistentQuotaLedger(store, clock=lambda: current)
+    draft_store = DraftStore(DraftConfig(ttl_seconds=600), clock=lambda: current)
+    confirmation_store = ConfirmationTokenStore(clock=lambda: current)
+
+    def _configure_both(
+        server: MCPServer, config: AppConfig, provider: FixtureYouTubeProvider
+    ) -> None:
+        register_draft_curated_playlist(
+            server,
+            provider=provider,
+            quota_guard=ledger,
+            draft_store=draft_store,
+            app_config=config,
+        )
+        register_create_curated_playlist(
+            server,
+            provider=provider,
+            quota_guard=ledger,
+            draft_store=draft_store,
+            confirmation_store=confirmation_store,
+        )
+
+    async with factory(
+        transport="memory",
+        enable_elicitation=True,
+        elicitation_action="decline",
+        quota_guard=ledger,
+        configure_server=_configure_both,
+    ) as harness:
+        # Draft a playlist
+        _, draft_payload = await harness.call_tool_json(
+            "draft_curated_playlist",
+            {
+                "topic": "python asyncio",
+                "target_total_minutes": 20,
+                "tolerance_percent": 5,
+                "language": "en",
+            },
+        )
+        assert draft_payload is not None
+        draft_id = draft_payload["data"]["draft_id"]
+
+        # Call create_curated_playlist (elicitation will return decline)
+        res, payload = await harness.call_tool_json(
+            "create_curated_playlist",
+            {"draft_id": draft_id},
+        )
+        assert res.is_error is True
+        assert payload is not None
+        assert payload["code"] == "CONFIRMATION_DECLINED"
+        assert harness.elicitation.call_count == 1

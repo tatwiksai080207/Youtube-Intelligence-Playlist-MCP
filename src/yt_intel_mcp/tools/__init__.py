@@ -2,6 +2,12 @@
 
 from __future__ import annotations
 
+from yt_intel_mcp.tools.create_curated_playlist import (
+    CREATE_PLAYLIST_DESCRIPTION,
+    execute_create_curated_playlist,
+    register_create_curated_playlist,
+    validate_create_curated_playlist_arguments,
+)
 from yt_intel_mcp.tools.draft_curated_playlist import (
     DRAFT_MAX_LIST_CALLS,
     DRAFT_MAX_SEARCH_CALLS,
@@ -36,6 +42,7 @@ from yt_intel_mcp.tools.get_similar_videos import (
 
 __all__ = [
     "AUTH_TOOL_DESCRIPTION",
+    "CREATE_PLAYLIST_DESCRIPTION",
     "DRAFT_MAX_LIST_CALLS",
     "DRAFT_MAX_SEARCH_CALLS",
     "DRAFT_TOOL_DESCRIPTION",
@@ -47,15 +54,18 @@ __all__ = [
     "build_quota_metrics_payload",
     "estimate_draft_workflow_cost",
     "estimate_similar_videos_cost",
+    "execute_create_curated_playlist",
     "execute_draft_curated_playlist",
     "execute_get_auth_status",
     "execute_get_quota_status",
     "execute_get_similar_videos",
     "read_quota_metrics_resource",
     "register_auth_status",
+    "register_create_curated_playlist",
     "register_draft_curated_playlist",
     "register_get_similar_videos",
     "register_quota_status",
+    "validate_create_curated_playlist_arguments",
     "validate_draft_arguments",
     "validate_get_similar_videos_arguments",
 ]

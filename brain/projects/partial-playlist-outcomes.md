@@ -5,22 +5,28 @@ status: distilled
 authors:
   - Mohammed Farhan
 created: 2026-11-25
-updated: 2026-11-25
+updated: 2026-11-27
 tags:
   - youtube
   - playlist
   - partial-outcome
 requirements:
+  - FR-5.4
   - FR-5.5
+  - FR-6.2
+  - FR-7.1
+  - FR-7.3
   - NFR-8
   - SB-1
   - SB-6
 issues:
   - "#7"
   - "#19"
+  - "#78"
 prs:
   - "#17"
   - "#20"
+  - "#79"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 4.5 and 5 (checked 2026-11-25)"
   - "YouTube Data API v3 playlists.insert: https://developers.google.com/youtube/data/reference/rest/v3/playlists/insert (checked 2026-11-25)"

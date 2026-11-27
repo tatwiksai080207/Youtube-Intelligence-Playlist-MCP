@@ -40,6 +40,14 @@ from yt_intel_mcp.playlist.solver import (
     score_candidates_for_topic,
     solve_playlist_selection,
 )
+from yt_intel_mcp.playlist.writer import (
+    FailedVideoItem,
+    InsertedVideoItem,
+    PlaylistWriteOutcome,
+    UnattemptedVideoItem,
+    check_draft_staleness,
+    write_curated_playlist,
+)
 
 __all__ = [
     "DRAFT_ID_RE",
@@ -56,13 +64,18 @@ __all__ = [
     "BindingConstraint",
     "DraftStore",
     "DraftVideo",
+    "FailedVideoItem",
+    "InsertedVideoItem",
     "LanguageCheckResult",
     "PlaylistConstraints",
     "PlaylistDraft",
     "PlaylistSolution",
+    "PlaylistWriteOutcome",
     "SelectedPlaylistVideo",
     "SolverAlgorithm",
+    "UnattemptedVideoItem",
     "build_playlist_constraints",
+    "check_draft_staleness",
     "evaluate_selection_constraints",
     "evaluate_video_audio_language",
     "filter_videos_by_language",
@@ -72,4 +85,5 @@ __all__ = [
     "primary_language_subtag",
     "score_candidates_for_topic",
     "solve_playlist_selection",
+    "write_curated_playlist",
 ]
