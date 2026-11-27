@@ -9,11 +9,23 @@ from yt_intel_mcp.provider.fixture import (
     FixtureYouTubeProvider,
     InsertedPlaylistItem,
 )
+from yt_intel_mcp.provider.live import (
+    FORBIDDEN_PARTS,
+    YOUTUBE_API_BASE_URL,
+    LiveHttpTransport,
+    LiveYouTubeProvider,
+    UrllibLiveHttpTransport,
+)
 
 __all__ = [
+    "FORBIDDEN_PARTS",
+    "YOUTUBE_API_BASE_URL",
     "FixtureCallRecord",
     "FixtureErrorRule",
     "FixtureYouTubeProvider",
     "InsertedPlaylistItem",
+    "LiveHttpTransport",
+    "LiveYouTubeProvider",
+    "UrllibLiveHttpTransport",
     "YouTubeProvider",
 ]
