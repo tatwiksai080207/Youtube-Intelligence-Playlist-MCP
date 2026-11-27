@@ -181,14 +181,14 @@ def _write_test_fixtures(root: Path) -> Path:
 class _CountingProvider(FixtureYouTubeProvider):
     def __init__(self, fixture_dir: Path) -> None:
         super().__init__(fixture_dir)
-        self.calls: list[str] = []
+        self.trace: list[str] = []
 
     async def get_videos(self, video_ids: list[str] | tuple[str, ...]) -> list[Any]:
-        self.calls.append(f"get_videos:{len(video_ids)}")
+        self.trace.append(f"get_videos:{len(video_ids)}")
         return await super().get_videos(video_ids)
 
     async def search_videos(self, query: str, **kwargs: Any) -> list[Any]:
-        self.calls.append(f"search_videos:{query}")
+        self.trace.append(f"search_videos:{query}")
         return await super().search_videos(query, **kwargs)
 
 
@@ -242,7 +242,7 @@ def test_ST_FR1_get_similar_videos_ranks_objective_metadata_within_quota(
         assert is_err is False
         assert payload["quota_used"]["search_calls"] <= 1
         assert payload["quota_used"]["units"] <= 2
-        assert provider.calls[0] == "get_videos:1"
+        assert provider.trace[0] == "get_videos:1"
 
         data = payload["data"]
         assert data["seed_video"]["video_id"] == "seedPy00001"
@@ -280,7 +280,7 @@ def test_NT_VID_get_similar_videos_rejects_unavailable_and_invalid_inputs(
         assert is_err is True
         assert payload["code"] == "VIDEO_UNAVAILABLE"
         assert payload["quota_used"]["search_calls"] == 0
-        assert len(provider.calls) == 1
+        assert len(provider.trace) == 1
 
         # Invalid video ID -> INVALID_ARGUMENT with ZERO provider calls.
         is_err2, payload2, provider2 = await _call_get_similar_videos(
@@ -290,7 +290,7 @@ def test_NT_VID_get_similar_videos_rejects_unavailable_and_invalid_inputs(
         )
         assert is_err2 is True
         assert payload2["code"] == "INVALID_ARGUMENT"
-        assert provider2.calls == []
+        assert provider2.trace == []
 
         # Insufficient quota -> QUOTA_EXHAUSTED_LOCAL with ZERO provider calls.
         is_err3, payload3, provider3 = await _call_get_similar_videos(
@@ -301,7 +301,7 @@ def test_NT_VID_get_similar_videos_rejects_unavailable_and_invalid_inputs(
         )
         assert is_err3 is True
         assert payload3["code"] == "QUOTA_EXHAUSTED_LOCAL"
-        assert provider3.calls == []
+        assert provider3.trace == []
 
     anyio.run(_run)
 
@@ -321,6 +321,6 @@ def test_NT_VID_get_similar_videos_rejects_invalid_max_results(
         )
         assert is_err is True
         assert payload["code"] == "INVALID_ARGUMENT"
-        assert provider.calls == []
+        assert provider.trace == []
 
     anyio.run(_run)
