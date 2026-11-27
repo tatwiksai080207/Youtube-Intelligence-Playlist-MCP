@@ -73,9 +73,7 @@ class RankedSimilarVideo:
             "duration_human": format_duration(clean.duration_seconds, live=False),
             "tags": list(clean.tags),
             "score": round(self.score, 6),
-            "feature_scores": {
-                key: round(val, 6) for key, val in self.feature_scores.items()
-            },
+            "feature_scores": {key: round(val, 6) for key, val in self.feature_scores.items()},
             "matched_signals": list(self.matched_signals),
         }
 
@@ -176,9 +174,7 @@ def _redistribute_active_weights(
     active_flags: Mapping[str, bool],
 ) -> dict[str, float]:
     """Drop inactive seed features and renormalize active weights to sum to 1.0."""
-    active_sum = sum(
-        raw_weights[feat] for feat in VIDEO_SIMILARITY_FEATURES if active_flags[feat]
-    )
+    active_sum = sum(raw_weights[feat] for feat in VIDEO_SIMILARITY_FEATURES if active_flags[feat])
     if active_sum <= 0.0:
         active_feats = [feat for feat in VIDEO_SIMILARITY_FEATURES if active_flags[feat]]
         if not active_feats:
@@ -253,8 +249,7 @@ def rank_similar_videos(
     cand_titles = [tokenize_text(c.title) for c in eligible]
     cand_tags = [tokenize_tags(c.tags) for c in eligible]
     cand_descs = [
-        tokenize_text(c.description, max_length=DEFAULT_DESCRIPTION_PREFIX_LENGTH)
-        for c in eligible
+        tokenize_text(c.description, max_length=DEFAULT_DESCRIPTION_PREFIX_LENGTH) for c in eligible
     ]
 
     title_scores = score_texts_cosine(seed_title_tokens, cand_titles)
@@ -272,9 +267,7 @@ def rank_similar_videos(
     for idx, cand in enumerate(eligible):
         cand_cat = (cand.category_id or "").strip()
         cat_score = 1.0 if seed_cat and cand_cat and seed_cat == cand_cat else 0.0
-        dur_score = compute_duration_similarity(
-            clean_seed.duration_seconds, cand.duration_seconds
-        )
+        dur_score = compute_duration_similarity(clean_seed.duration_seconds, cand.duration_seconds)
         f_scores = {
             "title": title_scores[idx],
             "tags": tag_scores[idx],

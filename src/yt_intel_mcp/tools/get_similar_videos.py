@@ -172,9 +172,7 @@ async def execute_get_similar_videos(
     similarity_config: SimilarityConfig | None = None,
 ) -> dict[str, Any]:
     """Validate input, preflight <= 1s + 2u, fetch seed & candidates, and rank."""
-    req = validate_get_similar_videos_arguments(
-        arguments, similarity_config=similarity_config
-    )
+    req = validate_get_similar_videos_arguments(arguments, similarity_config=similarity_config)
     workflow_cost = estimate_similar_videos_cost(quota_guard)
     quota_guard.preflight(workflow_cost)
 
@@ -301,9 +299,7 @@ async def execute_get_similar_videos(
             "tags": list(clean_seed.tags),
         },
         "query_used": query,
-        "active_weights": {
-            key: round(val, 6) for key, val in ranking.active_weights.items()
-        },
+        "active_weights": {key: round(val, 6) for key, val in ranking.active_weights.items()},
         "results": [item.to_dict() for item in ranking.ranked_videos],
         "total_candidates_evaluated": ranking.total_candidates_evaluated,
         "excluded_count": ranking.excluded_count,
