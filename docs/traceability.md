@@ -14,7 +14,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | FR-2.2 | Tatwik | TS-02, TS-08, TS-11 | #6 (TS-02), #56 (TS-08), pending (TS-11) | #14 (TS-02), #57 (TS-08), pending (TS-11) | UT_SIM | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
 | FR-3.1 | Tatwik | TS-02, TS-12 | #6 (TS-02), #80 (TS-12) | #14 (TS-02), #81 (TS-12) | UT_PROF, UT_STAT_TS | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
 | FR-3.2 | Tatwik | TS-02, TS-12 | #6 (TS-02), #80 (TS-12) | #14 (TS-02), #81 (TS-12) | UT_PROF, UT_STAT_TS | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
-| FR-3.3 | Tatwik | TS-02, TS-13 | #6 (TS-02), pending (TS-13) | #14 (TS-02), pending | ST_FR3, NT_SIG | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
+| FR-3.3 | Tatwik | TS-02, TS-13 | #6 (TS-02), #82 (TS-13) | #14 (TS-02), pending (TS-13) | ST_FR3, NT_SIG | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
 | FR-4.1 | Tatwik | TS-02, TS-07, TS-14 | #6 (TS-02), #52 (TS-07), pending (TS-14) | #14 (TS-02), #53 (TS-07), pending (TS-14) | ST_FR4, UT_STAT_BUCKET, UT_DUR | video-to-playlist (step 5) | brain/projects/engagement-analysis.md |
 | FR-4.2 | Tatwik | TS-02, TS-14 | #6 (TS-02), pending (TS-14) | #14 (TS-02), pending | ST_FR4, UT_STAT_ZERO | n/a — playlist analysis has no period compare | brain/projects/engagement-analysis.md |
 | FR-4.3 | Tatwik | TS-02, TS-14 | #6 (TS-02), pending (TS-14) | #14 (TS-02), pending | SEC_PII, UT_STAT_TS | n/a — playlist analysis has no raw user lists | brain/projects/engagement-analysis.md |
