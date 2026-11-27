@@ -30,7 +30,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | FR-7.1 | Shiva | SR-02, SR-05, SR-13 | #5 (SR-02), #30 (SR-05), #68 (SR-13) | #15 (SR-02), #31 (SR-05), #69 (SR-13) | SEC_OAUTH | local-check | brain/resources/google-oauth-testing-mode.md |
 | FR-7.2 | Shiva | SR-02, SR-05, SR-12, SR-13 | #5 (SR-02), #30 (SR-05), #66 (SR-12), #68 (SR-13) | #15 (SR-02), #31 (SR-05), #67 (SR-12), #69 (SR-13) | NT_AUTH, SEC_OAUTH | local-check | brain/resources/google-oauth-testing-mode.md |
 | FR-7.3 | Shiva | SR-02, SR-05, SR-13, MF-14 | #5 (SR-02), #30 (SR-05), #68 (SR-13), pending (MF-14) | #15 (SR-02), #31 (SR-05), #69 (SR-13), pending (MF-14) | NT_ACC | local-check | brain/resources/google-oauth-testing-mode.md |
-| FR-8.1 | Shiva | SR-02, SR-04, SR-08, SR-14, SR-15 | #5 (SR-02), #25 (SR-04), #40 (SR-08) | #15 (SR-02), #26 (SR-04), #41 (SR-08) | IT_PROV, CT_1 | local-check | brain/areas/engineering/provider-interface-pattern.md |
+| FR-8.1 | Shiva | SR-02, SR-04, SR-08, SR-14, SR-15 | #5 (SR-02), #25 (SR-04), #40 (SR-08), #74 (SR-14) | #15 (SR-02), #26 (SR-04), #41 (SR-08), #75 (SR-14) | IT_PROV, CT_1 | local-check | brain/areas/engineering/provider-interface-pattern.md |
 | FR-8.2 | Shiva | SR-02, SR-08 | #5 (SR-02), #40 (SR-08) | #15 (SR-02), #41 (SR-08) | SEC_PII | local-check | brain/areas/engineering/provider-interface-pattern.md |
 
 ## Agent Skills
@@ -52,7 +52,7 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | NFR-5 | Tatwik | TS-06, TS-04, MF-04 | #27 (TS-04), #34 (MF-04), #48 (TS-06) | #29 (TS-04), #35 (MF-04), #49 (TS-06) | NT_VAL, UT_ID | n/a — input validation | brain/resources/nfr-targets.md |
 | NFR-6 | Farhan | MF-03, MF-04, MF-07, MF-13 | #7 (MF-03), #34 (MF-04), #50 (MF-07), #72 (MF-13) | #17 (MF-03), #35 (MF-04), #51 (MF-07), #73 (MF-13) | NFR_6 (test_sanitize), NT_HITL injection | video-to-playlist | brain/areas/security/prompt-injection-defence.md |
 | NFR-7 | Shiva / Tatwik | SR-02, SR-05, SR-08, SR-12, TS-14 | #5 (SR-02), #30 (SR-05), #40 (SR-08), #66 (SR-12) | #15 (SR-02), #31 (SR-05), #41 (SR-08), #67 (SR-12) | SEC_PII | n/a — privacy | brain/resources/nfr-targets.md |
-| NFR-8 | Shiva / Farhan | SR-02, SR-04, MF-04, SR-14, MF-14 | #5 (SR-02), #25 (SR-04), #34 (MF-04), pending (SR-14) | #15 (SR-02), #26 (SR-04), #35 (MF-04), pending (SR-14) | IT_PROV retry, IT_DRAFT_PARTIAL, CT_1 | n/a — reliability | brain/resources/nfr-targets.md |
+| NFR-8 | Shiva / Farhan | SR-02, SR-04, MF-04, SR-14, MF-14 | #5 (SR-02), #25 (SR-04), #34 (MF-04), #74 (SR-14) | #15 (SR-02), #26 (SR-04), #35 (MF-04), #75 (SR-14) | IT_PROV retry, IT_DRAFT_PARTIAL, CT_1 | n/a — reliability | brain/resources/nfr-targets.md |
 | NFR-9 | Farhan / all | TS-04, TS-07, MF-04, SR-17, TS-16 | #27 (TS-04), #34 (MF-04), #52 (TS-07) | #29 (TS-04), #35 (MF-04), #53 (TS-07) | Tool reference CI check, UT_DUR | n/a — usability | brain/resources/nfr-targets.md |
 | NFR-10 | Farhan / Shiva | SR-01, SR-02, SR-03, SR-04, MF-02, MF-06, SR-15, MF-18 | #2 (SR-01), #5 (SR-02), #21 (SR-03), #25 (SR-04), #8 (MF-02), #36 (MF-06) | #11 (SR-01), #15 (SR-02), #22 (SR-03), #26 (SR-04), #16 (MF-02), #37 (MF-06), pending (SR-15, MF-18) | CI coverage >=85%, lint, mypy, import-lint | n/a — maintainability | brain/resources/nfr-targets.md |
 
