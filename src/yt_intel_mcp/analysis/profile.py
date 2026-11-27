@@ -66,9 +66,7 @@ def compute_event_weight(
             else event.event_time.replace(tzinfo=UTC)
         )
         now_dt = (
-            now_utc.astimezone(UTC)
-            if now_utc.tzinfo is not None
-            else now_utc.replace(tzinfo=UTC)
+            now_utc.astimezone(UTC) if now_utc.tzinfo is not None else now_utc.replace(tzinfo=UTC)
         )
         age_days = max(0.0, (now_dt - event_dt).total_seconds() / _SECONDS_PER_DAY)
         return float(0.5 ** (age_days / cfg.half_life_days))
