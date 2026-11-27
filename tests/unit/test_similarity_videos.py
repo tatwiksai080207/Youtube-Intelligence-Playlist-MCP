@@ -108,9 +108,24 @@ def test_UT_SIM_excludes_seed_private_deleted_and_live_candidates() -> None:
     seed = _video("seed0000001", title="Python Asyncio")
     candidates = [
         seed,
-        _video("priv0000001", title="Python Asyncio Private", privacy_status="private", is_available=False),
-        _video("dele0000001", title="Python Asyncio Deleted", privacy_status="deleted", is_available=False),
-        _video("live0000001", title="Python Asyncio Live", live_broadcast_content="live", duration_seconds=0),
+        _video(
+            "priv0000001",
+            title="Python Asyncio Private",
+            privacy_status="private",
+            is_available=False,
+        ),
+        _video(
+            "dele0000001",
+            title="Python Asyncio Deleted",
+            privacy_status="deleted",
+            is_available=False,
+        ),
+        _video(
+            "live0000001",
+            title="Python Asyncio Live",
+            live_broadcast_content="live",
+            duration_seconds=0,
+        ),
         _video("good0000001", title="Python Asyncio Coroutines"),
     ]
     assert not is_eligible_candidate(candidates[1], seed_video_id=seed.video_id)

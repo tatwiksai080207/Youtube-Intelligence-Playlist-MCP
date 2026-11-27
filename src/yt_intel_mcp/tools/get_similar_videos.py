@@ -18,7 +18,11 @@ from yt_intel_mcp.errors import ErrorCode, ToolError, success_response
 from yt_intel_mcp.models import CostEstimate, QuotaUsed, VideoMeta
 from yt_intel_mcp.provider.base import YouTubeProvider
 from yt_intel_mcp.quota.guard import QuotaGuard
-from yt_intel_mcp.sanitize import DEFAULT_MAX_TITLE_LENGTH, sanitize_single_line, sanitize_video_meta
+from yt_intel_mcp.sanitize import (
+    DEFAULT_MAX_TITLE_LENGTH,
+    sanitize_single_line,
+    sanitize_video_meta,
+)
 from yt_intel_mcp.schemas import load_schema
 from yt_intel_mcp.similarity.text import build_search_query
 from yt_intel_mcp.similarity.videos import (
@@ -303,11 +307,13 @@ async def execute_get_similar_videos(
         "results": [item.to_dict() for item in ranking.ranked_videos],
         "total_candidates_evaluated": ranking.total_candidates_evaluated,
         "excluded_count": ranking.excluded_count,
-        "metadata_only_notice": "Similarity ranked by objective video metadata only (no popularity signals).",
+        "metadata_only_notice": (
+            "Similarity ranked by objective video metadata only (no popularity signals)."
+        ),
     }
     summary = (
         f"Found {len(ranking.ranked_videos)} similar videos for {clean_seed.title!r} "
-        f"using objective metadata only (evaluated {ranking.total_candidates_evaluated} candidates)."
+        f"using objective metadata only ({ranking.total_candidates_evaluated} candidates)."
     )
     return success_response(summary, data, quota_used=actual_used)
 

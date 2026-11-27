@@ -152,9 +152,7 @@ def is_eligible_candidate(video: VideoMeta, *, seed_video_id: str) -> bool:
         return False
     if video.privacy_status.strip().lower() in {"private", "deleted"}:
         return False
-    if video.live_broadcast_content.strip().lower() not in {"", "none"}:
-        return False
-    return True
+    return video.live_broadcast_content.strip().lower() in {"", "none"}
 
 
 def compute_duration_similarity(
