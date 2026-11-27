@@ -6,7 +6,7 @@ import json
 from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
-from typing import Any, cast
+from typing import Any
 
 from mcp.server.mcpserver import Context, MCPServer
 from mcp.types import CallToolResult, TextContent, ToolAnnotations
@@ -91,7 +91,7 @@ def validate_analyze_engagement_arguments(arguments: Mapping[str, Any]) -> Analy
         )
 
     return AnalyzeEngagementRequest(
-        timeframe=cast(Timeframe, raw_tf),
+        timeframe=raw_tf,
         compare_with_previous_period=raw_cmp,
     )
 
