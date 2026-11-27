@@ -203,7 +203,9 @@ def events_from_liked_videos(
             title=sanitize_single_line(video.title),
             category_id=video.category_id,
             duration_seconds=video.duration_seconds,
-            tags=tuple(sanitize_single_line(tag) for tag in video.tags if sanitize_single_line(tag)),
+            tags=tuple(
+                cleaned for tag in video.tags if (cleaned := sanitize_single_line(tag))
+            ),
         )
         events.append(normalize_user_event(raw_event, store=store, now_utc=reference_now))
     return events
