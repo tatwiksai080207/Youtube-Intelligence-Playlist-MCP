@@ -253,9 +253,7 @@ def analyze_engagement_events(
     coverage = summarize_timestamp_coverage(normalized)
 
     dated_events = [
-        ev
-        for ev in normalized
-        if ev.time_kind is EventTimeKind.DATED and ev.event_time is not None
+        ev for ev in normalized if ev.time_kind is EventTimeKind.DATED and ev.event_time is not None
     ]
 
     active_dated, comparison = _compute_period_comparison(
