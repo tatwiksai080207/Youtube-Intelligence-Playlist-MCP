@@ -17,9 +17,16 @@ from yt_intel_mcp.analysis.profile import (
     compute_event_weight,
     deduplicate_events,
 )
+from yt_intel_mcp.analysis.recommend import (
+    RecommendationResult,
+    RecommendedVideo,
+    score_recommendations,
+)
 
 __all__ = [
     "InterestProfile",
+    "RecommendationResult",
+    "RecommendedVideo",
     "TimestampCoverage",
     "WeightedUserEvent",
     "build_interest_profile",
@@ -29,5 +36,6 @@ __all__ = [
     "extract_event_time_from_record",
     "normalize_user_event",
     "normalize_user_events",
+    "score_recommendations",
     "summarize_timestamp_coverage",
 ]
