@@ -10,7 +10,6 @@ from typing import Any
 import anyio
 from mcp.client.session import ClientSession
 from mcp.shared.memory import create_client_server_memory_streams
-from pydantic import AnyUrl
 
 from yt_intel_mcp.config import QuotaConfig
 from yt_intel_mcp.provider import FixtureYouTubeProvider
@@ -164,7 +163,7 @@ def test_ST_FR4_and_SEC_PII_analyze_engagement_and_user_context_resource(
                     uris = {str(item.uri) for item in res_list.resources}
                     assert USER_CONTEXT_RESOURCE_URI in uris
 
-                    read_res = await session.read_resource(AnyUrl(USER_CONTEXT_RESOURCE_URI))
+                    read_res = await session.read_resource(USER_CONTEXT_RESOURCE_URI)
                     ctx_text = read_res.contents[0].text
                     ctx_json = json.loads(ctx_text)
                     assert ctx_json["total_signals"] == 4
