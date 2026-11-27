@@ -20,10 +20,12 @@ issues:
   - "#7"
   - "#19"
   - "#70"
+  - "#72"
 prs:
   - "#17"
   - "#20"
   - "#71"
+  - "#73"
 sources:
   - "Final_SRS_Submission.pdf v1.0, sections 3.3 and 4.5 (checked 2026-11-25)"
   - "MCP specification 2025-06-18, Elicitation: https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation (checked 2026-11-25)"

@@ -14,6 +14,11 @@ from yt_intel_mcp.config import DraftConfig
 from yt_intel_mcp.confirmation import (
     ConfirmationDecision,
     ConfirmationTokenStore,
+    LocalConfirmationPageServer,
+    format_confirmation_summary_html,
+    format_confirmation_summary_text,
+    request_trusted_confirmation,
+    serve_local_confirmation_page,
 )
 from yt_intel_mcp.errors import ErrorCode, ToolError
 from yt_intel_mcp.models import VideoMeta
@@ -333,3 +338,152 @@ def test_NT_HITL_prompt_injection_cannot_mint_or_bypass_confirmation() -> None:
     with pytest.raises(ToolError) as exc_info:
         token_store.consume_for_draft(draft.draft_id, draft=draft, channel_id="UC_USER")
     assert exc_info.value.code is ErrorCode.CONFIRMATION_MISMATCH
+
+
+@pytest.mark.anyio
+async def test_NT_HITL_UNAVAIL_when_neither_channel_available() -> None:
+    now = datetime(2026, 11, 27, 10, 0, tzinfo=UTC)
+    draft_store = DraftStore(DraftConfig(ttl_seconds=600), clock=lambda: now)
+    token_store = ConfirmationTokenStore(clock=lambda: now)
+    draft = _build_test_draft(draft_store)
+
+    # Calling with no elicitation session and loopback disabled
+    with pytest.raises(ToolError) as exc_info:
+        await request_trusted_confirmation(
+            draft,
+            "UC_USER",
+            token_store,
+            session=None,
+            enable_loopback=False,
+        )
+
+    err = exc_info.value
+    assert err.code is ErrorCode.CONFIRMATION_UNAVAILABLE
+    assert err.details["draft_id"] == draft.draft_id
+    assert token_store.get_for_draft(draft.draft_id) is None
+
+
+@pytest.mark.anyio
+async def test_NT_HITL_local_page_rejects_non_loopback_bind() -> None:
+    now = datetime(2026, 11, 27, 10, 0, tzinfo=UTC)
+    draft_store = DraftStore(DraftConfig(ttl_seconds=600), clock=lambda: now)
+    token_store = ConfirmationTokenStore(clock=lambda: now)
+    draft = _build_test_draft(draft_store)
+
+    # Non-loopback addresses must be rejected immediately with ValueError
+    with pytest.raises(ValueError, match=r"must bind strictly to 127\.0\.0\.1"):
+        LocalConfirmationPageServer(
+            host="0.0.0.0",
+            port=0,
+            draft=draft,
+            channel_id="UC_USER",
+            secret_path="/confirm_test",
+            csrf_token="tok_csrf",
+        )
+
+    with pytest.raises(ValueError, match=r"must bind strictly to 127\.0\.0\.1"):
+        LocalConfirmationPageServer(
+            host="192.168.1.50",
+            port=0,
+            draft=draft,
+            channel_id="UC_USER",
+            secret_path="/confirm_test",
+            csrf_token="tok_csrf",
+        )
+
+    with pytest.raises(ValueError, match=r"must bind strictly to 127\.0\.0\.1"):
+        await serve_local_confirmation_page(
+            draft,
+            "UC_USER",
+            token_store,
+            host="0.0.0.0",
+        )
+
+
+def test_NT_HITL_local_page_404_and_csrf_403() -> None:
+    now = datetime(2026, 11, 27, 10, 0, tzinfo=UTC)
+    draft_store = DraftStore(DraftConfig(ttl_seconds=600), clock=lambda: now)
+    draft = _build_test_draft(draft_store)
+
+    server = LocalConfirmationPageServer(
+        host="127.0.0.1",
+        port=0,
+        draft=draft,
+        channel_id="UC_USER",
+        secret_path="/confirm_legit_secret",
+        csrf_token="csrf_secret_12345",
+    )
+    port = server.server_port
+
+    import threading
+    import urllib.error
+    import urllib.parse
+    import urllib.request
+
+    thread = threading.Thread(target=server.handle_request, daemon=True)
+    thread.start()
+
+    # 1. GET wrong path -> 404
+    try:
+        req = urllib.request.Request(f"http://127.0.0.1:{port}/wrong_path")
+        with pytest.raises(urllib.error.HTTPError) as exc_404:
+            urllib.request.urlopen(req)
+        assert exc_404.value.code == 404
+    finally:
+        server.server_close()
+        thread.join(timeout=1.0)
+
+    # 2. POST wrong CSRF -> 403
+    server2 = LocalConfirmationPageServer(
+        host="127.0.0.1",
+        port=0,
+        draft=draft,
+        channel_id="UC_USER",
+        secret_path="/confirm_legit_secret",
+        csrf_token="csrf_secret_12345",
+    )
+    port2 = server2.server_port
+    thread2 = threading.Thread(target=server2.handle_request, daemon=True)
+    thread2.start()
+
+    try:
+        post_data = urllib.parse.urlencode(
+            {
+                "csrf_token": "wrong_csrf",
+                "action": "accept",
+            }
+        ).encode("utf-8")
+        req2 = urllib.request.Request(
+            f"http://127.0.0.1:{port2}/confirm_legit_secret",
+            data=post_data,
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            method="POST",
+        )
+        with pytest.raises(urllib.error.HTTPError) as exc_403:
+            urllib.request.urlopen(req2)
+        assert exc_403.value.code == 403
+    finally:
+        server2.server_close()
+        thread2.join(timeout=1.0)
+
+
+def test_NT_HITL_prompt_injection_escaped_in_summary_and_html() -> None:
+    now = datetime(2026, 11, 27, 10, 0, tzinfo=UTC)
+    draft_store = DraftStore(DraftConfig(ttl_seconds=600), clock=lambda: now)
+    malicious_title = (
+        "<script>alert('pwn')</script> https://evil.example/steal Systems & Distributed"
+    )
+    draft = _build_test_draft(draft_store, title=malicious_title)
+
+    text_summary = format_confirmation_summary_text(draft, "UC_USER")
+    assert "https://evil.example" not in text_summary
+
+    html_summary = format_confirmation_summary_html(
+        draft,
+        "UC_USER",
+        csrf_token="safe_csrf",
+        secret_path="/confirm_path",
+    )
+    assert "<script>" not in html_summary
+    assert "&lt;script&gt;" in html_summary
+    assert "default-src 'none'" in html_summary
