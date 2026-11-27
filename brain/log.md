@@ -42,6 +42,7 @@ issues:
   - "#74"
   - "#76"
   - "#78"
+  - "#80"
 prs:
   - "#10"
   - "#13"
@@ -125,3 +126,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-27 14:10 | Madire Shiva Reddy | SR-14 Live Provider | Implemented src/yt_intel_mcp/provider/live.py (LiveYouTubeProvider, UrllibLiveHttpTransport) with exponential backoff on reads (<=3 retries), zero write retries, strict exclusion of statistics, quota ledger charging, upstream error mapping, and IT_PROV integration tests in tests/integration/test_live_provider.py, and [[brain/inbox/ai-session-2026-11-27-shiva-SR-14]] (Issue #74, PR #75) |
 | 2026-11-27 16:03 | Molleti Tatwik Sai | TS-10 get_similar_videos Tool | Implemented `src/yt_intel_mcp/similarity/videos.py` (`rank_similar_videos`, dynamic missing feature weight redistribution, MMR diversity) and `src/yt_intel_mcp/tools/get_similar_videos.py` (`<= 1s + 2u` preflight, objective metadata only) with `UT_SIM`, `ST_FR1`, and `NT_VID` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-10]] (Issue #76, PR #77) |
 | 2026-11-27 17:15 | Mohammed Farhan | MF-14 Playlist Write Path and Outcome Reporting | Implemented `src/yt_intel_mcp/playlist/writer.py` (`write_curated_playlist`, `check_draft_staleness`) and `src/yt_intel_mcp/tools/create_curated_playlist.py` (9-step ADR-0004 pipeline) with 0 write retries, item failure continuation, `DRAFT_STALE` guard, `IT_DRAFT`, `IT_DRAFT_PARTIAL`, `NT_DRAFT_STALE`, and `ST_FR5` tests, and [[brain/inbox/ai-session-2026-11-27-farhan-MF-14]] (Issue #78, PR #79) |
+| 2026-11-27 18:02 | Molleti Tatwik Sai | TS-12 Event Time Extraction and Interest Profile | Implemented `src/yt_intel_mcp/analysis/events.py` (`INV-04` event time extraction, `first_observed` provenance) and `src/yt_intel_mcp/analysis/profile.py` (90 day half life decay, `0.5` undated weight, cross source deduplication) with `UT_STAT_TS` and `UT_PROF` tests, and recorded [[brain/inbox/ai-session-2026-11-27-tatwik-TS-12]] (Issue #80) |
