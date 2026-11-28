@@ -6,6 +6,7 @@ from __future__ import annotations
 import os
 from collections.abc import Mapping
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -513,9 +514,17 @@ async def test_IT_PROV_search_videos_channel_parameters() -> None:
     reason="Live YouTube API tests require YT_INTEL_TEST_LIVE=1 (TQ-5)",
 )
 @pytest.mark.anyio
-async def test_IT_PROV_opt_in_live_api_call() -> None:
+async def test_IT_PROV_opt_in_live_api_call(tmp_path: Path) -> None:
     """Opt-in live YouTube Data API call for scheduled live CI workflow (SR-16)."""
     api_key = os.environ.get("YOUTUBE_API_KEY")
-    provider = LiveYouTubeProvider(api_key=api_key)
+    if not api_key:
+        pytest.skip("YOUTUBE_API_KEY not configured in environment (Guide E)")
+    from yt_intel_mcp.quota import PersistentQuotaLedger
+    from yt_intel_mcp.store import SQLiteStore
+
+    store = SQLiteStore(tmp_path / "live_quota.db")
+    ledger = PersistentQuotaLedger.for_live_tests(store)
+    provider = LiveYouTubeProvider(api_key=api_key, quota_guard=ledger)
     categories = await provider.get_video_categories(region_code="US")
     assert "28" in categories
+    assert ledger.status().units_used > 0
