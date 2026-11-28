@@ -196,7 +196,8 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-17|AI Session MF-17]]: Execute Stage 3 review, CI results audit, defect verification, and v0.3.0 stage-3 release changelog (Issue #96, PR #97).
 - [[brain/inbox/ai-session-2026-11-28-tatwik-TS-11|AI Session TS-11]]: Implement `similarity/channels.py` and `tools/get_similar_channels.py` (`ADR-0003` weights, `G-01` Option A `INVALID_ARGUMENT`, `<= 1s + 32u` preflight, zero subscriber counts) with `UT_SIM` and `ST_FR2` tests (Issue #100, PR #101).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-18|AI Session MF-18]]: Execute Stage 4 final quality and compliance audit across all SRS and SDLC gates (Issue #98, PR #99).
-- [[brain/inbox/ai-session-2026-11-28-tatwik-TS-17|AI Session TS-17]]: Author `docs/demo/stage-4-checklist.md`, record rehearsal and viva ownership, and write `brain/projects/stage-4-review.md` (Issue #102).
+- [[brain/inbox/ai-session-2026-11-28-tatwik-TS-17|AI Session TS-17]]: Author docs/demo/stage-4-checklist.md, record rehearsal and viva ownership, and write brain/projects/stage-4-review.md (Issue #102, PR #103).
+- [[brain/inbox/ai-session-2026-11-28-shiva-SR-18|AI Session SR-18]]: Finalize traceability matrix audit, resolve Decision Register gaps (G-01, G-04), and prepare v1.0.0 release changelog (Issue #104).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

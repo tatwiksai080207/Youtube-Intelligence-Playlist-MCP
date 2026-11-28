@@ -6,6 +6,15 @@ The format follows Keep a Changelog, and releases correspond to Stage milestones
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-28 (`v1.0.0`)
+
+Stage 4 deliverable baseline: Complete system delivery of the YouTube Video Intelligence MCP Server (`yt-intel-mcp`), end to end traceability matrix audit, resolution of all Architectural Decision Register entries, live demonstration checklist with team viva ownership, and verified compliance across all quality gates.
+
+### Added
+- **Final Quality and Compliance Audit (`MF-18`, `#98`, PR `#99`):** Executed full quality audit on `main` verifying test coverage exceeding 91 percent, strict Mypy typing, Ruff linting, secret scanning via Gitleaks, zero live API quota consumption in PR CI, and distilled Second Brain note citations.
+- **Stage 4 Live Demo and Viva Preparation (`TS-17`, `#102`, PR `#103`):** Authored `docs/demo/stage-4-checklist.md` with step by step MCP client verification for all tools, human in the loop trusted confirmation, local check skill run, Second Brain query walkthrough, and viva speaking ownership breakdown for all three teammates.
+- **Final Traceability Matrix and Release Baseline (`SR-18`, `#104`):** Completed comprehensive audit of `docs/traceability.md`, resolved open items `G-01` and `G-04` in `docs/plan/development-plan.md`, verified bidirectional Second Brain links, and finalized `v1.0.0` release documentation.
+
 ## [0.3.0] - 2026-11-28 (`stage-3`)
 
 Stage 3 deliverable baseline: Full implementation of all seven functional MCP tools, dual confirmation channels (MCP elicitation and loopback page), persistent quota governance and caching, token encryption at rest, live and fixture providers with AST import boundary protection, end to end Agent Skills (`SK-1`, `SK-2` v2), developer guides, and end user documentation.
