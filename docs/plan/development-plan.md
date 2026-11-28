@@ -26,7 +26,7 @@
 | `D-02` | Decision | Runtime stack (SRS Section 2.3) | Python 3.11+ and official `mcp` SDK (`ADR-0001`, `#21`) | Shiva | RESOLVED |
 | `C-01` | Conflict | R-1 single 10k quota vs. SRS C-2 dual budget | Follow SRS C-2 (both budgets configurable); re-verified against SRS Section 3.2 R-5 costs in `SR-10` (`#44`) | Shiva | RESOLVED (SRS) |
 | `C-02` | Conflict | `src/mcp/schemas/` vs. Python `mcp` SDK package name | Use `src/yt_intel_mcp/schemas/` (`ADR-0001`, `#21`) | Shiva | RESOLVED |
-| `C-03` | Conflict | R-2 SE-7 "e.g., OpenAPI" vs. stdio MCP server | Generate `docs/developer/tool-reference.md` from JSON Schemas (`SR-17`) | Shiva | PROPOSED |
+| `C-03` | Conflict | R-2 SE-7 "e.g., OpenAPI" vs. stdio MCP server | Generate `docs/developer/tool-reference.md` from JSON Schemas (`SR-17`, `#94`) | Shiva | RESOLVED |
 | `G-01` | Gap | Error code for nonexistent channel in FR-2 | Team vote open in Issue `#28` (`INVALID_ARGUMENT` vs `CHANNEL_UNAVAILABLE`) before `TS-11` negative test | Tatwik | OPEN |
 | `G-02` | Gap | Step order inside `create_curated_playlist` | Frozen in `docs/adr/0004-trusted-confirmation.md` (`MF-04`, `#34`): 9 step sequence covering draft lookup, session identity, trusted confirmation, single use token verification, combined preflight and stale check, `youtube.force-ssl` consent, channel check, exact write preflight, and non retried ordered writes | Farhan | RESOLVED |
 | `G-03` | Gap | Draft-time write-cost preflight before count is known | Frozen in `docs/adr/0005-playlist-selection.md` (`MF-04`, `#34`): worst case `50 + 50 * max_videos` workflow preflight before discovery reads (charging actual reads only) plus exact `50 + 50 * N` preflight before writes | Farhan | RESOLVED |
