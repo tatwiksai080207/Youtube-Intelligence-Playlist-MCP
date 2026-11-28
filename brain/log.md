@@ -100,6 +100,7 @@ prs:
   - "#102"
   - "#104"
   - "#106"
+  - "#107"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---

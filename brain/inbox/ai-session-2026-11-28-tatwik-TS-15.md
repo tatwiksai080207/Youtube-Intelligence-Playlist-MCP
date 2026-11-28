@@ -15,7 +15,8 @@ requirements:
   - SB-1
 issues:
   - "#106"
-prs: []
+prs:
+  - "#107"
 sources:
   - "docs/testing/host-compatibility.md (checked 2026-11-28)"
   - "tests/system/test_fr5_confirmation.py (checked 2026-11-28)"
