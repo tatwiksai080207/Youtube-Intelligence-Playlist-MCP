@@ -17,7 +17,8 @@ requirements:
   - SB-1
 issues:
   - "#108"
-prs: []
+prs:
+  - "#109"
 sources:
   - "docs/testing/test-plan.md"
   - "docs/developer/testing.md"
