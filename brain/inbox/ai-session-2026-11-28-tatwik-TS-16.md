@@ -17,7 +17,8 @@ requirements:
   - SB-1
 issues:
   - "#90"
-prs: []
+prs:
+  - "#91"
 sources:
   - "Final_SRS_Submission.pdf (v1.0, Section 1.2)"
   - "src/yt_intel_mcp/server.py"
