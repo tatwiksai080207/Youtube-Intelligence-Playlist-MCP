@@ -16,7 +16,8 @@ requirements:
   - SB-1
 issues:
   - "#104"
-prs: []
+prs:
+  - "#105"
 sources:
   - "docs/traceability.md"
   - "docs/plan/development-plan.md"
