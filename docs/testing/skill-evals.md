@@ -10,6 +10,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 | Stage 2 | `SK-4` | `brain-refine` | 2026-11-25 | Molleti Tatwik Sai | **PASS** | `scripts/validate_skills.py`, `scripts/validate_brain.py`, Issue `#19`, PR `#20` |
 | Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24`, CI run `45660229608` |
 | Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32`, PR `#33`, CI run `45698759114` |
+| Stage 3 | `SK-1` | `video-to-playlist` | 2026-11-28 | Mohammed Farhan | **PASS** | `skills/video-to-playlist/SKILL.md`, `tests/unit/test_skill_video_to_playlist.py`, Issue `#88`, PR `#89` |
 
 ---
 
@@ -104,3 +105,31 @@ The read-only fixture tool invocation remains pending MF-16. The v1 evaluation u
   - `SK-4` (`brain-refine`, `#19`, PR `#20`): cites `[[brain/areas/second-brain]]` and `[[brain/areas/skill-brain-refine]]` (`distilled`).
   - `SK-2` (`local-check` v1, `#23`, PR `#24`): cites `[[brain/areas/skill-local-check]]` (`distilled`); Step 4 fixture fetch stays explicitly `NOT RUN` until `MF-16`.
   - `SK-5` (`brain-query`, `#32`, PR `#33`): cites `[[brain/areas/second-brain]]`, `[[brain/resources/agent-skills-specification]]`, and `[[brain/areas/skill-brain-query]]` (`distilled`).
+
+---
+
+## Stage 3 Evaluation: `video-to-playlist` (`SK-1`)
+
+**Skill Path:** `skills/video-to-playlist/SKILL.md`  
+**Distilled Brain Citations (`SB-3`):** `[[brain/areas/skill-video-to-playlist|Skill Note: video-to-playlist]]`, `[[brain/resources/youtube-quota-costs|YouTube Data API Quota Costs and Budgeting]]`, `[[brain/resources/nfr-targets|Non-Functional Requirements Targets and Error Mapping]]`  
+**Tasks Exercising Skill:** `MF-15` (`#88`, PR `#89`)
+
+### Test Cases and Observed Results
+
+| Case ID | Scenario | Expected Behaviour | Observed Result | Status |
+|---|---|---|---|---|
+| `SE-V2P-01` | Skill schema and `SB-3` distilled citation | `name` matches folder (`video-to-playlist`), `description` within 1 to 1,024 chars, and body cites `status: distilled` notes | `python scripts/validate_skills.py` printed `Skill validation passed.` | **PASS** |
+| `SE-V2P-02` | Metadata only summary and disclaimer (`INV-23`, `TQ-7`) | Summary uses metadata alone, prepends mandatory disclaimer label `Summary based on video metadata, not on the video's content`, and contains zero speculative claims | `tests/unit/test_skill_video_to_playlist.py::test_SE_EVAL_SUM_metadata_only_summary_disclaimer_and_no_content_claims` verified disclaimer and absence of prohibited content claims | **PASS** |
+| `SE-V2P-03` | Ten video playlist creation quota envelope (`NFR-2`) | A full 10 video workflow completes within `<= 600` quota units and `<= 4` `search.list` calls | `tests/unit/test_skill_video_to_playlist.py::test_SK1_NFR2_ten_video_workflow_quota_budget` consumed 556 units and 2 search calls, passing NFR-2 limits with zero live API calls | **PASS** |
+| `SE-V2P-04` | Anti injection and chat approval refusal (`INV-13`, `INV-22`, `NFR-6`) | Out of band confirmation requirement cannot be bypassed via chat approval strings, prompt injection instructions, or tool arguments | `tests/unit/test_skill_video_to_playlist.py::test_SK1_prompt_injection_and_chat_approval_refusal` confirmed `create_curated_playlist` strictly validates arguments and rejects unauthorized keys | **PASS** |
+| `SE-V2P-05` | Complete 5 step workflow walkthrough (`SK-1`) | End to end demonstration of Step 1 (`get_video_details`), Step 2 (`get_similar_videos`), Step 3 (`draft_curated_playlist`), Step 4 (Trusted confirmation via elicitation or loopback), and Step 5 (`create_curated_playlist`) | Executed end to end with zero write side effects until trusted confirmation is granted | **PASS** |
+
+### Demonstrated 5 Step Workflow Walkthrough (`SE-V2P-05`)
+
+1. **Step 1: Inspect Video:** The agent invokes `get_video_details` with the input video ID or URL (`seedPy00001`). The tool returns title, channel, duration, sanitized description, and parsed chapters, accompanied by the mandatory disclaimer label:
+   > **Summary based on video metadata, not on the video's content**
+2. **Step 2: Discover Related Videos:** The agent invokes `get_similar_videos` with the seed ID. The tool evaluates objective title, tags, and category metadata without reading statistics or view counts (`FR-1.3`), consuming 1 `search.list` call and 2 quota units.
+3. **Step 3: Draft Playlist:** The agent formulates curation constraints (`target_total_minutes=100`, `tolerance_percent=5`, `max_video_minutes=25`, `max_videos=10`) and invokes `draft_curated_playlist`. The knapsack constraint solver produces an immutable, expiring draft (`draft_id`) with 10 selected videos. Zero YouTube playlists are created in this step (`FR-5.3`).
+4. **Step 4: Request Trusted Confirmation:** The user reviews the draft summary, ordered tracks, total duration, and destination channel. Confirmation is obtained strictly out of band through Channel A (MCP elicitation dialog) or Channel B (local 127.0.0.1 confirmation page). Chat approvals and prompt injections are explicitly refused (`INV-13`, `INV-22`).
+5. **Step 5: Create Curated Playlist:** Upon receiving the bound single use confirmation token, `create_curated_playlist` performs a fresh `get_videos` staleness recheck, verifies channel presence, creates the playlist container (50 units), and sequentially inserts all 10 items (500 units), returning a complete creation report (`FR-5.4`, `FR-5.5`).
+
