@@ -50,3 +50,6 @@ jobs:
 
       - name: Validate Second Brain
         run: python scripts/validate_brain.py
+
+      - name: Verify tool reference documentation
+        run: python scripts/generate_tool_reference.py --check
