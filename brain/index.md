@@ -47,6 +47,7 @@ issues:
   - "#84"
   - "#86"
   - "#88"
+  - "#90"
 prs:
   - "#10"
   - "#13"
@@ -173,6 +174,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-27-tatwik-TS-13|AI Session TS-13]]: Implement `analysis/recommend.py` and `tools/get_recommendations.py` (`<= 3s + <= 25u` preflight, exclude liked/saved videos, human reasons, `INSUFFICIENT_USER_SIGNAL`) with `ST_FR3` and `NT_SIG` tests (Issue #82, PR #83).
 - [[brain/inbox/ai-session-2026-11-27-tatwik-TS-14|AI Session TS-14]]: Implement `analysis/engagement.py`, `tools/analyze_engagement.py`, and `youtube://user/context` (duration buckets, monthly trends, period comparison, timestamp coverage, aggregates only) with `UT_STAT_BUCKET`, `UT_STAT_ZERO`, `UT_STAT_TS`, `ST_FR4`, and `SEC_PII` tests (Issue #84, PR #85).
 - [[brain/inbox/ai-session-2026-11-28-shiva-SR-15|AI Session SR-15]]: Implement MCP server runtime integration, tool registration, and provider boundary import-lint tests (Issue #86, PR #87).
+- [[brain/inbox/ai-session-2026-11-28-tatwik-TS-16|AI Session TS-16]]: Author `docs/user/guide.md` covering installation, OAuth setup, MCP host connection, tools, trusted confirmation, 7 day reauthorization, privacy, and exclusions (Issue #90).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-15|AI Session MF-15]]: Implement video-to-playlist product skill and evaluations for `SK-1` (Issue #88, PR #89).
 
 ## Logs and Reviews
