@@ -52,6 +52,7 @@ issues:
   - "#94"
   - "#96"
   - "#98"
+  - "#100"
 prs:
   - "#10"
   - "#13"
@@ -93,6 +94,7 @@ prs:
   - "#95"
   - "#97"
   - "#99"
+  - "#101"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -155,3 +157,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-28 14:30 | Madire Shiva Reddy | SR-17 Developer and Tool Reference Docs | Authored docs/developer/{setup,architecture,contributing}.md, implemented scripts/generate_tool_reference.py with CI drift check, generated docs/developer/tool-reference.md, added tests/unit/test_tool_reference.py, resolved C-03 in docs/plan/development-plan.md, and recorded [[brain/inbox/ai-session-2026-11-28-shiva-SR-17]] (Issue #94, PR #95) |
 | 2026-11-28 15:00 | Mohammed Farhan | MF-17 Stage 3 Review and Quality Audit | Authored docs/testing/ci-results.md, audited defect log, compiled Stage 3 skill evals, updated docs/traceability.md and CHANGELOG.md, authored [[brain/projects/stage-3-review]], and recorded [[brain/inbox/ai-session-2026-11-28-farhan-MF-17]] (Issue #96, PR #97) |
 | 2026-11-28 16:15 | Mohammed Farhan | MF-18 Final Quality and Compliance Audit | Audited main against all SRS and SDLC compliance gates (coverage, types, lint, secrets, skills, brain, ADR citations), recorded evidence in docs/testing/ci-results.md, updated docs/traceability.md, and recorded [[brain/inbox/ai-session-2026-11-28-farhan-MF-18]] (Issue #98, PR #99) |
+| 2026-11-28 16:18 | Molleti Tatwik Sai | TS-11 get_similar_channels Tool | Implemented `src/yt_intel_mcp/similarity/channels.py` (`build_channel_profile`, `rank_similar_channels`, zero subscriber counts) and `src/yt_intel_mcp/tools/get_similar_channels.py` (`<= 1s + 32u` preflight, `G-01` Option A `INVALID_ARGUMENT`) with `UT_SIM` and `ST_FR2` tests, and recorded [[brain/inbox/ai-session-2026-11-28-tatwik-TS-11]] (Issue #100, PR #101) |
