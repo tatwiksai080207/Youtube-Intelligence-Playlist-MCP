@@ -21,7 +21,8 @@ requirements:
   - SB-6
 issues:
   - "#86"
-prs: []
+prs:
+  - "#87"
 sources:
   - "Final_SRS_Submission.pdf Section 3.1, 4.3 (checked 2026-11-28)"
   - "docs/adr/0001-runtime-and-toolchain.md (checked 2026-11-28)"
@@ -32,7 +33,7 @@ sources:
 
 # AI Session SR-15
 
-- **Goal:** Implement Stage 3 task `SR-15` (Issue `#86`) delivering complete server runtime wiring in `src/yt_intel_mcp/server.py` and `src/yt_intel_mcp/__main__.py`, connecting application configuration to providers, persistent SQLite storage, dual budget quota ledgers, token stores, draft stores, confirmation token stores, metadata caching layers, all 8 tools, and both static resources. In addition, implement AST and import boundary linting tests in `tests/unit/test_import_lint.py` enforcing that only `provider/live.py` and `auth/oauth.py` may import HTTP or Google client libraries, and domain modules never bypass the `YouTubeProvider` interface abstraction.
+- **Goal:** Implement Stage 3 task `SR-15` (Issue `#86`, PR `#87`) delivering complete server runtime wiring in `src/yt_intel_mcp/server.py` and `src/yt_intel_mcp/__main__.py`, connecting application configuration to providers, persistent SQLite storage, dual budget quota ledgers, token stores, draft stores, confirmation token stores, metadata caching layers, all 8 tools, and both static resources. In addition, implement AST and import boundary linting tests in `tests/unit/test_import_lint.py` enforcing that only `provider/live.py` and `auth/oauth.py` may import HTTP or Google client libraries, and domain modules never bypass the `YouTubeProvider` interface abstraction.
 - **AI Tool / Model:** Antigravity / Gemini 4 Hydrogen
 - **Human Reviewer:** Molleti Tatwik Sai
 - **What Worked:** Implemented `build_server_runtime`, `create_server`, and `create_base_server` in `src/yt_intel_mcp/server.py`. Successfully registered `get_video_details`, `get_similar_videos`, `get_recommendations`, `analyze_engagement`, `draft_curated_playlist`, `create_curated_playlist`, `get_quota_status`, and `get_auth_status`, along with `youtube://metrics/quota` and `youtube://user/context` resources. Authored AST import boundary tests verifying that forbidden HTTP client libraries (`urllib.request`, `urllib.error`, `requests`, `httpx`, `aiohttp`, `google`, `googleapiclient`, `urllib3`, `http.client`) are strictly forbidden across domain modules, and domain modules never import concrete providers directly. Configured stdio entrypoint logging in `__main__.py` to stream exclusively to stderr.
