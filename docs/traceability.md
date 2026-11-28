@@ -10,8 +10,8 @@ Rule: Fill Issue and PR **only with real GitHub numbers** once created. Until th
 | FR-1.2 | Tatwik | TS-08, TS-10 | #56 (TS-08), #76 (TS-10) | #57 (TS-08), #77 (TS-10) | UT_SIM, ST_FR1, X_PERF_SCORE | video-to-playlist | brain/resources/tfidf-cosine-similarity.md |
 | FR-1.3 | Tatwik | TS-10 | #76 (TS-10) | #77 (TS-10) | UT_SIM | video-to-playlist | brain/resources/tfidf-cosine-similarity.md |
 | FR-1.4 | Tatwik | TS-09, TS-10 | #64 (TS-09), #76 (TS-10) | #65 (TS-09), #77 (TS-10) | NT_VID | video-to-playlist | brain/resources/tfidf-cosine-similarity.md |
-| FR-2.1 | Tatwik | TS-02, TS-04, TS-06, TS-11 | #6 (TS-02), #27 (TS-04), #28 (G-01 decision), #48 (TS-06) | #14 (TS-02), #29 (TS-04), #49 (TS-06), pending (TS-11) | UT_ID, NT_VAL, ST_FR2 | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
-| FR-2.2 | Tatwik | TS-02, TS-08, TS-11 | #6 (TS-02), #56 (TS-08), pending (TS-11) | #14 (TS-02), #57 (TS-08), pending (TS-11) | UT_SIM | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
+| FR-2.1 | Tatwik | TS-02, TS-04, TS-06, TS-11 | #6 (TS-02), #27 (TS-04), #28 (G-01 decision), #48 (TS-06), #100 (TS-11) | #14 (TS-02), #29 (TS-04), #49 (TS-06), pending (TS-11) | UT_ID, NT_VAL, ST_FR2 | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
+| FR-2.2 | Tatwik | TS-02, TS-08, TS-11 | #6 (TS-02), #56 (TS-08), #100 (TS-11) | #14 (TS-02), #57 (TS-08), pending (TS-11) | UT_SIM | n/a — no skill uses FR-2 (SRS Section 6.2) | brain/resources/channel-similarity.md |
 | FR-3.1 | Tatwik | TS-02, TS-12 | #6 (TS-02), #80 (TS-12) | #14 (TS-02), #81 (TS-12) | UT_PROF, UT_STAT_TS | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
 | FR-3.2 | Tatwik | TS-02, TS-12 | #6 (TS-02), #80 (TS-12) | #14 (TS-02), #81 (TS-12) | UT_PROF, UT_STAT_TS | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
 | FR-3.3 | Tatwik | TS-02, TS-13 | #6 (TS-02), #82 (TS-13) | #14 (TS-02), #83 (TS-13) | ST_FR3, NT_SIG | n/a — no skill uses FR-3 (SRS Section 6.2) | brain/resources/youtube-event-timestamps.md |
