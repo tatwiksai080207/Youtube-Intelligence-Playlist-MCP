@@ -51,6 +51,7 @@ issues:
   - "#92"
   - "#94"
   - "#96"
+  - "#98"
 prs:
   - "#10"
   - "#13"
@@ -90,6 +91,7 @@ prs:
   - "#93"
   - "#95"
   - "#97"
+  - "#99"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -187,6 +189,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-16|AI Session MF-16]]: Upgrade local-check skill to v2 with read-only fetch and zero live quota (Issue #92, PR #93).
 - [[brain/inbox/ai-session-2026-11-28-shiva-SR-17|AI Session SR-17]]: Author developer guides (setup, architecture, contributing) and tool reference generator with CI drift check (Issue #94, PR #95).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-17|AI Session MF-17]]: Execute Stage 3 review, CI results audit, defect verification, and v0.3.0 stage-3 release changelog (Issue #96, PR #97).
+- [[brain/inbox/ai-session-2026-11-28-farhan-MF-18|AI Session MF-18]]: Execute Stage 4 final quality and compliance audit across all SRS and SDLC gates (Issue #98, PR #99).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

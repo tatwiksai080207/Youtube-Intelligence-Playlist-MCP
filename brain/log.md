@@ -51,6 +51,7 @@ issues:
   - "#92"
   - "#94"
   - "#96"
+  - "#98"
 prs:
   - "#10"
   - "#13"
@@ -91,6 +92,7 @@ prs:
   - "#93"
   - "#95"
   - "#97"
+  - "#99"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -152,3 +154,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-28 14:00 | Mohammed Farhan | MF-16 local-check Skill v2 | Wired Step 4 read-only fetch (get_video_details and get_quota_status) over MCP stdio, updated skills/local-check/SKILL.md, [[brain/areas/skill-local-check]], SE-LOCAL-04..06 in docs/testing/skill-evals.md, and [[brain/inbox/ai-session-2026-11-28-farhan-MF-16]] (Issue #92, PR #93) |
 | 2026-11-28 14:30 | Madire Shiva Reddy | SR-17 Developer and Tool Reference Docs | Authored docs/developer/{setup,architecture,contributing}.md, implemented scripts/generate_tool_reference.py with CI drift check, generated docs/developer/tool-reference.md, added tests/unit/test_tool_reference.py, resolved C-03 in docs/plan/development-plan.md, and recorded [[brain/inbox/ai-session-2026-11-28-shiva-SR-17]] (Issue #94, PR #95) |
 | 2026-11-28 15:00 | Mohammed Farhan | MF-17 Stage 3 Review and Quality Audit | Authored docs/testing/ci-results.md, audited defect log, compiled Stage 3 skill evals, updated docs/traceability.md and CHANGELOG.md, authored [[brain/projects/stage-3-review]], and recorded [[brain/inbox/ai-session-2026-11-28-farhan-MF-17]] (Issue #96, PR #97) |
+| 2026-11-28 16:15 | Mohammed Farhan | MF-18 Final Quality and Compliance Audit | Audited main against all SRS and SDLC compliance gates (coverage, types, lint, secrets, skills, brain, ADR citations), recorded evidence in docs/testing/ci-results.md, updated docs/traceability.md, and recorded [[brain/inbox/ai-session-2026-11-28-farhan-MF-18]] (Issue #98, PR #99) |
