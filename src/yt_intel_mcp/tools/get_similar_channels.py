@@ -295,9 +295,7 @@ async def execute_get_similar_channels(
         max_results=req.max_results,
         similarity_config=similarity_config,
     )
-    clean_seed_title = sanitize_single_line(
-        seed_channel.title, max_length=DEFAULT_MAX_TITLE_LENGTH
-    )
+    clean_seed_title = sanitize_single_line(seed_channel.title, max_length=DEFAULT_MAX_TITLE_LENGTH)
 
     data: dict[str, Any] = {
         "seed_channel": {

@@ -55,9 +55,7 @@ class RankedSimilarChannel:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize ranked channel match using objective sanitized metadata only."""
-        clean_title = sanitize_single_line(
-            self.channel.title, max_length=DEFAULT_MAX_TITLE_LENGTH
-        )
+        clean_title = sanitize_single_line(self.channel.title, max_length=DEFAULT_MAX_TITLE_LENGTH)
         clean_desc = sanitize_text(
             self.channel.description, max_length=DEFAULT_DESCRIPTION_PREFIX_LENGTH
         )
@@ -224,9 +222,7 @@ def rank_similar_channels(
     ranked: list[RankedSimilarChannel] = []
 
     for idx, prof in enumerate(eligible):
-        topic_score = compute_topic_overlap(
-            seed_ch.topic_categories, prof.channel.topic_categories
-        )
+        topic_score = compute_topic_overlap(seed_ch.topic_categories, prof.channel.topic_categories)
         f_scores = {
             "topics": topic_score,
             "keywords": kw_scores[idx],
