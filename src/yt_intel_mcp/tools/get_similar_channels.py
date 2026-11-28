@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import json
-from collections.abc import Mapping
+from collections.abc import Coroutine, Mapping
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, TypeVar
 
 from mcp.server.mcpserver import Context, MCPServer
 from mcp.types import CallToolResult, TextContent, ToolAnnotations
@@ -126,6 +126,9 @@ def _compute_delta_quota(
     )
 
 
+_T = TypeVar("_T")
+
+
 async def _run_counted_call(
     op_name: str,
     quota_guard: QuotaGuard,
@@ -133,8 +136,8 @@ async def _run_counted_call(
     self_charges: bool,
     status_before_units: int,
     status_before_searches: int,
-    coro: Any,
-) -> Any:
+    coro: Coroutine[Any, Any, _T],
+) -> _T:
     cost = quota_guard.estimate(op_name, count=1)
     try:
         result = await coro
