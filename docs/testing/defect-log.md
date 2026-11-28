@@ -22,7 +22,8 @@ Whenever a real defect is discovered during integration testing, system testing,
 
 | Defect ID / Issue | Date Found | Stage | Found By | Affected Req(s) | Root Cause Summary | Fix Branch & PR | Regression Test (`TQ-8`) | Status |
 |---|---|---|---|---|---|---|---|---|
-| *(None logged yet as of Stage 2 initialization in `MF-06`)* | — | — | — | — | — | — | — | — |
+| *(None logged in Stage 1 or Stage 2)* | — | — | — | — | — | — | — | — |
+| *(None logged in Stage 3 audit — MF-17)* | 2026-11-28 | Stage 3 | Mohammed Farhan | TQ-8, SDLC | Audit of all 28 Stage 3 tasks (PRs #41 through #95) confirmed clean fixture-based testing and zero reported defect issues | — | Verified in PR CI suite | CLOSED |
 
 *(Note: Pre existing Windows `Path.relative_to` backslash vs POSIX slash assertion mismatch in `tests/unit/test_validators.py` observed on Windows local runs is documented in `docs/testing/skill-evals.md` and `docs/testing/test-plan.md`; Linux `ubuntu-latest` CI passes cleanly. If prioritized for Windows parity, track via a dedicated `type:defect` issue and fix PR under this log.)*
 
