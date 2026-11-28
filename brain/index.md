@@ -49,6 +49,8 @@ issues:
   - "#88"
   - "#90"
   - "#92"
+  - "#94"
+  - "#96"
 prs:
   - "#10"
   - "#13"
@@ -86,6 +88,8 @@ prs:
   - "#89"
   - "#91"
   - "#93"
+  - "#95"
+  - "#97"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -107,6 +111,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/projects/youtube-mcp/project-overview|YouTube MCP Project Overview]]: Goals, milestones, and active deadlines.
 - [[brain/projects/stage-1-review|Stage 1 Review]]: Requirements baseline audit, skill evaluation summary, and process findings.
 - [[brain/projects/stage-2-review|Stage 2 Review]]: Architecture, ADRs `0001`–`0007`, contracts, Stage 2 skill evals, and `SB-1` audit.
+- [[brain/projects/stage-3-review|Stage 3 Review]]: Implementation and component verification audit across all 28 Stage 3 tasks, zero live quota assertion, and release preparation.
 - [[brain/projects/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]: Duration buckets, comparison edge cases, and privacy rules for `FR-4`.
 - [[brain/projects/playlist-constraints|Playlist Duration and Spoken Language Constraints]]: Duration boundaries and default audio language checks under `FR-5.1` and `FR-5.1a`.
 - [[brain/projects/partial-playlist-outcomes|Playlist Writes and Partial Outcomes]]: Stale draft checks, ordered writes, and outcome reporting under `FR-5.5`.
@@ -181,6 +186,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-15|AI Session MF-15]]: Implement video-to-playlist product skill and evaluations for `SK-1` (Issue #88, PR #89).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-16|AI Session MF-16]]: Upgrade local-check skill to v2 with read-only fetch and zero live quota (Issue #92, PR #93).
 - [[brain/inbox/ai-session-2026-11-28-shiva-SR-17|AI Session SR-17]]: Author developer guides (setup, architecture, contributing) and tool reference generator with CI drift check (Issue #94, PR #95).
+- [[brain/inbox/ai-session-2026-11-28-farhan-MF-17|AI Session MF-17]]: Execute Stage 3 review, CI results audit, defect verification, and v0.3.0 stage-3 release changelog (Issue #96, PR #97).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.

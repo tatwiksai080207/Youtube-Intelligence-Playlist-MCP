@@ -6,6 +6,41 @@ The format follows Keep a Changelog, and releases correspond to Stage milestones
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-28 (`stage-3`)
+
+Stage 3 deliverable baseline: Full implementation of all seven functional MCP tools, dual confirmation channels (MCP elicitation and loopback page), persistent quota governance and caching, token encryption at rest, live and fixture providers with AST import boundary protection, end to end Agent Skills (`SK-1`, `SK-2` v2), developer guides, and end user documentation.
+
+### Added
+- **Synthetic Fixtures & Provider (`SR-08`, `#40`, PR `#41`):** Authored `src/yt_intel_mcp/provider/fixture.py`, synthetic user data, and scrubber for offline testing.
+- **System Test Harness (`SR-09`, `#42`, PR `#43`):** Authored `tests/system/` conftest, stdio client harness, and test runner documentation.
+- **Dual Budget Quota Ledger (`SR-10`, `#44`, PR `#45`):** Authored persistent SQLite quota ledger, preflight checks, `get_quota_status` tool, and `youtube://metrics/quota` resource.
+- **TTL Metadata Cache (`SR-11`, `#46`, PR `#47`):** Authored SQLite cache backend with TTL policies for videos, channels, and queries.
+- **ID and URL Validation (`TS-06`, `#48`, PR `#49`):** Implemented strict YouTube ID formats and URL extraction helpers.
+- **Metadata Sanitisation (`MF-07`, `#50`, PR `#51`):** Implemented NFKC normalisation, control character removal, and link stripping for untrusted metadata.
+- **ISO-8601 Durations (`TS-07`, `#52`, PR `#53`):** Implemented ISO-8601 duration parser and formatter.
+- **Playlist Constraints (`MF-08`, `#54`, PR `#55`):** Implemented constraint model with strict duration window bounds.
+- **TF-IDF Similarity Engine (`TS-08`, `#56`, PR `#57`):** Implemented local term frequency inverse document frequency and cosine similarity calculation.
+- **Audio Language Validator (`MF-09`, `#58`, PR `#59`):** Enforced `defaultAudioLanguage` filter with unknown language flags.
+- **Knapsack Selection Solver (`MF-10`, `#60`, PR `#61`):** Implemented relevance maximising knapsack solver with diagnostic unsat reporting.
+- **Draft Tool & Immutability (`MF-11`, `#62`, PR `#63`):** Authored `draft_curated_playlist` tool and expiring draft store.
+- **Video Details Tool (`TS-09`, `#64`, PR `#65`):** Authored `get_video_details` tool returning objective metadata and chapter parsing.
+- **Encrypted Token Store (`SR-12`, `#66`, PR `#67`):** Authored keyring and AES-256-GCM token storage and `get_auth_status` tool.
+- **OAuth PKCE & Channel Verification (`SR-13`, `#68`, PR `#69`):** Authored desktop OAuth 2.0 PKCE flow, token refresh, and write consent checks.
+- **Single Use Tokens (`MF-12`, `#70`, PR `#71`):** Implemented server side cryptographically bound confirmation tokens.
+- **Trusted Confirmation Channels (`MF-13`, `#72`, PR `#73`):** Authored MCP elicitation handler and single use loopback `127.0.0.1` page.
+- **Live Provider (`SR-14`, `#74`, PR `#75`):** Implemented live YouTube Data API v3 provider passing through `YouTubeProvider`.
+- **Similar Videos Tool (`TS-10`, `#76`, PR `#77`):** Authored `get_similar_videos` tool evaluating objective title and category metadata.
+- **Playlist Creation Write Path (`MF-14`, `#78`, PR `#79`):** Authored `create_curated_playlist` tool with stale checks and partial outcome reporting.
+- **Event Time Profile (`TS-12`, `#80`, PR `#81`):** Implemented exponential half life interest profile and recency scoring.
+- **Recommendations Tool (`TS-13`, `#82`, PR `#83`):** Authored `get_recommendations` tool blending similarity and interest profiles.
+- **Engagement Analysis Tool (`TS-14`, `#84`, PR `#85`):** Authored `analyze_engagement` tool and `youtube://user/context` resource.
+- **Server Integration & Import Boundary (`SR-15`, `#86`, PR `#87`):** Wired MCP server lifecycle and verified provider boundary protection via AST lint.
+- **Product Skill `video-to-playlist` (`MF-15`, `#88`, PR `#89`):** Authored `SK-1` skill with metadata summary disclaimer and 600 quota unit envelope.
+- **User Guide (`TS-16`, `#90`, PR `#91`):** Authored end user documentation `docs/user/guide.md`.
+- **Local Check Skill v2 (`MF-16`, `#92`, PR `#93`):** Upgraded `scripts/local_check.py` to v2 (`SK-2`) with live stdio fixture fetch and zero quota check.
+- **Developer Documentation & Generator (`SR-17`, `#94`, PR `#95`):** Authored developer guides, automated reference generator, and CI drift check.
+- **Stage 3 Review and Audit (`MF-17`, `#96`, PR `#97`):** Authored `docs/testing/ci-results.md`, audited defect log, compiled skill evals, and wrote `brain/projects/stage-3-review.md`.
+
 ## [0.2.0] - 2026-11-26 (`stage-2`)
 
 Stage 2 deliverable baseline: Accepted ADRs `0001` through `0007`, frozen shared domain and provider contracts (`CT-1`), strict draft 2020-12 JSON Schemas for all seven functional tools, system and subsystem architecture diagrams (`SE-2`), refined PARA Second Brain, core Agent Skills (`SK-2`, `SK-4`, `SK-5`), and master test and defect plans (`TQ-1` through `TQ-8`).
