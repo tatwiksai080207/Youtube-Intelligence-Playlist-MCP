@@ -17,7 +17,8 @@ requirements:
   - SB-1
 issues:
   - "#100"
-prs: []
+prs:
+  - "#101"
 sources:
   - "Final_SRS_Submission.pdf (v1.0)"
   - "docs/adr/0003-similarity-scoring.md"
