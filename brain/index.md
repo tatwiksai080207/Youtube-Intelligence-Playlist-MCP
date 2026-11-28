@@ -94,6 +94,7 @@ prs:
   - "#97"
   - "#99"
   - "#101"
+  - "#103"
   - "#102"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"

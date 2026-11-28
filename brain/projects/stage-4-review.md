@@ -20,7 +20,8 @@ requirements:
   - NFR-10
 issues:
   - "#102"
-prs: []
+prs:
+  - "#103"
 sources:
   - "docs/testing/ci-results.md (checked 2026-11-28)"
   - "docs/demo/stage-4-checklist.md (checked 2026-11-28)"

@@ -17,7 +17,8 @@ requirements:
   - NFR-9
 issues:
   - "#102"
-prs: []
+prs:
+  - "#103"
 sources:
   - "docs/testing/ci-results.md"
   - "SDLC_and_Workflow.pdf Sections 6 and 7 Stage 4"
