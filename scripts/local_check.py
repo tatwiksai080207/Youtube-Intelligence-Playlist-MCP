@@ -13,6 +13,8 @@ from typing import Literal
 ROOT = Path(__file__).resolve().parents[1]
 CHECK_ENV = {"YT_INTEL_PROVIDER": "fixture", "PYTHONPATH": str(ROOT / "src")}
 FETCH_TOOL = "get_video_details"
+QUOTA_TOOL = "get_quota_status"
+SAMPLE_VIDEO_ID = "seedPy00001"
 
 
 @dataclass(frozen=True)
@@ -42,8 +44,8 @@ def run_command(name: str, args: list[str]) -> Result:
     return Result(name, "PASS")
 
 
-async def check_stdio_server() -> bool:
-    """Start the normal entry point and report whether the fetch tool is registered."""
+async def check_stdio_server_and_fetch() -> tuple[Result, Result]:
+    """Start the normal entry point over stdio, verify handshake, and invoke read-only tools."""
     from anyio import fail_after
     from mcp.client.session import ClientSession
     from mcp.client.stdio import StdioServerParameters, stdio_client
@@ -55,7 +57,7 @@ async def check_stdio_server() -> bool:
         command=sys.executable,
         args=["-m", "yt_intel_mcp"],
         cwd=ROOT,
-        env=CHECK_ENV,
+        env={**os.environ, **CHECK_ENV},
     )
     async with (
         stdio_client(parameters) as (read, write),
@@ -65,15 +67,75 @@ async def check_stdio_server() -> bool:
             initialized = await session.initialize()
             if initialized.server_info.name != SERVER_NAME:
                 raise RuntimeError(f"unexpected MCP server: {initialized.server_info.name}")
+
+            tool_names: set[str] = set()
             listed = await session.list_tools()
             while True:
-                if any(tool.name == FETCH_TOOL for tool in listed.tools):
-                    return True
+                tool_names.update(tool.name for tool in listed.tools)
                 if not listed.next_cursor:
-                    return False
+                    break
                 listed = await session.list_tools(
                     params=PaginatedRequestParams(cursor=listed.next_cursor)
                 )
+
+            server_res = Result("Start MCP server", "PASS", "initialized over stdio")
+
+            if FETCH_TOOL not in tool_names:
+                fetch_res = Result(
+                    "Read-only fetch",
+                    "FAIL",
+                    f"required tool {FETCH_TOOL!r} not registered",
+                )
+                return server_res, fetch_res
+
+            if QUOTA_TOOL not in tool_names:
+                fetch_res = Result(
+                    "Read-only fetch",
+                    "FAIL",
+                    f"required tool {QUOTA_TOOL!r} not registered",
+                )
+                return server_res, fetch_res
+
+            # 1. Call get_video_details (read-only fetch per SDLC Section 3)
+            details_result = await session.call_tool(
+                FETCH_TOOL,
+                {"video_id": SAMPLE_VIDEO_ID},
+            )
+            if details_result.is_error:
+                error_msg = str(details_result.content)
+                fetch_res = Result(
+                    "Read-only fetch",
+                    "FAIL",
+                    f"{FETCH_TOOL} failed: {error_msg}",
+                )
+                return server_res, fetch_res
+
+            # 2. Call get_quota_status (verifies quota ledger & 0 live usage)
+            quota_result = await session.call_tool(
+                QUOTA_TOOL,
+                {},
+            )
+            if quota_result.is_error:
+                error_msg = str(quota_result.content)
+                fetch_res = Result(
+                    "Read-only fetch",
+                    "FAIL",
+                    f"{QUOTA_TOOL} failed: {error_msg}",
+                )
+                return server_res, fetch_res
+
+            fetch_res = Result(
+                "Read-only fetch",
+                "PASS",
+                f"fetched {SAMPLE_VIDEO_ID} details and verified quota status",
+            )
+            return server_res, fetch_res
+
+
+async def check_stdio_server() -> bool:
+    """Start the normal entry point and report whether the server initialized cleanly."""
+    server_res, _ = await check_stdio_server_and_fetch()
+    return server_res.status == "PASS"
 
 
 def main() -> int:
@@ -87,17 +149,11 @@ def main() -> int:
 
     tests = run_command("Run automated tests", ["pytest", "-m", "not live"])
     try:
-        fetch_registered = asyncio.run(check_stdio_server())
+        server, fetch = asyncio.run(check_stdio_server_and_fetch())
     except Exception as error:
         traceback.print_exception(error)
         server = Result("Start MCP server", "FAIL", "stdio startup or handshake failed")
         fetch = Result("Read-only fetch", "NOT RUN", "server check failed")
-    else:
-        server = Result("Start MCP server", "PASS", "initialized over stdio")
-        if fetch_registered:
-            fetch = Result("Read-only fetch", "NOT RUN", "fixture fetch check is pending MF-16")
-        else:
-            fetch = Result("Read-only fetch", "NOT RUN", "no read-only fetch tool registered yet")
 
     checks = (build, tests, server, fetch)
     failed = sum(check.status == "FAIL" for check in checks)

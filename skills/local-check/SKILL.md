@@ -1,6 +1,6 @@
 ---
 name: local-check
-description: Build the YouTube MCP server, run fixture-mode tests, verify the local stdio handshake, and report each verification step and any skipped fetch.
+description: Build the YouTube MCP server, run fixture-mode tests, verify the local stdio handshake, invoke read-only fetch and quota status tools, and report all verification steps.
 ---
 
 # Local Check
@@ -15,8 +15,8 @@ Use a Python 3.11+ development environment with the project and its development 
 python scripts/local_check.py
 ```
 
-The runner builds a wheel in a temporary directory, runs `pytest -m "not live"` with `YT_INTEL_PROVIDER=fixture`, and initializes the current checkout's MCP server over stdio. It checks whether `get_video_details` is registered and reports the read-only fixture fetch as `NOT RUN` until MF-16 wires it in.
+The runner builds a wheel in a temporary directory, runs `pytest -m "not live"` with `YT_INTEL_PROVIDER=fixture`, initializes the current checkout's MCP server over stdio, and invokes both `get_video_details` (exercising a read-only fetch path per SDLC Section 3) and `get_quota_status` (verifying quota ledger status and zero live usage).
 
 ## Report
 
-Report the build, tests, server startup, read-only fetch, and overall summary from the command output. Include the reason for any `FAIL` or `NOT RUN`. A failed build, test run, or handshake produces a nonzero exit status. A successful run with the expected fetch skip reports three passes and one step not run. Keep the verification in fixture mode so it uses zero live YouTube quota.
+Report the build, tests, server startup, read-only fetch, and overall summary from the command output. Include the reason for any `FAIL` or `NOT RUN`. A failed build, test run, or handshake produces a nonzero exit status. On a clean repository checkout, all five steps report `PASS`. The verification runs strictly in fixture mode using zero live YouTube quota.
