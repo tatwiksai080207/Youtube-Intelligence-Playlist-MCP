@@ -6,7 +6,7 @@ from collections.abc import Callable, Mapping, Sequence
 from datetime import UTC, datetime, time, timedelta
 from zoneinfo import ZoneInfo
 
-from yt_intel_mcp.config import AppConfig, QuotaConfig
+from yt_intel_mcp.config import AppConfig, LiveTestConfig, QuotaConfig
 from yt_intel_mcp.errors import ErrorCode, ToolError
 from yt_intel_mcp.models import CostEstimate
 from yt_intel_mcp.quota.guard import QuotaStatus
@@ -97,6 +97,18 @@ class PersistentQuotaLedger:
     ) -> PersistentQuotaLedger:
         """Create a PersistentQuotaLedger backed by ``config.data_dir / 'yt_intel.db'``."""
         return cls(SQLiteStore.from_config(config), config.quota, clock=clock)
+
+    @classmethod
+    def for_live_tests(
+        cls,
+        store: SQLiteStore,
+        live_config: LiveTestConfig | None = None,
+        *,
+        clock: Callable[[], datetime] | None = None,
+    ) -> PersistentQuotaLedger:
+        """Create a PersistentQuotaLedger with hard caps for opt-in live test runs (NFR-2, TQ-5)."""
+        cfg = (live_config or LiveTestConfig()).to_quota_config()
+        return cls(store, cfg, clock=clock)
 
     def _now_utc(self) -> datetime:
         return _ensure_utc(self._clock())

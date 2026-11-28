@@ -134,6 +134,20 @@ class LiveTestConfig:
     max_units: int = 300
     max_search_calls: int = 10
 
+    def to_quota_config(self, *, base_quota: QuotaConfig | None = None) -> QuotaConfig:
+        """Return a QuotaConfig restricted to the hard live-test limits (NFR-2)."""
+        base = base_quota or QuotaConfig()
+        return QuotaConfig(
+            daily_units_limit=self.max_units,
+            daily_search_limit=self.max_search_calls,
+            reset_timezone=base.reset_timezone,
+            list_unit_cost=base.list_unit_cost,
+            search_call_cost=base.search_call_cost,
+            search_unit_cost=base.search_unit_cost,
+            playlist_insert_unit_cost=base.playlist_insert_unit_cost,
+            playlist_item_insert_unit_cost=base.playlist_item_insert_unit_cost,
+        )
+
 
 @dataclass(frozen=True, slots=True)
 class AppConfig:

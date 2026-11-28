@@ -101,6 +101,7 @@ prs:
   - "#104"
   - "#106"
   - "#107"
+  - "#108"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -166,4 +167,5 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-28 16:18 | Molleti Tatwik Sai | TS-11 get_similar_channels Tool | Implemented `src/yt_intel_mcp/similarity/channels.py` (`build_channel_profile`, `rank_similar_channels`, zero subscriber counts) and `src/yt_intel_mcp/tools/get_similar_channels.py` (`<= 1s + 32u` preflight, `G-01` Option A `INVALID_ARGUMENT`) with `UT_SIM` and `ST_FR2` tests, and recorded [[brain/inbox/ai-session-2026-11-28-tatwik-TS-11]] (Issue #100, PR #101) |
 | 2026-11-28 22:32 | Molleti Tatwik Sai | TS-17 Stage 4 Demo Checklist and Review | Authored `docs/demo/stage-4-checklist.md` (live FR-1..FR-5, `video-to-playlist`, `local-check`, `brain-query`, traceability walkthrough, quota pre check fallback, viva ownership, and rehearsal record) and [[brain/projects/stage-4-review]], and recorded [[brain/inbox/ai-session-2026-11-28-tatwik-TS-17]] (Issue #102, PR #103) |
 | 2026-11-28 23:05 | Madire Shiva Reddy | SR-18 Final Traceability Audit and v1.0.0 Release | Audited traceability matrix, resolved Decision Register entries G-01 and G-04, finalized v1.0.0 CHANGELOG, and recorded [[brain/inbox/ai-session-2026-11-28-shiva-SR-18]] (Issue #104, PR #105) |
-| 2026-11-28 23:17 | Molleti Tatwik Sai | TS-15 MCP Host Compatibility Record | Verified stdio MCP discovery (`8` tools, `2` resources), `get_video_details` read call, elicitation capability (`ST_FR5_CONFIRM`), and local CLI host checks in `docs/testing/host-compatibility.md`, updated `docs/traceability.md`, and recorded [[brain/inbox/ai-session-2026-11-28-tatwik-TS-15]] (Issue #106) |
+| 2026-11-28 23:17 | Molleti Tatwik Sai | TS-15 MCP Host Compatibility Record | Verified stdio MCP discovery (`8` tools, `2` resources), `get_video_details` read call, elicitation capability (`ST_FR5_CONFIRM`), and local CLI host checks in `docs/testing/host-compatibility.md`, updated `docs/traceability.md`, and recorded [[brain/inbox/ai-session-2026-11-28-tatwik-TS-15]] (Issue #106, PR #107) |
+| 2026-11-28 23:25 | Madire Shiva Reddy | SR-16 Scheduled Live API Test Workflow | Added .github/workflows/live.yml, LiveTestConfig quota adapter, PersistentQuotaLedger.for_live_tests, dry run budget abort unit tests, and recorded [[brain/inbox/ai-session-2026-11-28-shiva-SR-16]] (Issue #108) |

@@ -1,0 +1,37 @@
+name: Scheduled Live API Smoke Tests
+
+"on":
+  schedule:
+    # Run weekly on Mondays at 03:00 UTC (NEVER on PRs per TQ-5 and NFR-2)
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for running live API smoke tests"
+        required: false
+        default: "Manual live smoke verification"
+
+jobs:
+  live-smoke-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      YT_INTEL_PROVIDER: live
+      YT_INTEL_TEST_LIVE: "1"
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package and development dependencies
+        run: python -m pip install '.[dev]'
+
+      - name: Run live smoke tests with hard quota cap (<= 300 units, <= 10 search calls)
+        run: pytest -m live -v

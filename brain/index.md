@@ -200,7 +200,8 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-18|AI Session MF-18]]: Execute Stage 4 final quality and compliance audit across all SRS and SDLC gates (Issue #98, PR #99).
 - [[brain/inbox/ai-session-2026-11-28-tatwik-TS-17|AI Session TS-17]]: Author docs/demo/stage-4-checklist.md, record rehearsal and viva ownership, and write brain/projects/stage-4-review.md (Issue #102, PR #103).
 - [[brain/inbox/ai-session-2026-11-28-shiva-SR-18|AI Session SR-18]]: Finalize traceability matrix audit, resolve Decision Register gaps (G-01, G-04), and prepare v1.0.0 release changelog (Issue #104, PR #105).
-- [[brain/inbox/ai-session-2026-11-28-tatwik-TS-15|AI Session TS-15]]: Verify stdio MCP tool/resource discovery, `get_video_details` read call, elicitation fallback, and local CLI host observations in `docs/testing/host-compatibility.md` (Issue #106).
+- [[brain/inbox/ai-session-2026-11-28-tatwik-TS-15|AI Session TS-15]]: Verify stdio MCP tool/resource discovery, `get_video_details` read call, elicitation fallback, and local CLI host observations in `docs/testing/host-compatibility.md` (Issue #106, PR #107).
+- [[brain/inbox/ai-session-2026-11-28-shiva-SR-16|AI Session SR-16]]: Implement scheduled live API test workflow with hard quota cap and budget abort dry run tests (Issue #108).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
