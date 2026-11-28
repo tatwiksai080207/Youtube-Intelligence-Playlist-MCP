@@ -20,7 +20,7 @@ from yt_intel_mcp.models import CostEstimate
 from yt_intel_mcp.provider import FixtureErrorRule, FixtureYouTubeProvider
 from yt_intel_mcp.quota import PersistentQuotaLedger, QuotaGuard
 from yt_intel_mcp.schemas import list_schema_names, load_schema
-from yt_intel_mcp.server import create_server
+from yt_intel_mcp.server import create_base_server
 from yt_intel_mcp.store import SQLiteStore
 from yt_intel_mcp.tools import QUOTA_RESOURCE_URI, execute_get_quota_status, register_quota_status
 
@@ -257,7 +257,7 @@ async def test_UT_QUOTA_tool_and_resource_report_budgets_with_zero_cost(tmp_path
     assert direct["data"]["units"] == {"used": 75, "limit": 500, "remaining": 425}
     assert direct["data"]["search_calls"] == {"used": 4, "limit": 20, "remaining": 16}
 
-    server = create_server()
+    server = create_base_server()
     register_quota_status(server, ledger)
 
     async with (

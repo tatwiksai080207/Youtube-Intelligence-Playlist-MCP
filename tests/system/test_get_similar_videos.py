@@ -15,7 +15,7 @@ from mcp.shared.memory import create_client_server_memory_streams
 from yt_intel_mcp.config import QuotaConfig
 from yt_intel_mcp.provider import FixtureYouTubeProvider
 from yt_intel_mcp.quota.ledger import PersistentQuotaLedger
-from yt_intel_mcp.server import create_server
+from yt_intel_mcp.server import create_base_server
 from yt_intel_mcp.store import SQLiteStore
 from yt_intel_mcp.tools.get_similar_videos import register_get_similar_videos
 
@@ -202,7 +202,7 @@ async def _call_get_similar_videos(
     store = SQLiteStore(db_path)
     ledger = PersistentQuotaLedger(store, config=quota_config or QuotaConfig())
     provider = _CountingProvider(fixture_dir)
-    server = create_server()
+    server = create_base_server()
     register_get_similar_videos(server, provider=provider, quota_guard=ledger)
 
     async with create_client_server_memory_streams() as (client_streams, server_streams):

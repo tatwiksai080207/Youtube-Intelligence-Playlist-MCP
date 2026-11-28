@@ -15,7 +15,7 @@ from mcp.shared.memory import create_client_server_memory_streams
 from yt_intel_mcp.config import QuotaConfig
 from yt_intel_mcp.provider import FixtureYouTubeProvider
 from yt_intel_mcp.quota.ledger import PersistentQuotaLedger
-from yt_intel_mcp.server import create_server
+from yt_intel_mcp.server import create_base_server
 from yt_intel_mcp.store import SQLiteStore
 from yt_intel_mcp.tools.get_video_details import register_get_video_details
 
@@ -106,7 +106,7 @@ async def test_TS_09_mcp_get_video_details_returns_sanitized_metadata_and_chapte
     ledger = PersistentQuotaLedger(store, QuotaConfig())
     provider = FixtureYouTubeProvider(fixtures_dir, quota_guard=ledger)
 
-    server = create_server()
+    server = create_base_server()
     register_get_video_details(server, provider=provider, quota_guard=ledger)
 
     async with (

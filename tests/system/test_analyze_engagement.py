@@ -14,7 +14,7 @@ from mcp.shared.memory import create_client_server_memory_streams
 from yt_intel_mcp.config import QuotaConfig
 from yt_intel_mcp.provider import FixtureYouTubeProvider
 from yt_intel_mcp.quota.ledger import PersistentQuotaLedger
-from yt_intel_mcp.server import create_server
+from yt_intel_mcp.server import create_base_server
 from yt_intel_mcp.store import SQLiteStore
 from yt_intel_mcp.tools.analyze_engagement import (
     USER_CONTEXT_RESOURCE_URI,
@@ -117,7 +117,7 @@ def test_ST_FR4_and_SEC_PII_analyze_engagement_and_user_context_resource(
     store = SQLiteStore(tmp_path / "quota.db")
     ledger = PersistentQuotaLedger(store, config=QuotaConfig())
     provider = FixtureYouTubeProvider(fixture_dir, quota_guard=ledger)
-    server = create_server()
+    server = create_base_server()
     register_analyze_engagement(server, provider=provider, quota_guard=ledger, store=store)
 
     async def _run() -> None:

@@ -57,6 +57,12 @@ from yt_intel_mcp.tools.get_similar_videos import (
     register_get_similar_videos,
     validate_get_similar_videos_arguments,
 )
+from yt_intel_mcp.tools.get_video_details import (
+    GET_VIDEO_DETAILS_DESCRIPTION,
+    execute_get_video_details,
+    register_get_video_details,
+    validate_get_video_details_arguments,
+)
 
 __all__ = [
     "ANALYZE_ENGAGEMENT_DESCRIPTION",
@@ -67,6 +73,7 @@ __all__ = [
     "DRAFT_TOOL_DESCRIPTION",
     "GET_RECOMMENDATIONS_DESCRIPTION",
     "GET_SIMILAR_VIDEOS_DESCRIPTION",
+    "GET_VIDEO_DETAILS_DESCRIPTION",
     "QUOTA_RESOURCE_URI",
     "QUOTA_TOOL_DESCRIPTION",
     "USER_CONTEXT_RESOURCE_URI",
@@ -86,6 +93,7 @@ __all__ = [
     "execute_get_quota_status",
     "execute_get_recommendations",
     "execute_get_similar_videos",
+    "execute_get_video_details",
     "read_quota_metrics_resource",
     "read_user_context_resource",
     "register_analyze_engagement",
@@ -94,10 +102,12 @@ __all__ = [
     "register_draft_curated_playlist",
     "register_get_recommendations",
     "register_get_similar_videos",
+    "register_get_video_details",
     "register_quota_status",
     "validate_analyze_engagement_arguments",
     "validate_create_curated_playlist_arguments",
     "validate_draft_arguments",
     "validate_get_recommendations_arguments",
     "validate_get_similar_videos_arguments",
+    "validate_get_video_details_arguments",
 ]

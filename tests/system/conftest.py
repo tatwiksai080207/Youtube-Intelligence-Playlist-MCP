@@ -304,7 +304,12 @@ async def open_system_harness(
         callback = None
 
     if transport == "memory":
-        server = server_factory(config, provider) if server_factory is not None else create_server()
+        if server_factory is not None:
+            server = server_factory(config, provider)
+        elif configure_server is not None:
+            server = create_server(config, provider=provider, register_tools=False)
+        else:
+            server = create_server(config, provider=provider, quota_ledger=quota_guard)
         if configure_server is not None:
             configure_server(server, config, provider)
 
