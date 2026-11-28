@@ -180,7 +180,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-tatwik-TS-16|AI Session TS-16]]: Author `docs/user/guide.md` covering installation, OAuth setup, MCP host connection, tools, trusted confirmation, 7 day reauthorization, privacy, and exclusions (Issue #90, PR #91).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-15|AI Session MF-15]]: Implement video-to-playlist product skill and evaluations for `SK-1` (Issue #88, PR #89).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-16|AI Session MF-16]]: Upgrade local-check skill to v2 with read-only fetch and zero live quota (Issue #92, PR #93).
-- [[brain/inbox/ai-session-2026-11-28-shiva-SR-17|AI Session SR-17]]: Author developer guides (setup, architecture, contributing) and tool reference generator with CI drift check (Issue #94).
+- [[brain/inbox/ai-session-2026-11-28-shiva-SR-17|AI Session SR-17]]: Author developer guides (setup, architecture, contributing) and tool reference generator with CI drift check (Issue #94, PR #95).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
