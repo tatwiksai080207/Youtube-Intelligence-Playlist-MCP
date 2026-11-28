@@ -94,6 +94,8 @@ prs:
   - "#97"
   - "#99"
   - "#101"
+  - "#103"
+  - "#102"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -116,6 +118,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/projects/stage-1-review|Stage 1 Review]]: Requirements baseline audit, skill evaluation summary, and process findings.
 - [[brain/projects/stage-2-review|Stage 2 Review]]: Architecture, ADRs `0001`–`0007`, contracts, Stage 2 skill evals, and `SB-1` audit.
 - [[brain/projects/stage-3-review|Stage 3 Review]]: Implementation and component verification audit across all 28 Stage 3 tasks, zero live quota assertion, and release preparation.
+- [[brain/projects/stage-4-review|Stage 4 Review]]: Final audit summary, live demo readiness, and viva preparation (`TS-17`, Issue #102).
 - [[brain/projects/engagement-analysis|Engagement Analysis Buckets, Period Comparisons and Privacy Aggregates]]: Duration buckets, comparison edge cases, and privacy rules for `FR-4`.
 - [[brain/projects/playlist-constraints|Playlist Duration and Spoken Language Constraints]]: Duration boundaries and default audio language checks under `FR-5.1` and `FR-5.1a`.
 - [[brain/projects/partial-playlist-outcomes|Playlist Writes and Partial Outcomes]]: Stale draft checks, ordered writes, and outcome reporting under `FR-5.5`.
@@ -193,6 +196,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-17|AI Session MF-17]]: Execute Stage 3 review, CI results audit, defect verification, and v0.3.0 stage-3 release changelog (Issue #96, PR #97).
 - [[brain/inbox/ai-session-2026-11-28-tatwik-TS-11|AI Session TS-11]]: Implement `similarity/channels.py` and `tools/get_similar_channels.py` (`ADR-0003` weights, `G-01` Option A `INVALID_ARGUMENT`, `<= 1s + 32u` preflight, zero subscriber counts) with `UT_SIM` and `ST_FR2` tests (Issue #100, PR #101).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-18|AI Session MF-18]]: Execute Stage 4 final quality and compliance audit across all SRS and SDLC gates (Issue #98, PR #99).
+- [[brain/inbox/ai-session-2026-11-28-tatwik-TS-17|AI Session TS-17]]: Author `docs/demo/stage-4-checklist.md`, record rehearsal and viva ownership, and write `brain/projects/stage-4-review.md` (Issue #102).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
