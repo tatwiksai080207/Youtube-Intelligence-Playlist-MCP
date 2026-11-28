@@ -48,6 +48,7 @@ issues:
   - "#86"
   - "#88"
   - "#90"
+  - "#92"
 prs:
   - "#10"
   - "#13"
@@ -85,6 +86,7 @@ prs:
   - "#87"
   - "#89"
   - "#91"
+  - "#93"
 sources:
   - "Activity records for YouTube Video Intelligence MCP Server"
 ---
@@ -143,3 +145,4 @@ Requirements: n/a — activity log recording all project and brain operations.
 | 2026-11-28 12:31 | Molleti Tatwik Sai | TS-16 User Guide | Authored `docs/user/guide.md` (`SE-7`, `NFR-9`) covering installation, OAuth client and test user setup, 7 day reauthorization, MCP host connection, all tools and resources with examples and quota costs, trusted confirmation flow, privacy, and out of scope exclusions, and recorded [[brain/inbox/ai-session-2026-11-28-tatwik-TS-16]] (Issue #90, PR #91) |
 | 2026-11-28 11:20 | Madire Shiva Reddy | SR-15 Server Integration | Wired AppConfig, SQLiteStore, PersistentQuotaLedger, TokenStore, DraftStore, ConfirmationTokenStore, CachedYouTubeProvider, and all 8 tools and 2 resources in src/yt_intel_mcp/server.py; added AST import boundary lint tests in tests/unit/test_import_lint.py, and [[brain/inbox/ai-session-2026-11-28-shiva-SR-15]] (Issue #86, PR #87) |
 | 2026-11-28 12:15 | Mohammed Farhan | MF-15 video-to-playlist Product Skill | Authored skills/video-to-playlist/SKILL.md, [[brain/areas/skill-video-to-playlist]], SE-V2P-01..05 evals in docs/testing/skill-evals.md, unit tests in tests/unit/test_skill_video_to_playlist.py, and [[brain/inbox/ai-session-2026-11-28-farhan-MF-15]] (Issue #88, PR #89) |
+| 2026-11-28 14:00 | Mohammed Farhan | MF-16 local-check Skill v2 | Wired Step 4 read-only fetch (get_video_details and get_quota_status) over MCP stdio, updated skills/local-check/SKILL.md, [[brain/areas/skill-local-check]], SE-LOCAL-04..06 in docs/testing/skill-evals.md, and [[brain/inbox/ai-session-2026-11-28-farhan-MF-16]] (Issue #92, PR #93) |

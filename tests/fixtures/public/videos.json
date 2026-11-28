@@ -1,6 +1,25 @@
 {
   "videos": [
     {
+      "video_id": "seedPy00001",
+      "title": "Python Asyncio Internals and Event Loops",
+      "description": "Deep dive into coroutines, tasks, selectors, and structured concurrency.\n00:00 Event loop basics\n05:30 Task scheduling",
+      "channel_id": "UC_PUB_TECH_001",
+      "channel_title": "Systems Craft",
+      "published_at": "2026-09-10T14:00:00Z",
+      "tags": ["python", "asyncio", "concurrency", "systems"],
+      "category_id": "28",
+      "category_name": "Science & Technology",
+      "duration_seconds": 620,
+      "default_audio_language": "en",
+      "default_language": "en",
+      "live_broadcast_content": "none",
+      "is_embeddable": true,
+      "privacy_status": "public",
+      "is_age_restricted": false,
+      "is_available": true
+    },
+    {
       "video_id": "vid_seed_py01",
       "title": "Python Asyncio Internals and Event Loops",
       "description": "Deep dive into coroutines, tasks, selectors, and structured concurrency.\n00:00 Event loop basics\n05:30 Task scheduling",

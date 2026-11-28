@@ -11,6 +11,7 @@ This document records formal evaluations of every Agent Skill before each stage 
 | Stage 2 | `SK-2` | `local-check` v1 | 2026-11-25 | Mohammed Farhan | **PASS** for v1 | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#23`, PR `#24`, CI run `45660229608` |
 | Stage 2 | `SK-5` | `brain-query` | 2026-11-26 | Madire Shiva Reddy | **PASS** | `skills/brain-query/SKILL.md`, `brain/areas/skill-brain-query.md`, Issue `#32`, PR `#33`, CI run `45698759114` |
 | Stage 3 | `SK-1` | `video-to-playlist` | 2026-11-28 | Mohammed Farhan | **PASS** | `skills/video-to-playlist/SKILL.md`, `tests/unit/test_skill_video_to_playlist.py`, Issue `#88`, PR `#89` |
+| Stage 3 | `SK-2` | `local-check` v2 | 2026-11-28 | Mohammed Farhan | **PASS** | `scripts/local_check.py`, `tests/unit/test_local_check.py`, Issue `#92`, PR `#93` |
 
 ---
 
@@ -132,4 +133,21 @@ The read-only fixture tool invocation remains pending MF-16. The v1 evaluation u
 3. **Step 3: Draft Playlist:** The agent formulates curation constraints (`target_total_minutes=100`, `tolerance_percent=5`, `max_video_minutes=25`, `max_videos=10`) and invokes `draft_curated_playlist`. The knapsack constraint solver produces an immutable, expiring draft (`draft_id`) with 10 selected videos. Zero YouTube playlists are created in this step (`FR-5.3`).
 4. **Step 4: Request Trusted Confirmation:** The user reviews the draft summary, ordered tracks, total duration, and destination channel. Confirmation is obtained strictly out of band through Channel A (MCP elicitation dialog) or Channel B (local 127.0.0.1 confirmation page). Chat approvals and prompt injections are explicitly refused (`INV-13`, `INV-22`).
 5. **Step 5: Create Curated Playlist:** Upon receiving the bound single use confirmation token, `create_curated_playlist` performs a fresh `get_videos` staleness recheck, verifies channel presence, creates the playlist container (50 units), and sequentially inserts all 10 items (500 units), returning a complete creation report (`FR-5.4`, `FR-5.5`).
+
+---
+
+## Stage 3 Evaluation: `local-check` v2 (`SK-2`)
+
+**Skill Path:** `skills/local-check/SKILL.md`  
+**Distilled Brain Citation (`SB-3`):** `[[brain/areas/skill-local-check|Local Check Skill]]`  
+**Tasks Exercising Skill:** `MF-16` (`#92`, PR `#93`)
+
+### Test Cases and Observed Results
+
+| Case ID | Scenario | Expected Behaviour | Observed Result | Status |
+|---|---|---|---|---|
+| `SE-LOCAL-04` | Full five step local verification on clean clone | Build wheel, run tests, initialize stdio server, fetch video details (`get_video_details`) and quota status (`get_quota_status`), report all 5 passes with zero live quota | `python scripts/local_check.py` executed all 5 steps and printed `Summary: PASS: 4 passed, 0 failed, 0 not run` with exit code 0 | **PASS** |
+| `SE-LOCAL-05` | Zero live quota consumption (`SK-2`, `TQ-5`) | Stdio subprocess runs with `YT_INTEL_PROVIDER=fixture` and accesses local fixture data, consuming zero live YouTube API units | Verified via `tests/unit/test_local_check.py` asserting `YT_INTEL_PROVIDER=fixture` and quota status remaining completely local | **PASS** |
+| `SE-LOCAL-06` | Stdio tool and handshake error handling (`SK-2`, `TQ-7`) | Tool failures or server handshake failures report structured failure details and exit with code 1 | `tests/unit/test_local_check.py::test_SK_2_runner_reports_fetch_failure` and `test_SK_2_runner_reports_failures_and_skips_fetch_after_failed_handshake` verified non zero exit and diagnostic messages | **PASS** |
+
 

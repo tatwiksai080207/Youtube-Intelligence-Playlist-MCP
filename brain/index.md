@@ -48,6 +48,7 @@ issues:
   - "#86"
   - "#88"
   - "#90"
+  - "#92"
 prs:
   - "#10"
   - "#13"
@@ -84,6 +85,7 @@ prs:
   - "#85"
   - "#89"
   - "#91"
+  - "#93"
 sources:
   - "Course SDLC Specification (checked 2026-11-12)"
 ---
@@ -115,7 +117,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/areas/security/prompt-injection-defence|Prompt Injection Defence]]: Defending against untrusted video metadata and enforcing human gates.
 - [[brain/areas/skill-brain-refine|Skill Note: brain-refine]]: Design rationale, PARA placement rules, duplicate merging protocol, and `SK-4` evaluation targets.
 - [[brain/areas/skill-brain-query|Skill Note: brain-query]]: Grounded vault Q&A, citation standards, refusal guard, and document drafting contract for `SK-5`.
-- [[brain/areas/skill-local-check|Local Check Skill]]: Fixture-mode build, tests, and MCP startup verification for `SK-2`.
+- [[brain/areas/skill-local-check|Local Check Skill]]: Fixture-mode build, tests, stdio startup, and read-only fetch verification for `SK-2`.
 - [[brain/areas/skill-video-to-playlist|Skill Note: video-to-playlist]]: Design rationale, 5-step workflow, metadata summary disclaimer, and evaluation criteria for `SK-1`.
 
 ## Technical Resources and Specifications
@@ -177,6 +179,7 @@ Welcome to the central knowledge vault for the YouTube Video Intelligence MCP Se
 - [[brain/inbox/ai-session-2026-11-28-shiva-SR-15|AI Session SR-15]]: Implement MCP server runtime integration, tool registration, and provider boundary import-lint tests (Issue #86, PR #87).
 - [[brain/inbox/ai-session-2026-11-28-tatwik-TS-16|AI Session TS-16]]: Author `docs/user/guide.md` covering installation, OAuth setup, MCP host connection, tools, trusted confirmation, 7 day reauthorization, privacy, and exclusions (Issue #90, PR #91).
 - [[brain/inbox/ai-session-2026-11-28-farhan-MF-15|AI Session MF-15]]: Implement video-to-playlist product skill and evaluations for `SK-1` (Issue #88, PR #89).
+- [[brain/inbox/ai-session-2026-11-28-farhan-MF-16|AI Session MF-16]]: Upgrade local-check skill to v2 with read-only fetch and zero live quota (Issue #92, PR #93).
 
 ## Logs and Reviews
 - [[brain/log|Activity Log]]: Chronological records of project runs and AI sessions.
