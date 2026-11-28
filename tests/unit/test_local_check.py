@@ -76,4 +76,4 @@ def test_SK_2_runner_reports_failures_and_skips_fetch_after_failed_handshake(
 
 
 def test_SK_2_server_initializes_over_stdio(runner: ModuleType) -> None:
-    assert asyncio.run(runner.check_stdio_server()) is False
+    assert asyncio.run(runner.check_stdio_server()) is True

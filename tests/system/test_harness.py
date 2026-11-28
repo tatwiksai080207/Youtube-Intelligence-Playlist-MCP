@@ -105,7 +105,10 @@ async def test_TQ_3_stdio_harness_runs_real_subprocess(
     assert stdio_system_harness.initialize_result.server_info.name == SERVER_NAME
     assert stdio_system_harness.initialize_result.server_info.version == __version__
     assert stdio_system_harness.sqlite_path.is_file()
-    assert await stdio_system_harness.list_tool_names() == []
+    tool_names = await stdio_system_harness.list_tool_names()
+    assert len(tool_names) == 8
+    assert "get_video_details" in tool_names
+    assert "create_curated_playlist" in tool_names
 
 
 @pytest.mark.anyio

@@ -9,7 +9,7 @@ from mcp.server.mcpserver import MCPServer
 
 import yt_intel_mcp
 from yt_intel_mcp import __main__ as entry
-from yt_intel_mcp.server import create_server
+from yt_intel_mcp.server import create_base_server, create_server
 
 
 def test_package_exposes_version() -> None:
@@ -31,8 +31,26 @@ def test_main_runs_server_over_stdio(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 @pytest.mark.anyio
-async def test_server_has_no_tools_yet() -> None:
-    assert await create_server().list_tools() == []
+async def test_create_base_server_has_no_tools_yet() -> None:
+    assert await create_base_server().list_tools() == []
+    assert await create_server(register_tools=False).list_tools() == []
+
+
+@pytest.mark.anyio
+async def test_server_registers_all_tools() -> None:
+    server = create_server()
+    tools = await server.list_tools()
+    tool_names = {tool.name for tool in tools}
+    assert tool_names == {
+        "get_video_details",
+        "get_similar_videos",
+        "get_recommendations",
+        "analyze_engagement",
+        "draft_curated_playlist",
+        "create_curated_playlist",
+        "get_quota_status",
+        "get_auth_status",
+    }
 
 
 @pytest.mark.anyio
@@ -47,4 +65,4 @@ async def test_stdio_server_handles_initialize() -> None:
         assert result.server_info.name == "yt-intel-mcp"
         assert result.server_info.version == yt_intel_mcp.__version__
         tools = await session.list_tools()
-        assert tools.tools == []
+        assert len(tools.tools) == 8

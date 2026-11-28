@@ -33,7 +33,7 @@ from yt_intel_mcp.auth import (
 from yt_intel_mcp.config import AppConfig
 from yt_intel_mcp.errors import ErrorCode, ToolError
 from yt_intel_mcp.schemas import list_schema_names, load_schema
-from yt_intel_mcp.server import create_server
+from yt_intel_mcp.server import create_base_server
 from yt_intel_mcp.tools import execute_get_auth_status, register_auth_status
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -196,7 +196,7 @@ async def test_SEC_OAUTH_get_auth_status_exposes_only_metadata_and_never_logs_to
     assert bundle.access_token not in caplog.text
     assert bundle.refresh_token not in caplog.text
 
-    server = create_server()
+    server = create_base_server()
     register_auth_status(
         server, token_store, clock=lambda: datetime(2026, 11, 26, 15, 30, tzinfo=UTC)
     )
